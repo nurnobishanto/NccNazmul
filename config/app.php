@@ -172,6 +172,8 @@ return [
         App\Providers\Filament\PortalPanelProvider::class,
         App\Providers\Filament\DashboardPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ])->toArray(),
 
     /*

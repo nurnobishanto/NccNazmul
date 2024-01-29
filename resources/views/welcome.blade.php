@@ -1,140 +1,1471 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8"/>
+    <title>Niwax - Web Design &amp; Digital Marketing Agency HTML Template</title>
+    <meta name="description" content="Creative Agency, Marketing Agency Template">
+    <meta name="keywords" content="Creative Agency, Marketing Agency">
+    <meta name="author" content="rajesh-doot">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2e2a8f">
+    <!--website-favicon-->
+    <link href="images/favicon.png" rel="icon">
+    <!--plugin-css-->
+    <link href="{{asset('website')}}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('website')}}/css/plugin.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- template-style-->
+    <link href="{{asset('website')}}/css/style.css" rel="stylesheet">
+    <link href="{{asset('website')}}/css/responsive.css" rel="stylesheet">
+    <link href="{{asset('website')}}/css/darkmode.css" rel="stylesheet">
+</head>
+<body>
+<!-- top progress bar start-->
+<div id="progress-bar"></div>
+<!-- top progress bar end -->
 
-        <title>Laravel</title>
+<!--Start Preloader -->
+<div class="onloadpage" id="page_loader">
+    <div class="pre-content">
+        <div class="logo-pre"><img src="{{asset('website')}}/images/logo.png" alt="Logo" class="img-fluid" /></div>
+        <div class="pre-text- text-radius text-light text-animation bg-b">Niwax - Creative Agency & Portfolio HTML Template Are 2 Seconds Away. Have Patience</div>
+    </div>
+</div>
+<!--End Preloader -->
+<!--Start Header -->
+<header class="nav-bg-b main-header navfix fixed-top menu-white">
+    <div class="container-fluid m-pad">
+        <div class="menu-header">
+            <div class="dsk-logo"><a class="nav-brand" href="./">
+                    <img src="{{asset('website')}}/images/white-logo.png" alt="Logo" class="mega-white-logo"/>
+                    <img src="{{asset('website')}}/images/logo.png" alt="Logo" class="mega-darks-logo"/>
+                </a>
+            </div>
+            <div class="custom-nav" role="navigation">
+                <ul class="nav-list">
+                    <li class="sbmenu">
+                        <a href="#." class="menu-links">Home</a>
+                        <div class="nx-dropdown">
+                            <div class="sub-menu-section">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <div class="sub-menu-center-block">
+                                            <div class="sub-menu-column">
+                                                <div class="menuheading">Multi-Page Demo</div>
+                                                <ul>
+                                                    <li><a href="index.html">All Demo <span class="badge bg-primary">New</span></a></li>
+                                                    <li><a href="digital-agency.html">Digital Agency</a></li>
+                                                    <li><a href="digital-agency-v2.html">Digital Agency V2</a></li>
+                                                    <li><a href="digital-agency-glassmorphism.html">Digital Agency V3</a></li>
+                                                    <li><a href="web-design-agency.html">Web Design Agency</a></li>
+                                                    <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                                                    <li><a href="lead-generation.html">Lead Generation Agency</a></li>
+                                                    <li><a href="landing-page-1.html">Landing Page V1</a></li>
+                                                    <li><a href="landing-page-2.html">Landing Page V2</a></li>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
-
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
+                                                </ul>
+                                            </div>
+                                            <div class="sub-menu-column">
+                                                <div class="menuheading">&nbsp;</div>
+                                                <ul>
+                                                    <li><a href="freelance-portfolio.html">Freelance Portfolio</a></li>
+                                                    <li><a href="app-development.html">App Development Agency</a></li>
+                                                    <li><a href="minimal-portfolio.html">Minimal Portfolio</a></li>
+                                                    <li><a href="creative-agency.html">Creative Agency</a></li>
+                                                    <li><a href="branding-agency.html">Branding  Agency</a></li>
+                                                    <li><a href="modern-agency.html">Modern Agency</a></li>
+                                                    <li><a href="business-and-startup.html">Business & Startup</a></li>
+                                                    <li><a href="graphic-studio.html">Graphic Studio</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="sub-menu-column">
+                                                <div class="menuheading">One-Page Demo</div>
+                                                <ul>
+                                                    <li><a href="digital-agency-onepage.html">Digital Agency</a></li>
+                                                    <li><a href="digital-agency-dark-onepage.html">Digital Agency Dark</a></li>
+                                                    <li><a href="web-design-agency-onepage.html">Web Design Agency</a></li>
+                                                    <li><a href="web-design-agency-dark-onepage.html">Web Design Agency Dark</a></li>
+                                                    <li><a href="digital-marketing-onepage.html">Digital Marketing</a></li>
+                                                    <li><a href="digital-marketing-dark-onepage.html">Digital Marketing Dark</a></li>
+                                                    <li><a href="lead-generation-onepage.html">Lead Generation Agency</a></li>
+                                                    <li><a href="lead-generation-dark-onepage.html">Lead Generation Agency Dark</a></li>
+                                                    <li><a href="freelance-portfolio-onepage.html">Freelance Portfolio</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="sub-menu-column">
+                                                <div class="menuheading">&nbsp;</div>
+                                                <ul>
+                                                    <li><a href="freelancer-v2-onepage.html">Freelancer v2</a></li>
+                                                    <li><a href="app-development-onepage.html">App Development Agency</a></li>
+                                                    <li><a href="minimal-portfolio-onepage.html">Minimal Portfolio</a></li>
+                                                    <li><a href="creative-agency-onepage.html">Creative Agency</a></li>
+                                                    <li><a href="branding-agency-onepage.html">Branding  Agency</a></li>
+                                                    <li><a href="modern-agency-onepage.html">Modern Agency</a></li>
+                                                    <li><a href="business-and-startup-onepage.html">Business & Startup</a></li>
+                                                    <li><a href="graphic-studio-onepage.html">Graphic Studio</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
                             </div>
                         </div>
+                    </li>
+                    <li class="sbmenu">
+                        <a href="#" class="menu-links">Pages</a>
+                        <div class="nx-dropdown">
+                            <div class="sub-menu-section">
+                                <div class="container">
+                                    <div class="sub-menu-center-block">
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="about-2.html">About Us V2</a></li>
+                                                <li><a href="why-us.html">Why Us</a></li>
+                                                <li><a href="team.html">Our Team</a></li>
+                                                <li><a href="team-details.html">Team Single</a></li>
+                                                <li><a href="case-study.html">Case Study</a></li>
+                                                <li><a href="case-study-details.html">Case Study Single</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="mission-vision.html">Mission & Vision</a></li>
+                                                <li><a href="development-process.html">Development Process</a></li>
+                                                <li><a href="client-reviews.html">Client Reviews</a> </li>
+                                                <li><a href="clients.html">Our Clients</a></li>
+                                                <li><a href="get-quote.html">Contact Us</a> </li>
+                                                <li><a href="get-quote-2.html">Contact Us 2</a> </li>
+                                                <li><a href="get-quote-3.html">Contact Us 3</a> </li>
+                                            </ul>
+                                        </div>
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="login.html">Login Page</a> </li>
+                                                <li><a href="service-card.html">Service Card</a> </li>
+                                                <li><a href="service-web.html">Service Web</a></li>
+                                                <li><a href="service-app.html">Service Mobile App</a></li>
+                                                <li><a href="service-marketing.html">Service Digital Marketing</a></li>
+                                                <li><a href="service-graphic.html">Service Graphic</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="career.html">Careers</a> </li>
+                                                <li><a href="shop-page.html">Shop Single</a> </li>
+                                                <li><a href="shop-details.html">Shop Details</a> </li>
+                                                <li><a href="shop-cart.html">Shop Cart</a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sbmenu">
+                        <a href="#" class="menu-links">Shortcodes</a>
+                        <div class="nx-dropdown">
+                            <div class="sub-menu-section">
+                                <div class="container">
+                                    <div class="sub-menu-center-block">
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="pricing.html">Pricing</a></li>
+                                                <li><a href="typography.html">Typography</a></li>
+                                                <li><a href="button.html">Buttons</a></li>
+                                                <li><a href="locations.html">Office Location</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="faq.html">FAQs</a>	</li>
+                                                <li><a href="tabs.html">Tabs</a></li>
+                                                <li><a href="error.html">404 Page</a></li>
+                                                <li><a href="gradients.html">Background Gradients</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="header-v1.html">Header v1</a></li>
+                                                <li><a href="header-v2.html">Header v2</a></li>
+                                                <li><a href="header-v3.html">Header v3</a></li>
+                                                <li><a href="header-v4.html">Header v4</a></li>
+                                                <li><a href="footer-design.html">Footer</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="sub-menu-column">
+                                            <ul>
+                                                <li><a href="hover-animation.html">Hover Animation</a></li>
+                                                <li><a href="popup-modal.html">Popup Modal</a></li>
+                                                <li><a href="lists.html">Lists</a></li>
+                                                <li><a href="bootstrap-components.html">Bootstrap Components</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sbmenu rpdropdown">
+                        <a href="#" class="menu-links">Portfolio</a>
+                        <div class="nx-dropdown menu-dorpdown">
+                            <div class="sub-menu-section">
+                                <div class="sub-menu-center-block">
+                                    <div class="sub-menu-column smfull">
+                                        <ul>
+                                            <li><a href="portfolio.html">Portfolio Grid 1</a> </li>
+                                            <li><a href="portfolio-2.html">Portfolio Grid 2</a> </li>
+                                            <li><a href="portfolio-block.html">Portfolio Wide Block</a> </li>
+                                            <li><a href="portfolio-block-2.html">Portfolio Wide Block v2</a> </li>
+                                            <li><a href="portfolio-details.html">Portfolio Details</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="sbmenu rpdropdown">
+                        <a href="#" class="menu-links">Blog</a>
+                        <div class="nx-dropdown menu-dorpdown">
+                            <div class="sub-menu-section">
+                                <div class="sub-menu-center-block">
+                                    <div class="sub-menu-column smfull">
+                                        <ul>
+                                            <li><a href="blog-grid-1.html">Blog Grid 1</a> </li>
+                                            <li><a href="blog-grid-2.html">Blog Grid 2</a> </li>
+                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a> </li>
+                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a> </li>
+                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- mobile + desktop - sidebar menu- dark mode witch and button -->
+                <ul class="nav-list right-end-btn">
+                    <li class="hidemobile"><a data-bs-toggle="offcanvas" href="#offcanvasExample" class="btn-round- btn-br bg-btn2"><i class="fas fa-bars"></i></a></li>
+                    <li class="hidemobile"><a href="get-quote.html" class="btn-br bg-btn3 btshad-b2 lnk">Request A Quote <span class="circle"></span></a> </li>
+                    <li class="hidedesktop darkmodeswitch"><div class="switch-wrapper"> <label class="switch" for="niwax"> <input type="checkbox" id="niwax"/>  <span class="slider round"></span> </label> </div> </li>
+                    <li class="hidedesktop"><a data-bs-toggle="offcanvas" href="#offcanvasExample" class="btn-round- btn-br bg-btn2"><i class="fas fa-bars"></i></a></li>
+                    <li class="navm- hidedesktop"> <a class="toggle" href="#"><span></span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Mobile Menu-->
+        <nav id="main-nav">
+            <ul class="first-nav">
+                <li>
+                    <a href="#">Home</a>
+                    <ul>
+                        <li>
+                            <a href="#">Multi-Page Demo</a>
+                            <ul>
+                                <li><a href="digital-agency.html">Digital Agency</a></li>
+                                <li><a href="digital-agency-v2.html">Digital Agency V2</a></li>
+                                <li><a href="digital-agency-glassmorphism.html">Digital Agency V3</a></li>
+                                <li><a href="web-design-agency.html">Web Design Agency</a></li>
+                                <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                                <li><a href="lead-generation.html">Lead Generation Agency</a></li>
+                                <li><a href="landing-page-1.html">Landing Page V1</a></li>
+                                <li><a href="landing-page-2.html">Landing Page V2</a></li>
+                                <li><a href="freelance-portfolio.html">Freelance Portfolio</a></li>
+                                <li><a href="app-development.html">App Development Agency</a></li>
+                                <li><a href="minimal-portfolio.html">Minimal Portfolio</a></li>
+                                <li><a href="creative-agency.html">Creative Agency</a></li>
+                                <li><a href="branding-agency.html">Branding  Agency</a></li>
+                                <li><a href="modern-agency.html">Modern Agency</a></li>
+                                <li><a href="business-and-startup.html">Business & Startup</a></li>
+                                <li><a href="graphic-studio.html">Graphic Studio</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">One-Page Demo</a>
+                            <ul>
+                                <li><a href="digital-agency-onepage.html">Digital Agency</a></li>
+                                <li><a href="digital-agency-dark-onepage.html">Digital Agency Dark</a></li>
+                                <li><a href="web-design-agency-onepage.html">Web Design Agency</a></li>
+                                <li><a href="web-design-agency-dark-onepage.html">Web Design Agency Dark</a></li>
+                                <li><a href="digital-marketing-onepage.html">Digital Marketing</a></li>
+                                <li><a href="digital-marketing-dark-onepage.html">Digital Marketing Dark</a></li>
+                                <li><a href="lead-generation-onepage.html">Lead Generation Agency</a></li>
+                                <li><a href="lead-generation-dark-onepage.html">Lead Generation Agency Dark</a></li>
+                                <li><a href="freelance-portfolio-onepage.html">Freelance Portfolio</a></li>
+                                <li><a href="freelance-portfolio-dark-onepage.html">Freelance Portfolio Dark</a></li>
+                                <li><a href="app-development-onepage.html">App Development Agency</a></li>
+                                <li><a href="minimal-portfolio-onepage.html">Minimal Portfolio</a></li>
+                                <li><a href="creative-agency-onepage.html">Creative Agency</a></li>
+                                <li><a href="branding-agency-onepage.html">Branding  Agency</a></li>
+                                <li><a href="modern-agency-onepage.html">Modern Agency</a></li>
+                                <li><a href="business-and-startup-onepage.html">Business & Startup</a></li>
+                                <li><a href="graphic-studio-onepage.html">Graphic Studio</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Pages</a>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-us.html">Why Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="team-details.html">Team Single</a></li>
+                        <li><a href="case-study.html">Case Study</a></li>
+                        <li><a href="case-study-details.html">Case Study Single</a></li>
+                        <li><a href="mission-vision.html">Mission & Vision</a></li>
+                        <li><a href="development-process.html">Development Process</a></li>
+                        <li><a href="client-reviews.html">Client Reviews</a> </li>
+                        <li><a href="clients.html">Our Clients</a></li>
+                        <li><a href="get-quote.html">Contact Us</a> </li>
+                        <li><a href="get-quote-2.html">Contact Us 2</a> </li>
+                        <li><a href="login.html">Login Page</a> </li>
+                        <li><a href="service-card.html">Service Card</a> </li>
+                        <li><a href="service-web.html">Service Web</a></li>
+                        <li><a href="service-app.html">Service Mobile App</a></li>
+                        <li><a href="service-marketing.html">Service Digital Marketing</a></li>
+                        <li><a href="service-graphic.html">Service Graphic</a></li>
+                        <li><a href="career.html">Careers</a> </li>
+                        <li><a href="shop-page.html">Shop Single</a> </li>
+                        <li><a href="shop-details.html">Shop Details</a> </li>
+                        <li><a href="shop-cart.html">Shop Cart</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Shortcodes</a>
+                    <ul>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="typography.html">Typography</a></li>
+                        <li><a href="button.html">Buttons</a></li>
+                        <li><a href="locations.html">Office Location</a></li>
+                        <li><a href="faq.html">FAQs</a>	</li>
+                        <li><a href="tabs.html">Tabs</a></li>
+                        <li><a href="error.html">404 Page</a></li>
+                        <li><a href="gradients.html">Background Gradients</a></li>
+                        <li><a href="header-v1.html">Header v1</a></li>
+                        <li><a href="header-v2.html">Header v2</a></li>
+                        <li><a href="header-v3.html">Header v3</a></li>
+                        <li><a href="footer-design.html">Footer</a></li>
+                        <li><a href="hover-animation.html">Hover Animation</a></li>
+                        <li><a href="popup-modal.html">Popup Modal</a></li>
+                        <li><a href="lists.html">Lists</a></li>
+                        <li><a href="bootstrap-components.html">Bootstrap Components</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                    <ul>
+                        <li><a href="portfolio.html">Portfolio Grid 1</a> </li>
+                        <li><a href="portfolio-2.html">Portfolio Grid 2</a> </li>
+                        <li><a href="portfolio-block.html">Portfolio Wide Block</a> </li>
+                        <li><a href="portfolio-block-2.html">Portfolio Wide Block v2</a> </li>
+                        <li><a href="portfolio-details.html">Portfolio Details</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                    <ul>
+                        <li><a href="blog-grid-1.html">Blog Grid 1</a> </li>
+                        <li><a href="blog-grid-2.html">Blog Grid 2</a> </li>
+                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a> </li>
+                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a> </li>
+                        <li><a href="blog-single.html">Blog Single</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="bottom-nav">
+                <li class="prb">
+                    <a href="tel:+11111111111">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
+                            <path d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594
+                              c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448
+                              c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813
+                              C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z"
+                            />
+                        </svg>
+                    </a>
+                </li>
+                <li class="prb">
+                    <a href="mailto:somewebmedia@gmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="prb">
+                    <a href="skype:niwax.company?call">
+                        <svg enable-background="new 0 0 24 24" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m23.309 14.547c1.738-7.81-5.104-14.905-13.139-13.543-4.362-2.707-10.17.352-10.17 5.542 0 1.207.333 2.337.912 3.311-1.615 7.828 5.283 14.821 13.311 13.366 5.675 3.001 11.946-2.984 9.086-8.676zm-7.638 4.71c-2.108.867-5.577.872-7.676-.227-2.993-1.596-3.525-5.189-.943-5.189 1.946 0 1.33 2.269 3.295 3.194.902.417 2.841.46 3.968-.3 1.113-.745 1.011-1.917.406-2.477-1.603-1.48-6.19-.892-8.287-3.483-.911-1.124-1.083-3.107.037-4.545 1.952-2.512 7.68-2.665 10.143-.768 2.274 1.76 1.66 4.096-.175 4.096-2.207 0-1.047-2.888-4.61-2.888-2.583 0-3.599 1.837-1.78 2.731 2.466 1.225 8.75.816 8.75 5.603-.005 1.992-1.226 3.477-3.128 4.253z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--End Header -->
+
+<!--Start sidebar -->
+<div class="niwaxofcanvas offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample">
+    <div class="offcanvas-body">
+        <div class="cbtn animation">
+            <div class="btnclose"> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+        </div>
+        <div class="form-block sidebarform">
+            <h4>Request A Quote</h4>
+            <form id="contactForm" data-bs-toggle="validator" class="shake mt20">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <input type="text"  id="name" placeholder="Enter name" required data-error="Please fill Out">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <input type="email"  id="email" placeholder="Enter email" required>
+                        <div class="help-block with-errors"></div>
                     </div>
                 </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
-                        </div>
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <input type="text" id="mobile" placeholder="Enter mobile" required data-error="Please fill Out">
+                        <div class="help-block with-errors"></div>
                     </div>
+                    <div class="form-group col-sm-12">
+                        <select name="Dtype" id="Dtype" required>
+                            <option value="">Select Requirement</option>
+                            <option value="web">web</option>
+                            <option value="graphic">graphic</option>
+                            <option value="video">video</option>
+                        </select>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">Submit <span class="circle"></span></button>
+                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <div class="getintouchblock mt30">
+            <h4>Get In Touch</h4>
+            <p class="mt10">Please fill out the form below if you have a plan or project in mind that you'd like to share with us.</p>
+            <div class="media mt15">
+                <div class="icondive"><img src="{{asset('website')}}/images/icons/call.svg" alt="icon"></div>
+                <div class="media-body getintouchinfo">
+                    <a href="tel:123456790">+91-123 4567 890 <span>Mon-Fri 9am - 6pm</span></a>
+                </div>
+            </div>
+            <div class="media mt15">
+                <div class="icondive"><img src="{{asset('website')}}/images/icons/whatsapp.svg" alt="icon"></div>
+                <div class="media-body getintouchinfo">
+                    <a href="tel:123456790">+91-123 4567 890 <span>Mon-Fri 9am - 6pm</span></a>
+                </div>
+            </div>
+            <div class="media mt15">
+                <div class="icondive"><img src="{{asset('website')}}/images/icons/mail.svg" alt="icon"></div>
+                <div class="media-body getintouchinfo">
+                    <a href="mailto:info@website.com">info@website.com <span>Online Support</span></a>
+                </div>
+            </div>
+            <div class="media mt15">
+                <div class="icondive"><img src="{{asset('website')}}/images/icons/map.svg" alt="icon"></div>
+                <div class="media-body getintouchinfo">
+                    <a href="mailto:info@website.com">Jaipur, Rajasthan, India<span>Visit Our Office</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="contact-data mt30">
+            <h4>Follow Us On:</h4>
+            <div class="social-media-linkz mt10">
+                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
+                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
+                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
+                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
+                <a href="javascript:void(0)" target="blank"><i class="fab fa-youtube"></i></a>
+                <a href="javascript:void(0)" target="blank"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end sidebar -->
 
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+<!--Start Hero-->
+<section class="hero-card-web bg-gradient12 shape-bg3">
+    <div class="hero-main-rp container-fluid">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="hero-heading-sec">
+                    <h2 class="wow fadeIn" data-wow-delay="0.3s"><span>Web.</span> <span>Mobile.</span> <span>Graphic.</span> <span>Marketing.</span></h2>
+                    <p class="wow fadeIn" data-wow-delay="0.6s">Website and App development solution for transforming and innovating businesses.</p>
+                    <a href="case-study.html" class="niwax-btn2 wow fadeIn"  data-wow-delay="0.8s">View Case Studies <i class="fas fa-chevron-right fa-ani"></i></a>
+                    <div class="awards-block-tt  wow fadeIn" data-wow-delay="1s"><img src="{{asset('website')}}/images/hero/awards-logo.png" alt="awards-logo" class="img-fluid"/></div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-content-sec wow fadeIn" data-wow-delay="0.8s">
+                    <div class="video-intro-pp"><a class="video-link play-video" href="https://www.youtube.com/watch?v=SZEflIVnhH8?autoplay=1&amp;rel=0"><span class="triangle-play"></span></a></div>
+                    <div class="title-hero-oth">
+                        <p>We design digital solutions <span>for brands and companies</span></p>
+                    </div>
+                </div>
+                <div class="hero-right-scmm">
+                    <div class="hero-service-cards wow fadeInRight" data-wow-duration="2s">
+                        <div class="owl-carousel service-card-prb">
+                            <div class="service-slide card-bg-a" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                <a href="#">
+                                    <div class="service-card-hh">
+                                        <div class="image-sr-mm">
+                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/vr.png">
+                                        </div>
+                                        <div class="title-serv-c"><span>VR</span> Solution</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="service-slide card-bg-b" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                <a href="#">
+                                    <div class="service-card-hh">
+                                        <div class="image-sr-mm">
+                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/app-develop.png">
+                                        </div>
+                                        <div class="title-serv-c"><span>Custom</span> App Solution</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="service-slide card-bg-c" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                <a href="#">
+                                    <div class="service-card-hh">
+                                        <div class="image-sr-mm">
+                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/startup.png">
+                                        </div>
+                                        <div class="title-serv-c"><span>Startup</span> Solution</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="service-slide card-bg-d" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                <a href="#">
+                                    <div class="service-card-hh">
+                                        <div class="image-sr-mm">
+                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/car-rental.png">
+                                        </div>
+                                        <div class="title-serv-c"><span>Car</span> Rental Solution</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="service-slide card-bg-e" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                <a href="#">
+                                    <div class="service-card-hh">
+                                        <div class="image-sr-mm">
+                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/marketing.png">
+                                        </div>
+                                        <div class="title-serv-c"><span>Marketing</span> Solution</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="service-slide card-bg-f" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                <a href="#">
+                                    <div class="service-card-hh">
+                                        <div class="image-sr-mm">
+                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/ewallet.png">
+                                        </div>
+                                        <div class="title-serv-c"><span>e-Wallet</span> Solution</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</section>
+<!--End Hero-->
+<!--Start About-->
+<section class="about-sec-rpb pad-tb">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-10">
+                <div class="common-heading">
+                    <span>We Are Creative Agency</span>
+                    <h1 class="mb30"><span class="text-second">Top-rated</span> Web And Mobile App Development Company</h1>
+                    <p>Lorem Ipsum is <span class="text-radius text-light text-animation bg-b">simply dummy</span> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book. <span class="text-bold">Lorem Ipsum</span> is simply dummy text of the printing and typesetting industry. <span class="text-bold">Lorem Ipsum </span> is simply dummy text of the printing and typesetting industry.
+                    </p>
+                    <h3 class="mt30 mb30">Big Ideas, creative people, new technology.</h3>
+                    <p>Lorem Ipsum is <span class="text-bold">simply dummy</span> text of the printing and typesetting industry. Lorem Ipsum has been the industry's specimen book. Lorem Ipsum is simply dummy text of the <span class="text-bold">printing</span> and typesetting industry. <span class="text-bold">Lorem Ipsum is simply</span> dummy text of the printing and typesetting industry. is simply dummy text of the printing and typesetting industry. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End About-->
+<!--Start Service-->
+<section class="service-section-prb pad-tb">
+    <div class="container">
+        <div class="row upset">
+            <div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="col-lg-6-cus wow fadeInUp" data-wow-delay=".2s">
+                <div class="service-sec-brp srvc-bg-nx bg-gradient13 text-w">
+                    <h4 class="mb10">INTEGRATED SERVICES</h4>
+                    <p>Lorem Ipsum is text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                    <a href="javascript:void(0)" class="mt20 link-prb">Learn More <i class="fas fa-chevron-right fa-icon"></i></a>
+                </div>
+            </div>
+            <div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="col-lg-3-cus wow fadeInUp" data-wow-delay=".4s">
+                <div class="service-sec-list srvc-bg-nx srcl1">
+                    <img src="{{asset('website')}}/images/icons/development.svg" alt="service">
+                    <h5 class="mb10">Web Development</h5>
+                    <ul class="-service-list">
+                        <li> <a href="#">PHP</a> </li>
+                        <li> <a href="#"><strong>.</strong>Net</a> </li>
+                        <li> <a href="#">Java</a> </li>
+                        <li> <a href="#">Joomla</a></li>
+                    </ul>
+                    <p>Lorem Ipsum is text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                </div>
+            </div>
+            <div data-tilt data-tilt-max="5" data-tilt-speed="1000" class="col-lg-3-cus wow fadeInUp" data-wow-delay=".6s">
+                <div class="service-sec-list srvc-bg-nx srcl2">
+                    <img src="{{asset('website')}}/images/icons/ecommerce.svg" alt="service">
+                    <h5 class="mb10">Ecommerce Development</h5>
+                    <ul class="-service-list">
+                        <li> <a href="#">Magento </a> </li>
+                        <li> <a href="#">WP</a> </li>
+                        <li> <a href="#">Shopify </a> </li>
+                        <li> <a href="#">Joomla</a></li>
+                    </ul>
+                    <p>Lorem Ipsum is text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                </div>
+            </div>
+            <div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="col-lg-3-cus mt30- wow fadeInUp" data-wow-delay=".8s">
+                <div class="service-sec-list srvc-bg-nx srcl3">
+                    <img src="{{asset('website')}}/images/icons/app.svg" alt="service">
+                    <h5 class="mb10">Mobile App Development</h5>
+                    <ul class="-service-list">
+                        <li> <a href="#">iPhone </a> </li>
+                        <li> <a href="#">Android</a> </li>
+                        <li> <a href="#">Cross Platform </a></li>
+                    </ul>
+                    <p>Lorem Ipsum is text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                </div>
+            </div>
+            <div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="col-lg-3-cus mt30- wow fadeInUp" data-wow-delay="1s">
+                <div class="service-sec-list srvc-bg-nx srcl4">
+                    <img src="{{asset('website')}}/images/icons/tech.svg" alt="service">
+                    <h5 class="mb10">Trending Technologies</h5>
+                    <ul class="-service-list">
+                        <li> <a href="#">React.JS </a> </li>
+                        <li> <a href="#">Node.JS </a> </li>
+                        <li> <a href="#"> Angular.JS </a></li>
+                    </ul>
+                    <p>Lorem Ipsum is text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                </div>
+            </div>
+            <div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="col-lg-6-cus mt30- wow fadeInUp" data-wow-delay="1.2s">
+                <div class="service-sec-list srvc-bg-nx srcl5">
+                    <img src="{{asset('website')}}/images/icons/seo.svg" alt="service">
+                    <h5 class="mb10">Digital Marketing</h5>
+                    <ul class="-service-list">
+                        <li> <a href="#">SEO </a> </li>
+                        <li> <a href="#">SMO </a> </li>
+                        <li> <a href="#">PPC </a></li>
+                        <li> <a href="#">PPC </a></li>
+                    </ul>
+                    <p>Lorem Ipsum is text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                </div>
+            </div>
+        </div>
+        <div class="-cta-btn mt70">
+            <div class="free-cta-title v-center zoomInDown wow" data-wow-delay="1.4s">
+                <p>Hire a <span>Dedicated Developer</span></p>
+                <a href="#" class="btn-main bg-btn2 lnk">Hire Now<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Service-->
+<!--Start statistics-->
+<div class="statistics-section bg-gradient6 pad-tb tilt3d">
+    <div class="container">
+        <div class="row justify-content-center t-ctr">
+            <div class="col-lg-4 col-sm-6">
+                <div class="statistics">
+                    <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
+                        <img src="{{asset('website')}}/images/icons/startup.svg" alt="years" class="img-fluid" />
+                    </div>
+                    <div class="statnumb">
+                        <span class="counter">15</span><span>+</span>
+                        <p>Year In Business</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="statistics">
+                    <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
+                        <img src="{{asset('website')}}/images/icons/team.svg" alt="team" class="img-fluid" />
+                    </div>
+                    <div class="statnumb">
+                        <span class="counter">80</span><span>+</span>
+                        <p>Team Members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row small t-ctr">
+            <div class="col-lg-3 col-sm-6">
+                <div class="statistics">
+                    <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
+                        <img src="{{asset('website')}}/images/icons/deal.svg" alt="happy" class="img-fluid" />
+                    </div>
+                    <div class="statnumb">
+                        <span class="counter">450</span>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="statistics">
+                    <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
+                        <img src="{{asset('website')}}/images/icons/computers.svg" alt="project" class="img-fluid" />
+                    </div>
+                    <div class="statnumb counter-number">
+                        <span class="counter">48</span><span>k</span>
+                        <p>Projects Done</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="statistics">
+                    <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
+                        <img src="{{asset('website')}}/images/icons/worker.svg" alt="work" class="img-fluid" />
+                    </div>
+                    <div class="statnumb">
+                        <span class="counter">95</span><span>k</span>
+                        <p>Hours Worked</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="statistics mb0">
+                    <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
+                        <img src="{{asset('website')}}/images/icons/customer-service.svg" alt="support" class="img-fluid" />
+                    </div>
+                    <div class="statnumb">
+                        <span class="counter">24</span><span>/</span><span class="counter">7</span>
+                        <p>Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End statistics-->
+<!--why choose-->
+<section class="why-choos-lg pad-tb deep-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="common-heading text-l">
+                    <span>Why Choose Us</span>
+                    <h2 class="mb20">Why The Niwax <span class="text-second text-bold">Ranked Top</span> Among The Leading Web & App Development Companies</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <div class="itm-media-object mt40 tilt-3d">
+                        <div class="media">
+                            <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{asset('website')}}/images/icons/computers.svg" alt="icon" class="layer"></div>
+                            <div class="media-body">
+                                <h4>Streamlined Project Management</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+                            </div>
+                        </div>
+                        <div class="media mt40">
+                            <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{asset('website')}}/images/icons/worker.svg" alt="icon" class="layer"></div>
+                            <div class="media-body">
+                                <h4>A Dedicated Team of Experts</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+                            </div>
+                        </div>
+                        <div class="media mt40">
+                            <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"> <img src="{{asset('website')}}/images/icons/deal.svg" alt="icon" class="layer"></div>
+                            <div class="media-body">
+                                <h4>Completion of Project in Given Time</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="single-image bg-shape-dez wow fadeIn" data-wow-duration="2s"><img src="{{asset('website')}}/images/about/about-company.jpg" alt="image" class="img-fluid"></div>
+                <p class="text-center mt30">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                <div class="cta-card mt60 text-center">
+                    <h3 class="mb20">Let's Start a  <span class="text-second text-bold">New Project</span> Together</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper.</p>
+                    <a href="#" class="niwax-btn1 mt30"><span>Request A Quote <i class="fas fa-chevron-right fa-icon"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End why choose-->
+<!--Start Portfolio-->
+<section class="portfolio-section pad-tb">
+    <div class="container">
+        <div class="row justify-content-center ">
+            <div class="col-lg-8">
+                <div class="common-heading">
+                    <span>Our Work</span>
+                    <h2 class="mb0">Our Latest Creative Work</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-sm-8 mt60 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="isotope_item hover-scale">
+                    <div class="item-image" data-tilt data-tilt-max="2" data-tilt-speed="1000">
+                        <a href="#"><img src="{{asset('website')}}/images/portfolio/image-d.jpg" alt="image" class="img-fluid" /> </a>
+                    </div>
+                    <div class="item-info">
+                        <h4><a href="#">Ecommerce Development</a></h4>
+                        <p>Web Application</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 mt60 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="isotope_item hover-scale">
+                    <div class="item-image" data-tilt data-tilt-max="2" data-tilt-speed="1000">
+                        <a href="#"><img src="{{asset('website')}}/images/portfolio/image-1.jpg" alt="image" class="img-fluid" /> </a>
+                    </div>
+                    <div class="item-info">
+                        <h4><a href="#">Creative App</a></h4>
+                        <p>iOs, Android</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 mt60 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="isotope_item hover-scale">
+                    <div class="item-image" data-tilt data-tilt-max="2" data-tilt-speed="1000">
+                        <a href="#"><img src="{{asset('website')}}/images/portfolio/image-6.jpg" alt="image" class="img-fluid" /> </a>
+                    </div>
+                    <div class="item-info">
+                        <h4><a href="#">Brochure Design</a></h4>
+                        <p>Graphic, Print</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-8 mt60 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="isotope_item hover-scale">
+                    <div class="item-image" data-tilt data-tilt-max="2" data-tilt-speed="1000">
+                        <a href="#"><img src="{{asset('website')}}/images/portfolio/image-c.jpg" alt="image" class="img-fluid" /> </a>
+                    </div>
+                    <div class="item-info">
+                        <h4><a href="#">Icon Pack</a></h4>
+                        <p>iOs, Android</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Portfolio-->
+<!--Start Clients-->
+<section class="clients-section- bg-gradient15 pad-tb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="common-heading">
+                    <span>Our happy customers</span>
+                    <h2 class="mb30">Some of our Clients</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="clients-logos text-center col-12">
+                    <ul class="row text-center clearfix">
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay=".2s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-1.png" alt="clients" class="img-fluid"></div>
+                            <p>Shutter, USA</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay=".4s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-2.png" alt="clients" class="img-fluid"></div>
+                            <p>Hipster, USA</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay=".6s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-3.png" alt="clients" class="img-fluid"></div>
+                            <p>Happy, USA</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay=".8s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-4.png" alt="clients" class="img-fluid"></div>
+                            <p>Opera Tours, USA</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="1s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-5.png" alt="clients" class="img-fluid"></div>
+                            <p>Royale Stone, UK</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="1.2s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-6.png" alt="clients" class="img-fluid"></div>
+                            <p>QTP, Australia</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="1.4s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-7.png" alt="clients" class="img-fluid"></div>
+                            <p>PAPA, Malaysia</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="1.6s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-8.png" alt="clients" class="img-fluid"></div>
+                            <p>Coffee, Australia</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="1.8s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-9.png" alt="clients" class="img-fluid"></div>
+                            <p>Bakery, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="2s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-10.png" alt="clients" class="img-fluid"></div>
+                            <p>Iconico, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="2.2s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-11.png" alt="clients" class="img-fluid"></div>
+                            <p>Tom N Jerry, UK</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="2.4s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-12.png" alt="clients" class="img-fluid"></div>
+                            <p>Arch, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="2.6s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-13.png" alt="clients" class="img-fluid"></div>
+                            <p>Aro Group, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="2.8s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-14.png" alt="clients" class="img-fluid"></div>
+                            <p>Tom Group, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="3s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-4.png" alt="clients" class="img-fluid"></div>
+                            <p>Premier Pipes, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="3.2s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-1.png" alt="clients" class="img-fluid"></div>
+                            <p>Dynamic, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="3.4s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-7.png" alt="clients" class="img-fluid"></div>
+                            <p>Fns Inc, India</p>
+                        </li>
+                        <li class="col-lg-2 col-md-3 col-sm-4 col-6 wow fadeIn" data-wow-delay="3.6s">
+                            <div class="brand-logo"><img src="{{asset('website')}}/images/client/clients-2.png" alt="clients" class="img-fluid"></div>
+                            <p>RP School, India</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Clients-->
+<!--Start Badges-->
+<section class="badges-section bg-gradient5  pad-tb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="common-heading w-tdxt">
+                    <span>WE MAKE RELATIONSHIPS</span>
+                    <h2>Ranked as #1 Top Web & App Development Companies</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 wow fadeIn" data-wow-delay=".2s">
+                <div class="badges-content">
+                    <img src="{{asset('website')}}/images/about/badges-a.png" alt="budges"  class="img-fluid">
+                    <p>ABC DEF Industry Leader</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 wow fadeIn" data-wow-delay=".4s">
+                <div class="badges-content">
+                    <img src="{{asset('website')}}/images/about/badges-b.png" alt="budges"  class="img-fluid">
+                    <p>Best eCommerce Development Company</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 wow fadeIn" data-wow-delay=".6s">
+                <div class="badges-content">
+                    <img src="{{asset('website')}}/images/about/badges-c.png" alt="budges"  class="img-fluid">
+                    <p>ABC DEF High Performer Winner</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 wow fadeIn" data-wow-delay=".8s">
+                <div class="badges-content">
+                    <img src="{{asset('website')}}/images/about/badges-d.png" alt="budges"  class="img-fluid">
+                    <p>Top App Developer 2019-20</p>
+                </div>
+            </div>
+        </div>
+        <div class="-cta-btn mt70">
+            <div class="free-cta-title v-center wow fadeInUp" data-wow-delay="1s">
+                <p>We <span>Promise.</span> We <span>Deliver.</span></p>
+                <a href="#" class="btn-main bg-btn2 lnk">Let's Work Together<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Badges-->
+<!--Start work-category-->
+<section class="work-category pad-tb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 v-center">
+                <div class="common-heading text-l">
+                    <span>Industries we work for</span>
+                    <h2>Helping Businesses in All Domains</h2>
+                    <p>Successfully delivered digital products Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="work-card-set">
+                    <div  class="icon-set wow fadeIn" data-wow-delay=".2s">
+                        <div class="work-card cd1">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-1.png" alt="Industries" /></div>
+                            <p>Social Networking</p>
+                        </div>
+                    </div>
+                    <div  class="icon-set wow fadeIn" data-wow-delay=".4s">
+                        <div class="work-card cd2">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-2.png" alt="Industries" /></div>
+                            <p>Digital Marketing</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay=".6s">
+                        <div class="work-card cd3">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-3.png" alt="Industries" /></div>
+                            <p>Ecommerce Development</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay=".8s">
+                        <div class="work-card cd4">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-4.png" alt="Industries" /></div>
+                            <p>Video Service</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="1s">
+                        <div class="work-card cd5">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-5.png" alt="Industries" /></div>
+                            <p>Banking Service</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="1.2s">
+                        <div class="work-card cd6">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-6.png" alt="Industries" /></div>
+                            <p>Enterprise Service</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="1.4s">
+                        <div class="work-card cd7">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-7.png" alt="Industries" /></div>
+                            <p>Education Service</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="1.6s">
+                        <div class="work-card cd8">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-8.png" alt="Industries" /></div>
+                            <p>Tour and Travels</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="1.8s">
+                        <div class="work-card cd9">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-9.png" alt="Industries" /></div>
+                            <p>Health Service</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="2s">
+                        <div class="work-card cd10">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-10.png" alt="Industries" /></div>
+                            <p>Event & Ticket</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="2.2s">
+                        <div class="work-card cd11">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-11.png" alt="Industries" /></div>
+                            <p>Restaurant Service</p>
+                        </div>
+                    </div>
+                    <div class="icon-set wow fadeIn" data-wow-delay="2.4s">
+                        <div class="work-card cd12">
+                            <div class="icon-bg"><img src="{{asset('website')}}/images/icons/icon-12.png" alt="Industries" /></div>
+                            <p>Business Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End  work-category-->
+<!--Start Testinomial-->
+<section class="testinomial-section bg-none pad-tb">
+    <div class="container">
+        <div class="row justify-content-center ">
+            <div class="col-lg-8">
+                <div class="common-heading">
+                    <span>What our clients say about Niwax.</span>
+                    <h2>Over 1200+ Satisfied Clients and Growing</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="video-testimonials owl-carousel">
+                    <div class="video-review" data-tilt data-tilt-max="5" data-tilt-speed="1000">
+                        <a class="video-link" href="https://www.youtube.com/watch?v=SZEflIVnhH8?autoplay=1&amp;rel=0">
+                            <img src="{{asset('website')}}/images/client/client-pic.jpg" alt="client" class="img-fluid">
+                            <div class="review-vid-details">
+                                <div class="-vid-ico"><span class="triangle-play2"></span></div>
+                                <p>Cina Cleaves</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="video-review" data-tilt data-tilt-max="5" data-tilt-speed="1000">
+                        <a class="video-link" href="https://www.youtube.com/watch?v=SZEflIVnhH8?autoplay=1&amp;rel=0">
+                            <img src="{{asset('website')}}/images/client/client-pic-a.jpg" alt="client" class="img-fluid">
+                            <div class="review-vid-details">
+                                <div class="-vid-ico"><span class="triangle-play2"></span></div>
+                                <p>Jokvch Marlin</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="owl-carousel testimonial-card-a pl25">
+                    <div class="testimonial-card">
+                        <div class="t-text">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                        <div class="client-thumbs mt30">
+                            <div class="media v-center">
+                                <div class="user-image bdr-radius"><img src="{{asset('website')}}/images/user-thumb/girl.jpg" alt="girl" class="img-fluid" /></div>
+                                <div class="media-body user-info v-center">
+                                    <h5>Mike Smith</h5>
+                                    <p>Business Owner, <small>Sydney, Australia</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="t-text">
+                            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                        <div class="client-thumbs mt30">
+                            <div class="media v-center">
+                                <div class="user-image bdr-radius"><img src="{{asset('website')}}/images/user-thumb/girl.jpg" alt="girl" class="img-fluid" /></div>
+                                <div class="media-body user-info">
+                                    <h5>Fred Chener</h5>
+                                    <p>CEO of Aramxx, <small>Ohio, US State</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="t-text">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                        <div class="client-thumbs mt30">
+                            <div class="media v-center">
+                                <div class="user-image bdr-radius"><img src="{{asset('website')}}/images/user-thumb/girl.jpg" alt="girl" class="img-fluid" /></div>
+                                <div class="media-body user-info">
+                                    <h5>Mathilda Burns</h5>
+                                    <p>Backery Shop, <small>Tronto, Italy</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="review-ref mt100">
+                    <div class="review-title-ref">
+                        <h4>Read More Reviews</h4>
+                        <p>Read our reviews from all over world.</p>
+                    </div>
+                    <div class="review-icons">
+                        <a href="#" target="blank" class="wow fadeIn" data-wow-delay=".2s"><img src="{{asset('website')}}/images/about/reviews-icon-1.png" alt="review" class="img-fluid"></a>
+                        <a href="#" target="blank" class="wow fadeIn" data-wow-delay=".4s"><img src="{{asset('website')}}/images/about/reviews-icon-2.png" alt="review" class="img-fluid"></a>
+                        <a href="#" target="blank" class="wow fadeIn" data-wow-delay=".6s"><img src="{{asset('website')}}/images/about/reviews-icon-3.png" alt="review" class="img-fluid"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Testinomial-->
+<!--Start CTA-->
+<section class="cta-area pad-tb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="common-heading">
+                    <span>Let's work together</span>
+                    <h2>We Love to Listen to Your Requirements</h2>
+                    <a href="javascript:void(0)" class="btn-outline">Estimate Project <i class="fas fa-chevron-right fa-icon"></i></a>
+                    <p class="cta-call">Or call us now <a href="tel:+1234567890"><i class="fas fa-phone-alt"></i> (123) 456 7890</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape shape-a1"><img src="{{asset('website')}}/images/shape/shape-3.svg" alt="shape"></div>
+    <div class="shape shape-a2"><img src="{{asset('website')}}/images/shape/shape-4.svg" alt="shape"></div>
+    <div class="shape shape-a3"><img src="{{asset('website')}}/images/shape/shape-13.svg" alt="shape"></div>
+    <div class="shape shape-a4"><img src="{{asset('website')}}/images/shape/shape-11.svg" alt="shape"></div>
+</section>
+<!--End CTA-->
+<!--Start Location-->
+<section class="our-office pad-tb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="common-heading">
+                    <span>Our Locations</span>
+                    <h2>Our Office</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center upset shape-numm">
+            <div class="col-lg-4 col-sm-6 shape-loc wow fadeInUp" data-wow-delay=".2s">
+                <div class="office-card">
+                    <div class="skyline-img" data-tilt data-tilt-max="4" data-tilt-speed="1000">
+                        <img src="{{asset('website')}}/images/location/newyork.png" alt="New York" class="img-fluid" />
+                    </div>
+                    <div class="office-text">
+                        <h4>New York</h4>
+                        <p>603 FA Forest Avenue, New York, USA 10021</p>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-map-marker-alt"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-phone-alt"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-envelope"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fab fa-skype"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 shape-loc wow fadeInUp" data-wow-delay=".5s">
+                <div class="office-card">
+                    <div class="skyline-img" data-tilt data-tilt-max="4" data-tilt-speed="1000">
+                        <img src="{{asset('website')}}/images/location/sydeny.png" alt="sydney" class="img-fluid" />
+                    </div>
+                    <div class="office-text">
+                        <h4>Sydney</h4>
+                        <p>2449 Columbia Boulevard, Sydney, 10021</p>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-map-marker-alt"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-phone-alt"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-envelope"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fab fa-skype"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 shape-loc wow fadeInUp" data-wow-delay=".8s">
+                <div class="office-card mb0">
+                    <div class="skyline-img" data-tilt data-tilt-max="4" data-tilt-speed="1000">
+                        <img src="{{asset('website')}}/images/location/rome.png" alt="rome" class="img-fluid" />
+                    </div>
+                    <div class="office-text">
+                        <h4>Rome</h4>
+                        <p>9988 Piazzetta Scalette Rubiani 99, Rome, 84090</p>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-map-marker-alt"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-phone-alt"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fas fa-envelope"></i></a>
+                        <a href="javascript:void(0)" target="blank" class="btn-outline rount-btn"><i class="fab fa-skype"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Location-->
+<!--Start Footer-->
+<footer>
+    <div class="footer-row1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="email-subs">
+                        <h3>Get New Insights Weekly</h3>
+                        <p>News letter dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Enter your email</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 v-center">
+                    <div class="email-subs-form">
+                        <form>
+                            <input type="email" placeholder="Email Your Address" name="emails">
+                            <button type="submit" name="submit" class="lnk btn-main bg-btn">Subscribe <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-row2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-3 col-sm-6  ftr-brand-pp">
+                    <a class="navbar-brand mt30 mb25 f-dark-logo" href="#"> <img src="{{asset('website')}}/images/logo.png" alt="Logo"/></a>
+                    <a class="navbar-brand mt30 mb25 f-white-logo" href="#"> <img src="{{asset('website')}}/images/white-logo.png" alt="Logo" /></a>
+                    <p>News letter dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Enter your email</p>
+                    <a href="#" class="btn-main bg-btn3 lnk mt20">Become Partner <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h5>Contact Us</h5>
+                    <ul class="footer-address-list ftr-details">
+                        <li>
+                            <span><i class="fas fa-envelope"></i></span>
+                            <p>Email <span> <a href="mailto:info@businessname.com">info@businessname.com</a></span></p>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-phone-alt"></i></span>
+                            <p>Phone <span> <a href="tel:+10000000000">+1 0000 000 000</a></span></p>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-map-marker-alt"></i></span>
+                            <p>Address <span> 123 Business Centre London SW1A 1AA</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h5>Company</h5>
+                    <ul class="footer-address-list link-hover">
+                        <li><a href="get-quote.html">Contact</a></li>
+                        <li><a href="javascript:void(0)">Customer's FAQ</a></li>
+                        <li><a href="javascript:void(0)">Refund Policy</a></li>
+                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+                        <li><a href="javascript:void(0)">License & Copyright</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-sm-6 footer-blog-">
+                    <h5>Latest Blogs</h5>
+                    <div class="single-blog-">
+                        <div class="post-thumb"><a href="#"><img src="{{asset('website')}}/images/blog/blog-small.jpg" alt="blog"></a></div>
+                        <div class="content">
+                            <p class="post-meta"><span class="post-date"><i class="far fa-clock"></i>April 15, 2020</span></p>
+                            <h4 class="title"><a href="blog-sngle.html">We Provide you Best &amp; Creative Consulting Service</a></h4>
+                        </div>
+                    </div>
+                    <div class="single-blog-">
+                        <div class="post-thumb"><a href="#"><img src="{{asset('website')}}/images/blog/blog-small.jpg" alt="blog"></a></div>
+                        <div class="content">
+                            <p class="post-meta"><span class="post-date"><i class="far fa-clock"></i>April 15, 2020</span></p>
+                            <h4 class="title"><a href="blog-sngle.html">We Provide you Best &amp; Creative Consulting Service</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-brands">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 v-center">
+                    <h5 class="mb10">Top App Development Companies</h5>
+                    <p>News letter dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Enter your email</p>
+                </div>
+                <div class="col-lg-8 v-center">
+                    <ul class="footer-badges-">
+                        <li><a href="#"><img src="{{asset('website')}}/images/about/badges-a.png" alt="badges"></a></li>
+                        <li><a href="#"><img src="{{asset('website')}}/images/about/badges-b.png" alt="badges"></a></li>
+                        <li><a href="#"><img src="{{asset('website')}}/images/about/badges-c.png" alt="badges"></a></li>
+                        <li><a href="#"><img src="{{asset('website')}}/images/about/badges-d.png" alt="badges"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-row3">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-social-media-icons">
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-youtube"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-vimeo-v"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-dribbble"></i></a>
+                            <a href="javascript:void(0)" target="blank"><i class="fab fa-behance"></i></a>
+                        </div>
+                        <div class="footer-">
+                            <p>© 2020-2022. All Rights Reserved By <a href="https://themeforest.net/user/rajesh-doot/portfolio" target="blank">Rajesh Doot</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--End Footer-->
+
+<!-- lead generaton popup start -->
+<div class="modal leadpopup" id="leadModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="innerbody">
+                    <div class="innerleft">
+                        <div class="leadbtnclose"> <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                        <h3>Build Your App in just 2 Weeks</h3>
+                        <p class="mt10">Leave your details and one of our experts will contact you soon</p>
+                        <div class="form-block mt20">
+                            <form action="#" id="quotes-form" method="post">
+                                <div class="fieldsets row">
+                                    <div class="col-md-12 form-group floating-label">
+                                        <input type="text" placeholder=" " required="required" class="floating-input">
+                                        <label>Full Name*</label>
+                                    </div>
+                                    <div class="col-md-12 form-group floating-label">
+                                        <input type="email" placeholder=" " required="required" class="floating-input">
+                                        <label>Email Address*</label>
+                                    </div>
+                                </div>
+                                <div class="fieldsets row">
+                                    <div class="col-md-12 form-group floating-label">
+                                        <input type="tel" placeholder=" " required="required" class="floating-input">
+                                        <label>Mobile Number*</label>
+                                    </div>
+                                </div>
+                                <div class="fieldsets mt20"> <button type="submit" name="submit" class="lnk btn-main bg-btn">Submit <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></button> </div>
+                                <p class="trm"><i class="fas fa-lock"></i>We hate spam, and we respect your privacy.</p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="innerright" data-background="images/service/mockup-app.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- lead generaton popup end -->
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="{{asset('website')}}/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="{{asset('website')}}/js/jquery.min.js"></script>
+<script src="{{asset('website')}}/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('website')}}/js/plugin.min.js"></script>
+<script src="{{asset('website')}}/js/preloader.js"></script>
+<script src="{{asset('website')}}/js/dark-mode.js"></script>
+<!--common script file-->
+<script src="{{asset('website')}}/js/main.js"></script>
+<script src="{{asset('website')}}/js/progress-bar.js"></script>
+<script>
+    $(window).on('load',function(){
+        var delayMs = 4000; // delay in milliseconds
+        setTimeout(function(){
+            $('#leadModal').modal('show');
+        }, delayMs);
+    });
+</script>
+</body>
 </html>

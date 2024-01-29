@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('college')->nullable();
             $table->text('image')->nullable();
+            $table->string('gender')->nullable();
             $table->string('batch')->nullable();
             $table->string('division_id')->nullable();
             $table->string('district_id')->nullable();
