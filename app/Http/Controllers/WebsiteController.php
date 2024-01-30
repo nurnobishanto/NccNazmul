@@ -46,7 +46,7 @@ class WebsiteController extends Controller
     public function blog()
     {
 
-        $allposts = Post::orderBy('created_at', 'DESC')->where('status', '=', 'PUBLISHED')->paginate(6);
+        $allposts = Post::orderBy('created_at', 'DESC')->where('status', '=', 'PUBLISHED')->paginate(9);
         SEOTools::setTitle('Blog');
         SEOTools::setDescription(getSetting('site_description'));
         return view('website.pages.blog', compact('allposts'));

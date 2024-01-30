@@ -18,7 +18,7 @@ class ContactController extends Controller
     public function Contact(){
         SEOTools::setTitle('Contact');
         SEOTools::setDescription('Easy English');
-        return view('website.contact');
+        return view('website.pages.contact');
     }
     public function storeContactForm(Request $request)
     {

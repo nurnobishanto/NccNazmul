@@ -1,181 +1,129 @@
 @extends('layouts.master')
 
 @section('content')
-    <!-- Start Contact Information Area -->
-    <div class="contact-information-area pt-100 pb-75">
+    @include('website.includes.breadcrumb',['title' => 'Contact US','url'=>'#'])
+    <!--Start Enquire Form-->
+    <section class="contact-page pad-tb">
         <div class="container">
-            <div class="section-title">
-                <span>Contact us</span>
-                <h2>Heading</h2>
-                <p>Description</p>
-            </div>
-
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6">
-                    <div class="contact-information-card">
-                        <div class="icon">
-                            <i class="ri-map-pin-line"></i>
-                        </div>
-                        <h3>{{ 'Address' }}</h3>
-                        <p>{{ getSetting('site_address') }}</p>
+                <div class="col-lg-6 v-center">
+                    <div class="common-heading text-l">
+                        <span>Contact Now</span>
+                        <h2 class="mt0 mb0">Have Question? Write a Message</h2>
+                        <p class="mb60 mt20">We will catch you as early as we receive the message</p>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="contact-information-card">
-                        <div class="icon">
-                            <i class="ri-mail-line"></i>
-                        </div>
-                        <h3>{{ 'Email Address' }}</h3>
-                        <p><a href="mailto:{{ getSetting('site_email') }}">{{ getSetting('site_email') }}</a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="contact-information-card">
-                        <div class="icon">
-                            <i class="ri-phone-line"></i>
-                        </div>
-                        <h3>{{ 'Phone Number' }}</h3>
-                        <p><a href="tel:{{ getSetting('site_phone') }}">{{ getSetting('site_phone') }}</a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="contact-information-card">
-                        <div class="icon">
-                            <i class="ri-time-line"></i>
-                        </div>
-                        <h3>{{ 'Working Hours' }}</h3>
-                        <p>{{ 'Alawyas' }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Contact Information Area -->
-
-    <!-- Start Contact Area -->
-    <div class="contact-area pb-100">
-        <div class="container">
-            <div class="section-title">
-                <h2>{{ 'Get In Touch' }}</h2>
-            </div>
-
-
-
-            <form class="contactForm" class="col" action="{{ route('contact_form.store') }}" method="POST">
-                @csrf
-                @if (Session::has('success'))
-                    <div class="alert alert-success">
-                        {{ Session::get('success') }}
-                        @php
-                            Session::forget('success');
-                        @endphp
-                    </div>
-                @endif
-
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <select name="type" class="form-select">
-                                <option value="">Select contact type</option>
-                                <option value="Admission">Admission</option>
-                                <option value="General Contact">General Contact</option>
-                                <option value="English Special Batch">English Special Batch</option>
-                                <option value="HSC Special Batch">HSC Special Batch</option>
-                                <option value="HSC Batch">HSC Batch</option>
-                            </select>
-                            @if ($errors->has('type'))
-                                <span class="text-danger">{{ $errors->first('type') }}</span>
+                    <div class="form-block">
+                        <form id="contactForm" action="{{ route('contact_form.store') }}" method="post" data-bs-toggle="validator" class="shake">
+                            @csrf
+                            @if (Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                    @php
+                                        Session::forget('success');
+                                    @endphp
+                                </div>
                             @endif
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
-                            <label>{{ 'Your Name *' }}</label>
-                            <input value="{{ old('name') }}" type="text" name="name" id="name"
-                                class="form-control" placeholder="{{ 'Eg: Thomas Adison' }}"
-                                data-error="Please enter your name">
-                            <div class="help-block with-errors">
-                                @if ($errors->has('name'))
-                                    <span class="text-danger">{{ $errors->first('name') }}</span>
-                                @endif
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <input type="text" name="name" value="{{old('name')}}" id="name" placeholder="Enter name"  data-error="Please fill Out">
+                                    <div class="help-block with-errors">
+                                        @if ($errors->has('name'))
+                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="email" value="{{old('email')}}"  name="email" id="email" placeholder="Enter email" >
+                                    <div class="help-block with-errors">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <input type="text" value="{{old('phone')}}" name="phone" id="mobile" placeholder="Enter mobile"  data-error="Please fill Out">
+                                    <div class="help-block with-errors">
+                                        @if ($errors->has('phone'))
+                                            <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6">
 
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
-                            <label>{{ 'Email *' }}</label>
-                            <input value="{{ old('email') }}" type="email" name="email" id="email"
-                                class="form-control" placeholder="{{ 'Eg: example@accountingclubbd.com' }}"
-                                data-error="Please enter your email">
-                            <div class="help-block with-errors">
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
+                                    <select name="type" >
+                                        <option value="">Select contact type</option>
+                                        <option value="Admission">Admission</option>
+                                        <option value="General Contact">General Contact</option>
+                                        <option value="English Special Batch">English Special Batch</option>
+                                        <option value="HSC Special Batch">HSC Special Batch</option>
+                                        <option value="HSC Batch">HSC Batch</option>
+                                    </select>
+                                    <div class="help-block with-errors">
+                                        @if ($errors->has('type'))
+                                            <span class="text-danger">{{ $errors->first('type') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
-                            <label>{{ 'Phone *' }}</label>
-                            <input value="{{ old('phone') }}" type="text" name="phone" id="phone_number"
-                                placeholder="{{ 'Enter your phone number' }}" data-error="Please enter your number"
-                                class="form-control">
-                            <div class="help-block with-errors">
-                                @if ($errors->has('phone'))
-                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
-                                @endif
+                            <div class="form-group col-sm-12">
+                                <input type="text" name="subject" value="{{old('subject')}}" id="subject" placeholder="Enter subject"  data-error="Please fill Out">
+                                <div class="help-block with-errors">
+                                    @if ($errors->has('subject'))
+                                        <span class="text-danger">{{ $errors->first('subject') }}</span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
-                            <label>{{ 'Subject *' }}</label>
-                            <input value="{{ old('subject') }}" type="text" name="subject" id="msg_subject"
-                                placeholder="{{ 'Enter your subject' }}" class="form-control"
-                                data-error="Please enter your subject">
-                            <div class="help-block with-errors">
-                                @if ($errors->has('subject'))
-                                    <span class="text-danger">{{ $errors->first('subject') }}</span>
-                                @endif
+                            <div class="form-group col-sm-12">
+                                <textarea id="message" name="message" rows="5" placeholder="Enter your message" >{{old('message')}}</textarea>
+                                <div class="help-block with-errors">
+                                    @if ($errors->has('message'))
+                                        <span class="text-danger">{{ $errors->first('message') }}</span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <label>{{ 'Your Message' }}</label>
-                            <textarea value="{{ old('message') }}" name="message" class="form-control" id="message"
-                                placeholder="{{ 'Type your message' }}" cols="30" rows="6" data-error="Write your message"></textarea>
-                            <div class="help-block with-errors">
-                                @if ($errors->has('message'))
-                                    <span class="text-danger">{{ $errors->first('message') }}</span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <p class="form-cookies-consent">
-                            <input type="checkbox" id="test1" required>
-                            <label for="test1">{{ 'Accept' }} <a
-                                    href="#">{{ 'Terms Of Services' }}</a>
-                                {{ 'And' }} <a
-                                    href="#">{{ 'Privacy Policy.' }}</a></label>
-                        </p>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="send-btn">
-                            <button type="submit" class="default-btn">Contact Now</button>
-                        </div>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                        <div class="clearfix"></div>
+                            <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">Submit <span class="circle"></span></button>
+                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                            <div class="clearfix"></div>
+                        </form>
                     </div>
                 </div>
-            </form>
-
+                <div class="col-lg-5 v-center">
+                    <div class="contact-details">
+                        <div class="contact-card wow fadeIn" data-wow-delay=".2s">
+                            <div class="info-card v-center">
+                                <span><i class="fas fa-phone-alt"></i> Phone:</span>
+                                <div class="info-body">
+                                    <p>Assistance hours: Saturday – Thursday, 9 am to 8 pm</p>
+                                    <a href="tel:{{ getSetting('site_phone') }}">{{ getSetting('site_phone') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-card mt30 wow fadeIn" data-wow-delay=".5s">
+                            <div class="info-card v-center">
+                                <span><i class="fas fa-envelope"></i> Email:</span>
+                                <div class="info-body">
+                                    <p>Our support team will get back to in 24-h during standard business hours.</p>
+                                    <a href="mailto:{{ getSetting('site_email') }}">{{ getSetting('site_email') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skype-card mt30 wow fadeIn" data-wow-delay=".9s">
+                            <div class="info-card v-center">
+                                <span><i class="fa fa-map-marker-alt"></i> Address:</span>
+                                <div class="info-body">
+                                    <p>We Are Online: Monday – Friday, 9 am to 5 pm</p>
+                                    <a href="#">{{ getSetting('site_address') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- End Contact Area -->
+    </section>
+    <!--End Enquire Form-->
+
+
 @endsection

@@ -24,8 +24,7 @@ class PageSetting extends Page
     public $about_page_heading;
     public $about_page_description;
     public $about_page_image;
-    public $about_page_experience;
-    public $about_page_students;
+
 
     public function mount()
     {
@@ -38,8 +37,7 @@ class PageSetting extends Page
             'about_page_heading' => getSetting('about_page_heading'),
             'about_page_description' => getSetting('about_page_description'),
             'about_page_image' => getSetting('about_page_image'),
-            'about_page_experience' => getSetting('about_page_experience'),
-            'about_page_students' => getSetting('about_page_students'),
+
         ]);
     }
     public function submit()
@@ -58,8 +56,7 @@ class PageSetting extends Page
         setSetting('about_page_heading',$this->about_page_heading);
         setSetting('about_page_description',$this->about_page_description);
         setSetting('about_page_image',$about_page_image);
-        setSetting('about_page_experience',$this->about_page_experience);
-        setSetting('about_page_students',$this->about_page_students);
+
         Notification::make()
             ->title('Saved successfully')
             ->success()
@@ -113,12 +110,7 @@ class PageSetting extends Page
                         ->image()
                         ->maxSize(500),
 
-                    TextInput::make('about_page_experience')
-                        ->label('About Page experience (about_page_experience)')
-                        ->placeholder('Enter About Page experience '),
-                    TextInput::make('about_page_students')
-                        ->label('About Page students (about_page_students)')
-                        ->placeholder('Enter About Page students '),
+
 
                 ]),
 

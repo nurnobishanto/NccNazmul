@@ -4228,7 +4228,7 @@ html body .title-hero p{padding: 0; margin: 0;}
     line-height: 35px;
 }
 #contactForm .form-group{position: relative;}
-.help-block.with-errors { margin: 0px 0 0 15px;  font-size: 11px;  position: absolute;  bottom: 16px;}
+.help-block.with-errors { margin: 0px 0 0 15px;  font-size: 11px;  position: absolute;  bottom: 0px;}
 .clientlogo img{margin: 0 auto;}
 
 .niwax-company-awards{

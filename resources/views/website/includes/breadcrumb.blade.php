@@ -7,7 +7,10 @@
                         <div class="bread-menu">
                             <ul>
                                 <li><a href="{{route('website')}}">Home</a></li>
-                                <li><a href="{{$url}}">{{$title}}</a></li>
+                                @if(!empty($parent_title) )
+                                <li><a href="{{$url}}">{{$parent_title}}</a></li>
+                                @endif
+                                <li><a href="">{{$title}}</a></li>
                             </ul>
                         </div>
                         <div class="bread-title">

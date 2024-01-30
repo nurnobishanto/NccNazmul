@@ -1,27 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    <!-- Start Page Banner Area -->
-    <div class="page-banner-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
+    @include('website.includes.breadcrumb',['title' => 'Free Notes','url'=>'#'])
 
-                <div class="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500"
-                    data-aos-once="true">
-                    <h2>Free Notes</h2>
-
-                    <ul>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>Free Notes</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Page Banner Area -->
 
     <!-- Start Blog Area -->
     <div class="blog-area ptb-100">

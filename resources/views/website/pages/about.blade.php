@@ -1,144 +1,84 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <!-- Start About US Area -->
-    <div class="expertise-area-with-white-color ptb-100">
+    @include('website.includes.breadcrumb',['title' => 'About US','url'=>'#'])
+    <!--Start About-->
+    <section class="about-agency pad-tb block-1">
         <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6 col-md-12">
-                    <div class="expertise-image-wrap" data-aos="fade-left" data-aos-delay="50" data-aos-duration="500"
-                         data-aos-once="true">
-                        <img src="{{ asset('uploads/'.getSetting('about_page_image')) }}" alt="image">
+            <div class="row">
+                <div class="col-lg-6 v-center">
+                    <div class="about-image">
+                        <img src="{{ asset('uploads/'.getSetting('about_page_image')) }}" alt="about us" class="img-fluid"/>
                     </div>
-                    <div class="expertise-content black-color" data-aos="fade-right" data-aos-delay="50"
-                         data-aos-duration="500" data-aos-once="true">
-
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="expertise-inner-box">
-                                    <div class="icon">
-                                        <i class="ri-thumb-up-fill"></i>
-                                    </div>
-                                    <h2> {!! getSetting('about_page_experience') !!}</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="expertise-inner-box">
-                                    <div class="icon">
-                                        <i class="fa fa-users"></i>
-                                    </div>
-                                    <h2>{!! getSetting('about_page_students') !!}</h2>
+                </div>
+                <div class="col-lg-6">
+                    <div class="common-heading text-l ">
+                        <span>{!! getSetting('about_page_title') !!} </span>
+                        <h2>{!! getSetting('about_page_heading') !!}</h2>
+                        <p>{!! getSetting('about_page_description') !!}</p>
+                    </div>
+                    <div class="row in-stats small about-statistics">
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="statistics">
+                                <div class="statnumb counter-number">
+                                    <span class="counter">{{\App\Models\User::count()}}</span>
+                                    <p>Happy Students</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="expertise-content black-color" data-aos="fade-right" data-aos-delay="50"
-                         data-aos-duration="500" data-aos-once="true">
-                        <span>{!! getSetting('about_page_title') !!}  </span>
-                        <h3>{!! getSetting('about_page_heading') !!} </h3>
-                        <p>{!! getSetting('about_page_description') !!} </p>
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="statistics">
+                                <div class="statnumb">
+                                    <span class="counter">{{\App\Models\Subject::count()}}</span>
+                                    <p>Total Subjects</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="statistics mb0">
+                                <div class="statnumb counter-number">
+                                    <span class="counter">{{\App\Models\ExamPaper::count()}}</span>
+                                    <p>Total Exam Paper</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End About Us Area -->
-    <!-- Start Funfact Area -->
-    <div class="fun-fact-area bg-three pt-100 pb-75" style="background-color: #004400">
+    </section>
+    <!--End About-->
+    @if($teachers->count())
+    <!--Start Team Members-->
+    <section class="team pad-tb deep-dark">
         <div class="container">
-            <div class="section-title">
-                <span>Our Funfact</span>
-                <h2>Our Resource History</h2>
-            </div>
-
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-funfact-box">
-                        <div class="icon">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <h3>
-                            <span class="odometer" data-count="{{\App\Models\User::count()}}">00</span>
-                            <span class="small-text">+</span>
-                        </h3>
-                        <p>Happy Students</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-funfact-box">
-                        <div class="icon">
-                            <i class="ri-stack-line"></i>
-                        </div>
-                        <h3>
-                            <span class="odometer" data-count="{{\App\Models\Subject::count()}}">00</span>
-                            <span class="small-text">+</span>
-                        </h3>
-                        <p>Total Subject</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-funfact-box">
-                        <div class="icon">
-                            <i class="fa fa-newspaper"></i>
-                        </div>
-                        <h3>
-                            <span class="odometer" data-count="{{\App\Models\ExamPaper::count()}}">00</span>
-                            <span class="small-text">+</span>
-                        </h3>
-                        <p>Total Exam Paper</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-funfact-box">
-                        <div class="icon">
-                            <i class="fa fa-question-circle"></i>
-                        </div>
-                        <h3>
-                            <span class="odometer" data-count="{{\App\Models\Question::count()}}">00</span>
-                            <span class="small-text">+</span>
-                        </h3>
-                        <p>Total Questions</p>
+                <div class="col-lg-8">
+                    <div class="common-heading ptag">
+                        <span>Our Teachers</span>
+                        <h2>Meet our respected teachers</h2>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- End Funfact Area -->
-
-    <!-- Start Team Area -->
-    <div class="team-area-without-color pt-100 pb-75">
-        <div class="container">
-            <div class="section-title">
-                <span>Our Teachers</span>
-                <h2>Meet our respected teachers</h2>
-            </div>
-
-            <div class="row justify-content-center">
+            <div class="row">
                 @foreach($teachers as $teacher)
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single-team-item card">
-                            <div class="team-image">
-                                 <img src="{{asset('uploads/'.$teacher->image)}}" alt="{{$teacher->name}}">
-                            </div>
-                            <div class="team-content text-center">
-                                <h3>{{$teacher->name}}</h3>
-                                <span>{{$teacher->tagline}}</span>
-                            </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="full-image-card hover-scale">
+                        <div class="image-div"><a href="#"><img src="{{asset('uploads/'.$teacher->image)}}" alt="team" class="{{$teacher->name}}"/></a></div>
+                        <div class="info-text-block">
+                            <h4><a href="#">{{$teacher->name}}</a></h4>
+                            <p>{{$teacher->tagline}}</p>
                         </div>
                     </div>
+                </div>
                 @endforeach
 
+
             </div>
         </div>
+    </section>
+    <!--End Team Members-->
+    @endif
 
-    </div>
-    <!-- End Team Area -->
+
 @endsection

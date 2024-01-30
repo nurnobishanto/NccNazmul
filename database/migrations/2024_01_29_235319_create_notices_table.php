@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->text('description')->nullable();
             $table->text('image')->nullable();
+            $table->string('status')->default('draft');
+            $table->date('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
