@@ -1,85 +1,45 @@
 <!--Start Hero-->
-<section class="hero-card-web bg-gradient12 shape-bg3">
-    <div class="hero-main-rp container-fluid">
+<section class="hero-card-web bg-gradient12 shape-bg3" >
+    <div class=" container">
         <div class="row">
-            <div class="col-lg-5">
-                <div class="hero-heading-sec">
-                    <h2 class="wow fadeIn" data-wow-delay="0.3s"><span>Web.</span> <span>Mobile.</span> <span>Graphic.</span> <span>Marketing.</span></h2>
-                    <p class="wow fadeIn" data-wow-delay="0.6s">Website and App development solution for transforming and innovating businesses.</p>
-                    <a href="case-study.html" class="niwax-btn2 wow fadeIn"  data-wow-delay="0.8s">View Case Studies <i class="fas fa-chevron-right fa-ani"></i></a>
-                    <div class="awards-block-tt  wow fadeIn" data-wow-delay="1s"><img src="{{asset('website')}}/images/hero/awards-logo.png" alt="awards-logo" class="img-fluid"/></div>
+            @if(getNotice()->count())
+            <div class="col-lg-12">
+                <div class="mb10">
+                    <h6 style="z-index: 0.001;" class="px-2 position-absolute btn btn-danger" >Headline</h6>
+                    <marquee class="text-dark bg-white rounded" >
+                        @foreach(getNotice() as $notice)
+                            @if($notice->url)
+                                <a class="btn btn-warning" href="{{$notice->url}}">{{$notice->title}}</a> {{strip_tags($notice->description)}}
+                            @else
+                                <a class="btn btn-warning" href="">{{$notice->url}}</a> {{strip_tags($notice->description)}}
+                            @endif
+                        @endforeach
+                    </marquee>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <div class="hero-content-sec wow fadeIn" data-wow-delay="0.8s">
-                    <div class="video-intro-pp"><a class="video-link play-video" href="https://www.youtube.com/watch?v=SZEflIVnhH8?autoplay=1&amp;rel=0"><span class="triangle-play"></span></a></div>
-                    <div class="title-hero-oth">
-                        <p>We design digital solutions <span>for brands and companies</span></p>
-                    </div>
+            @endif
+            <div class="col-lg-7 col-md-6">
+                <div class="hero-heading-sec">
+                    <h2 class="wow fadeIn small" data-wow-delay="0.3s">{!! getSetting('home_page_title') !!}</h2>
+                    <p class="wow fadeIn" data-wow-delay="0.6s">{!! getSetting('home_page_description') !!}</p>
+                    <a href="case-study.html" class="niwax-btn2 wow fadeIn" data-wow-delay="0.8s">View Case Studies <i class="fas fa-chevron-right fa-ani"></i></a>
                 </div>
+            </div>
+            <div class="col-lg-5 col-md-6">
                 <div class="hero-right-scmm">
                     <div class="hero-service-cards wow fadeInRight" data-wow-duration="2s">
                         <div class="owl-carousel service-card-prb">
+                            @foreach(getNotice() as $notice)
                             <div class="service-slide card-bg-a" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                <a href="#">
-                                    <div class="service-card-hh">
-                                        <div class="image-sr-mm">
-                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/vr.png">
-                                        </div>
-                                        <div class="title-serv-c"><span>VR</span> Solution</div>
-                                    </div>
-                                </a>
+                                @if($notice->url)
+                                    <a href="{{$notice->url}}">
+                                        <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
+                                    </a>
+                                @else
+                                    <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
+                                @endif
                             </div>
-                            <div class="service-slide card-bg-b" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                <a href="#">
-                                    <div class="service-card-hh">
-                                        <div class="image-sr-mm">
-                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/app-develop.png">
-                                        </div>
-                                        <div class="title-serv-c"><span>Custom</span> App Solution</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="service-slide card-bg-c" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                <a href="#">
-                                    <div class="service-card-hh">
-                                        <div class="image-sr-mm">
-                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/startup.png">
-                                        </div>
-                                        <div class="title-serv-c"><span>Startup</span> Solution</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="service-slide card-bg-d" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                <a href="#">
-                                    <div class="service-card-hh">
-                                        <div class="image-sr-mm">
-                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/car-rental.png">
-                                        </div>
-                                        <div class="title-serv-c"><span>Car</span> Rental Solution</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="service-slide card-bg-e" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                <a href="#">
-                                    <div class="service-card-hh">
-                                        <div class="image-sr-mm">
-                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/marketing.png">
-                                        </div>
-                                        <div class="title-serv-c"><span>Marketing</span> Solution</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="service-slide card-bg-f" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                <a href="#">
-                                    <div class="service-card-hh">
-                                        <div class="image-sr-mm">
-                                            <img alt="custom-sport" src="{{asset('website')}}/images/service/ewallet.png">
-                                        </div>
-                                        <div class="title-serv-c"><span>e-Wallet</span> Solution</div>
-                                    </div>
-                                </a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

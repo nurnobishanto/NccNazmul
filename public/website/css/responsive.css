@@ -10,28 +10,28 @@
     }
     @media only screen and (max-width: 1700px){
         /**start update 1.9**/
-        html .hero-card-web.mobile-app- {  height: auto;}  
+        html .hero-card-web.mobile-app- {  height: auto;}
         .hero-service-cards { margin-top: 70px;}
         .hero-creative-agenc1, .hero-digital-agency-1 {height: 100vh !important;}
         /**end update 1.9**/
-    }    
+    }
     /**width 1200**/
     @media (min-width:1200px) {
     .container,.container-lg,.container-md,.container-sm,.container-xl {max-width: 1200px}
     }
-    
+
     /**width 1370**/
-    @media only screen and (max-width:1370px) { 
+    @media only screen and (max-width:1370px) {
     .navbar-light .navbar-nav .nav-link {padding: 0px 12px;}
     .hero-service-cards {margin-top: 90px;}
     .hero-heading-sec > p {margin: 30px 0;}
     .image-sr-mm {height: 200px; width: 100%;}
-    .hero-heading-sec h2 {font-size: 45px; line-height: 57px;}
+    .hero-heading-sec h2 {font-size: 25px; line-height: 30px;}
     .hero-card-web {padding-top: 120px; padding-bottom: 100px; height: 780px;}
     .hero-main-rp {padding: 0 30px 0 30px; }
     .hero-section {padding-top: 100px; padding-bottom: 100px; height: 750px}
-    
-     /**start update 1.8**/   
+
+     /**start update 1.8**/
     .hero-service-cards {margin-top: 50px;}
     .mobile-app- .hero-heading-sec2 h1 {font-size: 40px;line-height: 50px;}
     .mobile-app- .hero-heading-sec2 > p { margin: 30px 0 0 0;}
@@ -44,25 +44,25 @@
     .business-startup {background-size: cover;}
     .btn-main{  display: inline-flex; justify-content: center;  white-space: nowrap;  align-items: center;}
     .hero-card-web { min-height: 780px; height: auto;}
-    /**end update 1.8**/  
-    
-    /**start update 2.0**/  
+    /**end update 1.8**/
+
+    /**start update 2.0**/
     .digitalagency20 { height: auto; padding-top: 120px; padding-bottom: 100px;}
     .forfullcard h5 { font-size: 18px; line-height: 28px;}
     .forfullcard .-service-list li a { font-size: 12px;}
     .forfullcard .-service-list li {padding: 0 5px;}
     .forfullcard .service-sec-list p {font-size: 14px;line-height: 22px;  margin: 10px 0 0 0;}
     .forfullcard p { font-size: 16px; line-height: 26px;}
-    /**end update 2.0**/  
-    
+    /**end update 2.0**/
+
     }
     /**width 1150**/
     @media only screen and (max-width:1150px) {
-/**start update 2.1**/ 
+/**start update 2.1**/
         .priceodernow, .pricingfooter {flex-direction: column;  grid-gap: 15px;}
-/**end update 2.1**/         
+/**end update 2.1**/
 
-    .mouse-cursor{display: none;}    
+    .mouse-cursor{display: none;}
     ::-webkit-scrollbar {width:4px;}
     ::-webkit-scrollbar-track { background: #0d0c40;}
     .mobile-menu2{display: block;}
@@ -71,23 +71,23 @@
     .-service-list li {padding: 0 3px;}
     .custom-nav .nav-list {display: none;}
     .top-header .navbar-light .navbar-nav .nav-link {padding: 0 12px}
-    .header-heading h1 {font-weight: 700; margin-bottom: 30px; font-size: 45px; line-height: 57px}    
+    .header-heading h1 {font-weight: 700; margin-bottom: 30px; font-size: 45px; line-height: 57px}
     }
 
 @media (min-width: 992px){
-/**Start-Bootstrap-v5.1.3-update**/ 
+/**Start-Bootstrap-v5.1.3-update**/
 .navbar-expand-lg .navbar-collapse { justify-content: space-between;}
-/**End-Bootstrap-v5.1.3-update**/ 
+/**End-Bootstrap-v5.1.3-update**/
 
 }
 
 /**width 911**/
-@media only screen and (max-width:991px) { 
-/**Start-Bootstrap-v5.1.3-update**/ 
+@media only screen and (max-width:991px) {
+/**Start-Bootstrap-v5.1.3-update**/
 .niwax-btn1, .niwax-btn2, .niwax-btn3{ width: max-content;  margin: 0 auto;  display: block;}
-/**End-Bootstrap-v5.1.3-update**/ 
+/**End-Bootstrap-v5.1.3-update**/
 
-/**Start-2.1-update**/ 
+/**Start-2.1-update**/
 .niwax-btn1, .niwax-btn2, .niwax-btn3{ width: max-content;  margin: 0 auto;  display: block;}
 .niwaxbtnvideo a{margin: 0;}
 .niwaxbtnvideo {justify-content: center;}
@@ -109,9 +109,9 @@
 .sliderset-nx{grid-template-columns:auto;grid-gap: 30px;}
 .nx-circl-icon{margin: 0 auto;}
 /**End-2.1-update**/
-    
-/**start update 2.0**/ 
-     .contact-block-btm { padding: 30px 30px;   margin-left: 0; margin-top: 50px;} 
+
+/**start update 2.0**/
+     .contact-block-btm { padding: 30px 30px;   margin-left: 0; margin-top: 50px;}
      .pbwide {grid-template-columns: auto;   grid-gap: 50px; padding: 50px 15px;}
      .img-wide-blocktt {  position: relative;  right: 0;}
      .innerwidedevice {left: 45px; position: relative; transform: scale(1.1);}
@@ -120,7 +120,7 @@
      .forfullcard {grid-template-columns: repeat(2, 1fr);}
     .hero-slider .swiper-container-horizontal > .swiper-pagination-bullets {  left: 0;  right: 0;  transform: translateX(0%);  margin: 0 auto;  text-align: center;}
     .hero-slider .swiper-button-next, .hero-slider .swiper-button-prev {display: none;}
-     .follow-label {display: flex; justify-content: center;} 
+     .follow-label {display: flex; justify-content: center;}
      .counter-facts{display: grid; grid-template-columns: auto auto;}
      .counter-facts .hexagon{min-width: auto; padding: 20px 15px;}
      .counter-facts .counter-no span { font-size: 30px;}
@@ -134,8 +134,8 @@
      .hero-style .slide-title h2 { font-size: 40px; line-height: 50px; }
      .hero-style .slide-text p { font-size: 18px;}
      .flv2 .header-heading h1 { font-size: 42px;  line-height: 52px;}
-     /**end update 2.0**/  
-    
+     /**end update 2.0**/
+
      .pvcpolcy p{text-align: left;}
     .popup-modal1 .modal-dialog {min-height: 100%; margin: 0 0 0 auto; background: #fff; }
     .popup-modal1 .modal-content{border: 0;}
@@ -280,19 +280,19 @@
 /*2.2*/
 
 
-/**Start-Bootstrap-v5.1.3-update**/ 
+/**Start-Bootstrap-v5.1.3-update**/
 .itm-media-object .media .img-ab- {height: 55px;}
 .quote-css {position: relative;}
 .navbar-expand-lg .navbar-collapse { display: flex!important;  flex-basis: auto;  justify-content: space-between;}
-/**End-Bootstrap-v5.1.3-update**/ 
+/**End-Bootstrap-v5.1.3-update**/
 
-/**start update 2.1**/ 
+/**start update 2.1**/
 .niwax-logo-awards {grid-template-columns: auto auto; grid-gap: 30px; padding-bottom: 20px;}
 .awardlogo{width: 100%;}
  /**end update 2.1**/
- 
- 
-/**start update 2.0**/ 
+
+
+/**start update 2.0**/
      h1 {  font-size: 38px;  line-height: 48px;}
     h2 {  font-size: 34px;  line-height: 44px;}
     h3 {  font-size: 30px;  line-height: 40px;}
@@ -304,19 +304,19 @@
     .mobileblock{display: none;}
     .innerwidedevice {  left: 0; transform: scale(1);}
     .flv2 .header-heading h1 { font-size: 35px;  line-height: 45px;}
-     /**end update 2.0**/ 
-    
-     /**start update 1.7**/ 
+     /**end update 2.0**/
+
+     /**start update 1.7**/
     .rpb-cart-table table tr td.rpbrs-titl::before, .rpb-cart-table table tr td.rpbrs-titl::before {content: attr(data-title) ":";    font-weight: 700;    float: left;}
     .rpb-cart-table table tr td, .rpb-cart-table table tr td {  display: block;  text-align: right!important;}
     .rpb-cart-table table  thead, .rpb-cart-table table thead {  display: none;}
     .rpb-cart-table table .product-thumbnail{  display: none;}
     .cart-pg-coupon input, .cart-pg-coupon button {  width: 48%;}
     .update-cart button{width: 100%;}
-    .post-info a.btn-main {  width: max-content;  margin: 10px 0 0 0;  display: block;}  
+    .post-info a.btn-main {  width: max-content;  margin: 10px 0 0 0;  display: block;}
     .desktopblock { border: 6px solid rgb(255 255 255 / 50%); border-radius: 12px;}
-     /**end update 1.7**/   
-        
+     /**end update 1.7**/
+
     .psforgt{margin-top: 10px;  display: block;  text-align: center;}
     .social-btnnxx{display: flex;}
     .login-form-div {max-width: 100%;margin: 0 15px;background: #fff;padding: 30px 20px;border-radius: 8px;}
@@ -363,7 +363,7 @@
     .follow-label a { font-size: 20px;}
     .tabs-layout .nav-tabs .nav-link {padding: 12px 35px; margin: 0 auto 10px}
     .tabs-layout .nav-tabs .nav-item {margin-bottom: 5px; display: contents}
-    .about-statistics .statistics, .form-blog {margin-bottom: 30px}   
+    .about-statistics .statistics, .form-blog {margin-bottom: 30px}
     .pad-tb {padding-top: 60px; padding-bottom: 60px}
     .icon-set, .opl ul li {width: 50%}
     .email-subs-form button {
@@ -392,12 +392,12 @@
     }
     /**width 520**/
     @media only screen and (max-width:520px) {
- /**start update 2.1**/ 
-        .awardbgwithtext p {white-space: break-spaces;} 
+ /**start update 2.1**/
+        .awardbgwithtext p {white-space: break-spaces;}
         .niwaxawardrow1 {white-space: nowrap; overflow: auto;   display: grid;  grid-template-columns: 150px 150px 150px;   grid-gap: 20px; }
-/**start update 2.1**/   
+/**start update 2.1**/
 
-    /**start update 2.0**/ 
+    /**start update 2.0**/
     .row-forfullcard {  grid-template-columns: repeat(1, 1fr);}
     .fullservicecard{text-align: center;}
     .forfullcard {grid-template-columns: repeat(1, 1fr); padding: 20px 0;}
@@ -405,17 +405,17 @@
     .connect-block a span.small-text {font-size: 13px; letter-spacing: 0px;}
     .connect-block a span.large-text { font-size: 18px;   line-height: 28px;}
     .text-fld-nx { padding: 0 0 0 15px;}
-    .icon-fld-nx {font-size: 22px; margin: 0px 15px 0 0px;} 
-    /**end update 2.0**/     
-    
-    /**start update 1.7**/ 
+    .icon-fld-nx {font-size: 22px; margin: 0px 15px 0 0px;}
+    /**end update 2.0**/
+
+    /**start update 1.7**/
     .btn-grp a + a{margin-top: 15px;}
     .btn-grp a {width: 100%; margin: 0;}
     .custom-control label {font-size: 12px; padding: 0 0 0 8px; text-indent: 1px; line-height: 16px; }
-    /**end update 1.7**/ 
-    
+    /**end update 1.7**/
+
     .service-point-2 li {  float: none;     width: 100%;}
-    .hero-heading-sec h2 {font-size: 35px; line-height: 45px;}
+    .hero-heading-sec h2 {font-size: 22px; line-height: 25px;}
     .footer-badges- {display: flow-root; justify-content: space-between;}
     .footer-badges- li {display: block; width: 50%; float: left; padding: 0 6px;}
     .m-pad{padding: 0;}
@@ -459,16 +459,15 @@
     @media only screen and (max-width:1150px) {
     .hidedesktop{display:block !important;}
    .right-end-btn{display: flex  !important;}
-   .hidemobile{display: none !important;} 
+   .hidemobile{display: none !important;}
     }
-     @media only screen and (max-width:767px) { 
+     @media only screen and (max-width:767px) {
      .innerbody{grid-template-columns: repeat(1,1fr);grid-gap: 0;}
      .locations { grid-template-columns: repeat(1, 1fr); grid-gap: 30px; }
     }
-    
-    
-    
-    
-    
-     
-    
+
+
+
+
+
+

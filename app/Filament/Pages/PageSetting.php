@@ -16,7 +16,7 @@ class PageSetting extends Page
     protected static ?string $navigationGroup = 'Settings';
     protected static ?int $navigationSort = 2;
     protected static string $view = 'filament.pages.page-setting';
-    public $update_headline;
+
     public $home_page_title;
     public $home_page_description;
     public $home_page_background;
@@ -30,7 +30,7 @@ class PageSetting extends Page
     public function mount()
     {
         $this->form->fill([
-            'update_headline' => getSetting('update_headline'),
+
             'home_page_title' => getSetting('home_page_title'),
             'home_page_description' => getSetting('home_page_description'),
             'home_page_background' => getSetting('home_page_background'),
@@ -49,7 +49,7 @@ class PageSetting extends Page
         $about_page_image = $state['about_page_image'];
 
 
-        setSetting('update_headline',$this->update_headline);
+
         setSetting('home_page_title',$this->home_page_title);
         setSetting('home_page_description',$this->home_page_description);
         setSetting('home_page_background',$home_page_background);
@@ -79,13 +79,11 @@ class PageSetting extends Page
                         ->label('Home Page title (home_page_title)')
                         ->placeholder('Enter Home Page title')
                         ->columnSpan(2),
-                    TextInput::make('update_headline')
-                        ->label('Home Update Headline (update_headline)')
-                        ->placeholder('Enter Update Headline')
-                        ->columnSpan(2),
+
                     RichEditor::make('home_page_description')
                         ->label('Home Page description (home_page_description)')
-                        ->placeholder('Enter Home Page description'),
+                        ->placeholder('Enter Home Page description')
+                        ->columnSpan(2),
 
                     FileUpload::make('home_page_background')
                         ->label('Home Page Background (home_page_background)')

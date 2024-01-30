@@ -1,9 +1,9 @@
 /* Theme: Niwax - Creative Web Design & Digital Marketing Agency HTML5 Template
-Author: Rajesh-Doot	
+Author: Rajesh-Doot
 File Description: Main JS file of the template*/
 (function ($) {
     "use strict";
-  
+
    //wow animation
     new WOW().init();
     //Mobile nav
@@ -23,11 +23,11 @@ File Description: Main JS file of the template*/
       insertClose: true,
       closeActiveLevel: true,
       insertBack: true
-    };  
+    };
   // Nav call plugin
     var Nav = $main_nav.hcOffcanvasNav(defaultOptions);
-  
-  //Sticky Header 
+
+  //Sticky Header
     function updateScroll() {
       if ($(window).scrollTop() >= 80) {
         $(".navfix").addClass('sticky');
@@ -39,7 +39,7 @@ File Description: Main JS file of the template*/
       $(window).scroll(updateScroll);
       updateScroll();
     });
-  
+
   //Header mega menu
     var $nav = $('li.sbmenu');
     $nav.hover(
@@ -50,24 +50,24 @@ File Description: Main JS file of the template*/
         $(this).removeClass('hover');
       }
     );
-  
+
    //Video magnificPopup
     $('.video-link').magnificPopup({
       type: 'iframe',
       mainClass: 'mfp-fade',
       removalDelay: 160,
     });
-  
- 
+
+
    //Owl-Carousel - Home hero card
     var owl = $('.service-card-prb');
     owl.owlCarousel({
       items: 4,
       loop: true,
       autoplay: true,
-      margin: 20,
+      margin: 10,
       nav: false,
-      dots: false,
+      dots: true,
       autoplayTimeout: 3500,
       autoplayHoverPause: true,
       smartSpeed: 2000,
@@ -76,23 +76,23 @@ File Description: Main JS file of the template*/
           items: 1
         },
         520: {
-          items: 2
+          items: 1
         },
         768: {
-          items: 3
+          items: 1
         },
         1200: {
-          items: 3
+          items: 1
         },
         1400: {
-          items: 3
+          items: 1
         },
         1600: {
-          items: 3
+          items: 1
         },
       }
     });
-  
+
     //Owl-Carousel - Home testimonial
     var owl = $('.testimonial-card-a');
     owl.owlCarousel({
@@ -117,15 +117,15 @@ File Description: Main JS file of the template*/
         }
       }
     });
-  
+
     //Owl-Carousel - video testimonial
     var owl = $('.video-testimonials');
     owl.owlCarousel({
-      items: 2,  
+      items: 2,
       nav: false,
       dots: false,
       autoplay: false,
-      autoplayTimeout: 3500,  
+      autoplayTimeout: 3500,
       smartSpeed: 1500,
       margin: 20,
       responsive: {
@@ -143,7 +143,7 @@ File Description: Main JS file of the template*/
         }
       }
     });
-  
+
     //Owl-Carousel - case-study
     var owl = $('.project-screens');
     owl.owlCarousel({
@@ -176,12 +176,12 @@ File Description: Main JS file of the template*/
           items: 3
         },
       }
-    }); 
-  
-     //Owl-Carousel -portfolio slide 
+    });
+
+     //Owl-Carousel -portfolio slide
     var owl = $('.porto-slide');
-    owl.owlCarousel({ 
-      items:1,  
+    owl.owlCarousel({
+      items:1,
       loop: true,
       autoplay: true,
       margin: 10,
@@ -214,12 +214,12 @@ File Description: Main JS file of the template*/
           items: 1
         },
       }
-    }); 
-  
+    });
+
       //Owl-Carousel -single slide
     var owl = $('.single-slide');
-    owl.owlCarousel({ 
-      items:1,  
+    owl.owlCarousel({
+      items:1,
       loop: true,
       autoplay: true,
       margin: 10,
@@ -253,7 +253,7 @@ File Description: Main JS file of the template*/
         },
       }
     });
-  
+
    //Owl-Carousel - app page bages-slider
     var owl = $('.bages-slider');
     owl.owlCarousel({
@@ -288,7 +288,7 @@ File Description: Main JS file of the template*/
         },
       }
     });
-  
+
   //Owl-Carousel - app page bages-slider
     var owl = $('.logo-weworkfor');
     owl.owlCarousel({
@@ -322,7 +322,7 @@ File Description: Main JS file of the template*/
         },
       }
     });
-  
+
     //  //Owl-Carousel - Home testimonial
     var owl = $('.testimonial-card-b');
     owl.owlCarousel({
@@ -349,8 +349,8 @@ File Description: Main JS file of the template*/
         }
       }
     });
-  
-  
+
+
   //full card portfolio
     var owl = $('.zoomowl');
     owl.owlCarousel({
@@ -359,7 +359,7 @@ File Description: Main JS file of the template*/
           margin:10,
           nav:false,
           items:1,
-          lazyLoad: true,      
+          lazyLoad: true,
           responsive:{
             0:{
               items:1,
@@ -390,14 +390,14 @@ File Description: Main JS file of the template*/
               stagePadding: 400
             }
           }
-        });  
-  
-    //Counter Up	
+        });
+
+    //Counter Up
     $(".counter").counterUp({
       delay: 10,
       time: 2500,
     });
-  
+
     //Scroll to top
     $.scrollUp({
       animation: 'fade',
@@ -406,8 +406,8 @@ File Description: Main JS file of the template*/
         type: 'background'
       }
     });
-  
-    //Portfolio Filter		
+
+    //Portfolio Filter
     $('.card-list').imagesLoaded(function () {
       // init Isotope
       var $grid = $('.card-list').isotope({
@@ -417,7 +417,7 @@ File Description: Main JS file of the template*/
           // use outer width of grid-sizer for columnWidth
           columnWidth: '.grid-sizer'
         }
-      });    
+      });
       // filter items on button click
       $('.filter-menu').on('click', 'li', function () {
         var filterValue = $(this).attr('data-filter');
@@ -432,15 +432,14 @@ File Description: Main JS file of the template*/
       $(this).addClass('is-checked');
       event.preventDefault();
     });
-  
-  
+
+
   // background image
     $("[data-background]").each(function () {
       $(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
     })
-  
-  
+
+
   //end of page
   })(jQuery);
-  
-  
+

@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-
+    @include('website.includes.breadcrumb',['title' => 'Select Subject','url'=>'#'])
     <!-- Start Blog Area -->
     <div class="blog-area pt-5 pb-4">
         <div class="container">
-            <h2 class="text-center">Select Subject</h2>
-            <hr>
+
             <div class="row justify-content-center">
                 @foreach ($subjects as $sub)
                     @if($sub->exam_categories->count()>0)

@@ -39,7 +39,7 @@ class MenuItemResource extends Resource
                     ->maxLength(255),
                 Select::make('target')->options([
                     '_self','_blank'
-                ]),
+                ])->default(0)->required(),
                 Forms\Components\TextInput::make('icon_class')
                     ->maxLength(255),
                 Forms\Components\ColorPicker::make('color'),

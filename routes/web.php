@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.master');
-});
+
 Route::post('/increment-download-count',[\App\Http\Controllers\ContactController::class,'incrementDownloadCount'])->name('incrementDownloadCount');
 Route::get('/login',function (){ return redirect('portal/login'); })->name('login');
 Route::get('/register',function (){ return redirect('portal/register'); })->name('register');
-Route::get('/w', [App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
+Route::get('/', [App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
 Route::get('/blog', [App\Http\Controllers\WebsiteController::class, 'blog'])->name('blog');
 Route::get('/exam', [App\Http\Controllers\WebsiteController::class, 'exam'])->name('exam');
 Route::get('/ebook', [App\Http\Controllers\WebsiteController::class, 'ebook'])->name('ebook');

@@ -2,14 +2,13 @@
 
 @section('content')
     <!-- Start Main Hero Area -->
-
+    @include('website.includes.home_hero')
     <div class="main-banner-wrap-area">
         <div class="container">
             @if(getSetting('update_headline'))
             <div class="mb-5 bg-secondary">
                 <h6 style="z-index: 5" class="p-2 position-absolute rounded bg-danger text-light" >Headline</h6>
                 <marquee class="text-light" style="font-size: 18px;line-height: 28px">{!! getSetting('update_headline') !!}</marquee>
-
             </div>
             @endif
             <div class="row align-items-center justify-content-center">

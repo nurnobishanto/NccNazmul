@@ -1,4 +1,4 @@
-<ul class="navbar-nav m-auto mb-2 mb-lg-0">
+<ul class="nav-list">
     @foreach ($items as $item)
         @php
             $originalItem = $item;
@@ -11,22 +11,14 @@
             $btnId = 'navbarScrollingDropdown'.$item->id
         @endphp
         @if(!$originalItem->children->isEmpty()) @endif
-        <li class="nav-item @if(!$originalItem->children->isEmpty()) dropdown @endif">
-            <a class="nav-link {{ $isActive }}
-            @if(!$originalItem->children->isEmpty()) dropdown-toggle @endif"
-               @if(!$originalItem->children->isEmpty())
-                   id="{{$btnId}}"
-               role="button"
-               data-bs-toggle="dropdown"
-               aria-expanded="false"
-               @endif
+        <li class=" @if(!$originalItem->children->isEmpty()) sbmenu rpdropdown @endif">
+            <a class="menu-links {{ $isActive }}"
                href="{{ $item->url }}"
                target="{{ $item->target?'_blank':'_self' }}">
-                {!! $item->icon_class !!}
-                <span>{{ $item->title }}</span>
+                {!! $item->icon_class !!} {{ $item->title }}
             </a>
             @if(!$originalItem->children->isEmpty())
-                @include('menu.dropmenu', ['items' => $originalItem->children, 'options' => $options,'btnId' => $btnId])
+                @include('menu.header_dropdown_menu', ['items' => $originalItem->children])
             @endif
         </li>
     @endforeach

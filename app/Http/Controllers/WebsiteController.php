@@ -35,11 +35,11 @@ class WebsiteController extends Controller
             $searchpost = Post::where('body', 'LIKE', "%{$search}%")->where('title', 'LIKE', "%{$search}%")->where('status', '=', 'PUBLISHED')->orderBy('created_at', 'DESC')->paginate(6);
             SEOTools::setTitle($search);
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.search', compact('searchpost'));
+            return view('website.pages.search', compact('searchpost'));
         } else {
             SEOTools::setTitle('Home');
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.home');
+            return view('website.pages.home');
         }
 
     }
@@ -49,14 +49,14 @@ class WebsiteController extends Controller
         $allposts = Post::orderBy('created_at', 'DESC')->where('status', '=', 'PUBLISHED')->paginate(6);
         SEOTools::setTitle('Blog');
         SEOTools::setDescription(getSetting('site_description'));
-        return view('website.blog', compact('allposts'));
+        return view('website.pages.blog', compact('allposts'));
     }
     public function about()
     {
         SEOTools::setTitle('About Us');
         SEOTools::setDescription(getSetting('site_description'));
         $teachers = Teacher::all();
-        return view('website.about',compact('teachers'));
+        return view('website.pages.about',compact('teachers'));
     }
     public function ebook()
     {
@@ -64,7 +64,7 @@ class WebsiteController extends Controller
         SEOTools::setDescription(getSetting('site_description'));
 
         $ebooks = Ebook::orderBy('created_at', 'DESC')->paginate(20);
-        return view('website.ebook', compact('ebooks'));
+        return view('website.pages.ebook', compact('ebooks'));
     }
     public function notes()
     {
@@ -72,7 +72,7 @@ class WebsiteController extends Controller
         SEOTools::setDescription(getSetting('site_description'));
 
         $notes = FreeNote::orderBy('created_at', 'DESC')->get();
-        return view('website.notes', compact('notes'));
+        return view('website.pages.notes', compact('notes'));
     }
     public function exam()
     {
@@ -80,7 +80,7 @@ class WebsiteController extends Controller
         SEOTools::setDescription(getSetting('site_description'));
 
         $subjects = Subject::orderBy('created_at', 'DESC')->paginate(20);
-        return view('website.subject', compact('subjects'));
+        return view('website.pages.subject', compact('subjects'));
     }
     public function post($slug)
     {
@@ -99,11 +99,11 @@ class WebsiteController extends Controller
             SEOTools::setTitle($post->title);
             SEOTools::setDescription(getSetting('site_description'));
 
-            return view('website.post', compact(['post', 'comments']));
+            return view('website.pages.post', compact(['post', 'comments']));
         } else {
             SEOTools::setTitle('404');
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.404');
+            return view('website.pages.404');
         }
     }
     public function category_clouds()
@@ -111,7 +111,7 @@ class WebsiteController extends Controller
         SEOTools::setTitle('Catgory Cloud');
         SEOTools::setDescription(getSetting('site_description'));
 
-        return view('website.categoryclouds');
+        return view('website.pages.categoryclouds');
     }
     public function category($slug)
     {
@@ -120,7 +120,7 @@ class WebsiteController extends Controller
         $categoryposts = Post::where('category_id', $category->id)->where('status','published')->paginate(6);
         SEOTools::setTitle($category->name);
         SEOTools::setDescription(getSetting('site_description'));
-        return view('website.category', compact(['categoryposts', 'category']));
+        return view('website.pages.category', compact(['categoryposts', 'category']));
     }
     public function author($slug)
     {
@@ -129,7 +129,7 @@ class WebsiteController extends Controller
         $authorposts = Post::where('author_id', $author->id)->where('status','published')->paginate(6);
         SEOTools::setTitle($author->name);
         SEOTools::setDescription(getSetting('site_description'));
-        return view('website.author', compact(['authorposts', 'author']));
+        return view('website.pages.author', compact(['authorposts', 'author']));
     }
 
     public function subject($slug)
@@ -142,9 +142,9 @@ class WebsiteController extends Controller
             $ecats = $sub->exam_categories;
             SEOTools::setTitle($sub->name);
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.examcategory', compact(['ecats', 'sub']));
+            return view('website.pages.examcategory', compact(['ecats', 'sub']));
         } else {
-            return view('website.404');
+            return view('website.pages.404');
         }
     }
     public function exam_category($slug)
@@ -157,11 +157,11 @@ class WebsiteController extends Controller
             $examLists = $ecat->exam_papers;
             SEOTools::setTitle($ecat->name);
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.examlist', compact(['ecat','examLists']));
+            return view('website.pages.examlist', compact(['ecat','examLists']));
         } else {
             SEOTools::setTitle('404');
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.404');
+            return view('website.pages.404');
         }
     }
 
@@ -169,14 +169,14 @@ class WebsiteController extends Controller
     {
         $exam_paper = ExamPaper::find($id);
         if (!$exam_paper){
-            return  view('website.404');
+            return  view('website.pages.404');
         }
         $result = Result::where('exam_paper_id', $id)->orderBy('total_mark', 'DESC')->orderBy('duration', 'ASC')->orderBy('created_at', 'ASC')->get();
 
         // return $result;
         SEOTools::setTitle('Results');
         SEOTools::setDescription(getSetting('site_description'));
-        return view('website.results', compact(['result', 'id']));
+        return view('website.pages.results', compact(['result', 'id']));
 
     }
     public function result($result)
@@ -184,26 +184,26 @@ class WebsiteController extends Controller
 
         $data = Result::find($result);
         if (!$data || !$data->exam_paper){
-            return  view('website.404');
+            return  view('website.pages.404');
         }
 
         // return $result;
         SEOTools::setTitle('Results');
         SEOTools::setDescription(getSetting('site_description'));
-        return view('website.result', compact('data'));
+        return view('website.pages.result', compact('data'));
 
     }
     public function rank($id)
     {
         $paper = ExamPaper::where('id', $id)->first();
         if (!$paper){
-            return  view('website.404');
+            return  view('website.pages.404');
         }
         $result = Result::where('exam_paper_id', $id)->orderBy('total_mark', 'DESC')->orderBy('duration', 'ASC')->orderBy('created_at', 'ASC')->get();
 
         SEOTools::setTitle('Rank');
         SEOTools::setDescription(getSetting('site_description'));
-        return view('website.rank', compact(['result', 'id', 'paper']));
+        return view('website.pages.rank', compact(['result', 'id', 'paper']));
 
     }
 
@@ -394,10 +394,10 @@ class WebsiteController extends Controller
 
             SEOTools::setTitle($paper->name);
             SEOTools::setDescription(getSetting('site_description'));
-            return view('website.start', compact(['paper']));
+            return view('website.pages.start', compact(['paper']));
 
         } else {
-            return view('website.404');
+            return view('website.pages.404');
         }
     }
 

@@ -7,6 +7,14 @@ use Illuminate\Support\Collection;
 use App\Models\Menu;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
+if (!function_exists('getNotice')) {
+    function getNotice()
+    {
+        $data = \App\Models\Notice::all();
+
+        return $data;
+    }
+}
 if (!function_exists('getResultAttemptDetails')) {
     function getResultAttemptDetails($result)
     {

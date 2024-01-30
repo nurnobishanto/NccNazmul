@@ -40,7 +40,7 @@
 
 @yield('content')
 
-@include('website.includes.breadcrumb',['title' => 'Mission and Vision','url'=>'#'])
+
 
 
 

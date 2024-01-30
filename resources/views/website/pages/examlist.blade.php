@@ -1,13 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-
+    @include('website.includes.breadcrumb',['title' => 'ALl Exam List for : '.$ecat->name,'url'=>'#'])
     <div class="blog-area ptb-100">
         <div class="container">
             <p><strong class="d-inline btn btn-success" ><?php echo 'Today : ' . date('l, d M Y , h:i A'); ?></strong></p>
 
-            <h2 class="text-center">ALl Exam List for : {{$ecat->name}}</h2>
-            <hr>
             <div class="table-responsive mt-5">
                 <div class="col-md-3">
                     <div class="form-group border m-2 p-2">

@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-
+    @include('website.includes.breadcrumb',['title' => 'Select Exam Category','url'=>'#'])
     <!-- Start Blog Area -->
     <div class="blog-area pt-5 pb-4">
         <div class="container">
-            <h2 class="text-center">Select Exam Category</h2>
-            <hr>
+
             <div class="row justify-content-center">
                 @foreach ($ecats as $sub)
                     <div class="col-lg-4 col-md-6">

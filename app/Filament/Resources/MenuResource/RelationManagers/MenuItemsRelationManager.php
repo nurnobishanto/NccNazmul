@@ -31,7 +31,7 @@ class MenuItemsRelationManager extends RelationManager
                     ->maxLength(255),
                 Select::make('target')->options([
                     '_self','_blank'
-                ]),
+                ])->required()->default(0),
                 Forms\Components\TextInput::make('icon_class')
                     ->maxLength(255),
                 Forms\Components\ColorPicker::make('color'),
