@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <div class="blog-area ptb-100">
+    @include('website.includes.breadcrumb',['title' => 'Results','url'=>'#'])
+    <section class="portfolio-page pad-tb">
         <div class="container">
+
             <a class="btn btn-info" href="{{route('rank', ['id' => $id ])}}">See Rank for this Exam</a>
             <a class="btn btn-warning" href="{{route('question', ['id' => $id ])}}">Download Answer</a>
-
 
             <div class="row justify-content-center">
                 @foreach ($result as $data)
@@ -23,8 +23,8 @@
                                     <tr><th>Correct :</th><th>{{ $data->ca }}</th></tr>
                                     <tr><th>Wrong :</th><th>{{ $data->wa }}</th></tr>
                                     <tr><th>Avoid :</th><th>{{ $data->na }}</th></tr>
-                                    <tr><th>Submitted :</th><th>{{ date('d M Y, h:m A', strtotime($data->created_at)) }}</th></tr>
-                                    <tr><th>Duration :</th><th>{{ floor($data->duration / 60) }} Minutes {{ $data->duration % 60 }} Seconds</th></tr>
+                                    <tr><th>Submitted :</th><td>{{ date('d M Y, h:m A', strtotime($data->created_at)) }}</td></tr>
+                                    <tr><th>Duration :</th><td>{{ floor($data->duration / 60) }} Minutes {{ $data->duration % 60 }} Seconds</td></tr>
                                     <tr><td colspan="2">{{getResultAttemptDetails($data)}}</td></tr>
                                 </table>
                                 <div class="progress" style="height: 50px">
@@ -50,13 +50,9 @@
                             </div>
                         </div>
                     </div>
-
                 @endforeach
-
-
-
-
             </div>
+
         </div>
-    </div>
+    </section>
 @endsection

@@ -1,21 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="blog-area ptb-100">
+    @include('website.includes.breadcrumb',['title' => $paper->name,'url'=>'#'])
+    <div class="portfolio-page pad-tb">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <h1 class="text-center">{{ $paper->name }}</h1>
-
-                </div>
                 <div class=" col-lg-2 col-md-6 col-sm-6  fixed-bottom">
-                    <div class="coming-soon-content ">
-                        <h4 class="text-center">Time Remaining</h4>
+                    <div class="bg-gradient12 text-light py-2 rounded">
+                        <h4 class="text-center text-light">Time Remaining</h4>
                         <div id="timer" class="flex-wrap d-flex justify-content-center">
 
-                            <div id="countdownMin" class="align-items-center flex-column d-flex justify-content-center">
+                            <div id="countdownMin" class="align-items-center flex-column d-flex justify-content-center btn btn-danger text-light rounded mr15">
                             </div>
-                            <div id="countdownSec" class="align-items-center flex-column d-flex justify-content-center">
+                            <div id="countdownSec" class="align-items-center flex-column d-flex justify-content-center btn btn-danger text-light rounded ">
                             </div>
                         </div>
                     </div>
@@ -77,58 +74,31 @@
                                         <input type="text" name="q{{ $count }}" value="{{ $question->id }}" hidden>
                                         <input type="text" name="ca{{ $count }}" value="{{ $question->ca }}" hidden>
                                         {!! $question->description !!}
-                                        <div><strong>{{$count}}) {{ $question->name }} </strong></div>
+                                        <div class="mt-2"><strong>{{$count}}) {{ $question->name }} </strong></div>
                                         <input hidden value="none" type="radio" name="op{{ $count }}" checked>
                                         @if($question->image)
-                                            <div>
+                                            <div class="mt-2">
                                                 <img style="width: 360px;" src="{{ asset('uploads/'.$question->image) }}"
                                                      alt="{{ $question->name }}">
                                             </div>
                                         @endif
-
-                                        <div class="col-sm-6">
-                                            <div class="bg-info rounded p-2">
-                                                <div class="form-check ">
-                                                    <input class="form-check-input" type="radio" name="op{{ $count }}"
-                                                           id="op1{{ $count }}" value="op1">
-
-                                                    <label class="form-check-label" for="op1{{ $count }}">
-                                                        {{ $question->op1 }}
-                                                    </label>
-                                                </div>
+                                        <div class="row gap-2 btn-group mt-2 " role="group" aria-label="Basic radio toggle button group">
+                                            <div class="col-sm-5">
+                                                <input type="radio" class="btn-check" value="op1" name="op{{ $count }}" id="op1{{ $count }}" autocomplete="off">
+                                                <label class="btn btn-outline-primary d-block text-start" for="op1{{ $count }}">i.) {{ $question->op1 }}</label>
                                             </div>
-                                            <div class="bg-info rounded p-2 mt-2">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="op{{ $count }}"
-                                                           id="op2{{ $count }}" value="op2">
-                                                    <label class="form-check-label" for="op2{{ $count }}">
-                                                        {{ $question->op2 }}
-                                                    </label>
-                                                </div>
+                                            <div class="col-sm-5">
+                                                <input type="radio" class="btn-check" value="op2" name="op{{ $count }}" id="op2{{ $count }}" autocomplete="off">
+                                                <label class="btn btn-outline-primary d-block text-start" for="op2{{ $count }}">ii.) {{ $question->op2 }}</label>
                                             </div>
-
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="bg-info rounded p-2 mt-sm-0 mt-2">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="op{{ $count }}"
-                                                           id="op3{{ $count }}" value="op3">
-                                                    <label class="form-check-label" for="op3{{ $count }}">
-                                                        {{ $question->op3 }}
-                                                    </label>
-                                                </div>
+                                            <div class="col-sm-5">
+                                                <input type="radio" class="btn-check" value="op3" name="op{{ $count }}" id="op3{{ $count }}" autocomplete="off">
+                                                <label class="btn btn-outline-primary d-block text-start" for="op3{{ $count }}">iii.) {{ $question->op3 }}</label>
                                             </div>
-                                            <div class="bg-info rounded p-2 mt-2">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="op{{ $count }}"
-                                                           id="op4{{ $count }}" value="op4">
-                                                    <label class="form-check-label" for="op4{{ $count }}">
-                                                        {{ $question->op4 }}
-                                                    </label>
-                                                </div>
-
+                                            <div class="col-sm-5">
+                                                <input type="radio" class="btn-check" value="op4" name="op{{ $count }}" id="op4{{ $count }}" autocomplete="off">
+                                                <label class="btn btn-outline-primary d-block text-start" for="op4{{ $count }}">iv.) {{ $question->op4 }}</label>
                                             </div>
-
 
                                         </div>
                                     </div>
@@ -139,7 +109,7 @@
                         @endforeach
 
 
-                        <input class="btn btn-primary m-1" type="submit" value="Submit">
+                        <input class="btn-main bg-btn6 lnk m-1" type="submit" value="Submit">
 
 
                         <script type="text/javascript">

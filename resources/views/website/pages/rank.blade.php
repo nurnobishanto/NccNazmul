@@ -1,31 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-    <!-- Start Page Banner Area -->
-    <div class="page-banner-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
+    @include('website.includes.breadcrumb',['title' => 'Ranking','url'=>'#'])
 
-                <div class="page-banner-content" data-aos="fade-right" data-aos-delay="50" data-aos-duration="500"
-                    data-aos-once="true">
-                    <h2>Ranking</h2>
-
-                    <ul>
-                        <li>
-                            <a href="{{ route('website') }}">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('exam') }}">Exam</a>
-                        </li>
-                        <li>Ranking</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Page Banner Area -->
-    <div class="blog-area ptb-100">
+    <section class="portfolio-page pad-tb">
         <div class="container">
             <div class="row justify-content-center">
                 <?php
@@ -37,11 +15,11 @@
                 <p> Full Mark :{{ $paper->questions->count() * $paper->pmark }} <br>
                     Total Questions : {{ $paper->questions->count() }} <br>
                     Total Attempt: {{ $result->count() }} Students <br>
-                    <a class="btn btn-warning d-inline" href="{{route('rankpdf', ['id' => $id ])}}"><i class="fa fa-download"></i> PDF Download</a>
+
                 </p>
 
-                <div class="table-responsive border p-1">
-                    <table id="table" class="table table-bordered mt-5">
+                <div class="table-responsive  my-2">
+                    <table id="table" class="table table-bordered">
                         <thead class="bg-success text-light">
                         <tr>
                             <th>SL</th>
@@ -76,17 +54,20 @@
                         @endforeach
                         </tbody>
                     </table>
+
                 </div>
-
-
-
                 <span class="font-weight-300 text-success" style="font-size: 12px;"><i> (
                         {{ $paper->pmark }}
                         Mark for Per Correct Answer )</i></span>
                 <span class="font-weight-300 text-danger" style="font-size: 12px;"><i> (
                         {{ $paper->nmark }}
                         Mark for Per Negative Answer )</i></span>
+                <a class="btn btn-warning d-inline" href="{{route('rankpdf', ['id' => $id ])}}"><i class="fa fa-download"></i> PDF Download</a>
+
+
+
+
             </div>
         </div>
-    </div>
+    </section>
 @endsection

@@ -8,6 +8,7 @@ use App\Models\Ebook;
 use App\Models\ExamCategory;
 use App\Models\ExamPaper;
 use App\Models\FreeNote;
+use App\Models\Notice;
 use App\Models\Post;
 use App\Models\Result;
 use App\Models\Subject;
@@ -32,9 +33,10 @@ class WebsiteController extends Controller
 
         if (request()->query('search')) {
             $search = request()->query('search');
-            $searchpost = Post::where('body', 'LIKE', "%{$search}%")->where('title', 'LIKE', "%{$search}%")->where('status', '=', 'PUBLISHED')->orderBy('created_at', 'DESC')->paginate(6);
+            $searchpost = Post::where('body', 'LIKE', "%{$search}%")->orWhere('title', 'LIKE', "%{$search}%")->orderBy('created_at', 'DESC')->where('status', '=', 'PUBLISHED')->paginate(9);
             SEOTools::setTitle($search);
             SEOTools::setDescription(getSetting('site_description'));
+
             return view('website.pages.search', compact('searchpost'));
         } else {
             SEOTools::setTitle('Home');
@@ -74,6 +76,15 @@ class WebsiteController extends Controller
         $notes = FreeNote::orderBy('created_at', 'DESC')->get();
         return view('website.pages.notes', compact('notes'));
     }
+    public function notice()
+    {
+        SEOTools::setTitle('Latest Notice');
+        SEOTools::setDescription(getSetting('site_description'));
+
+        $notices = Notice::orderBy('created_at', 'DESC')->paginate(10);
+        return view('website.pages.notice', compact(['notices']));
+    }
+
     public function exam()
     {
         SEOTools::setTitle('Exam');
@@ -153,8 +164,8 @@ class WebsiteController extends Controller
         $ecat = ExamCategory::where('slug', $slug)->first();
 
         if ($ecat) {
-
-            $examLists = $ecat->exam_papers;
+            $examLists = ExamPaper::where('exam_category_id',$ecat->id)->paginate(12);
+           // $examLists = $ecat->exam_papers
             SEOTools::setTitle($ecat->name);
             SEOTools::setDescription(getSetting('site_description'));
             return view('website.pages.examlist', compact(['ecat','examLists']));

@@ -3,7 +3,7 @@
 @section('content')
     @include('website.includes.breadcrumb',['title' => 'Our Blog Posts','url'=>'#'])
     <!--Start Blog Grid-->
-    <section class="blog-page pad-tb pt40">
+    <section class="blog-page pad-tb">
         <div class="container">
             <div class="row">
                 @foreach ($allposts as $post)

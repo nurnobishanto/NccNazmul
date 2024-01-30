@@ -22,8 +22,7 @@
                                    </div>
                                 @else
                                     <a class="d-block" href="{{ route('exam_category', ['slug' => $sub->slug]) }}">
-                                        <h4 class="text-light text-center align-middle pt-5 pb-5 p-2 rounded-pill"
-                                            style="background-color: #004400;">
+                                        <h4 class="text-dark text-center align-middle pt-5 pb-5 p-2 rounded-pill bg-gradient9">
                                             {{ $sub->name }}
                                         </h4>
                                     </a>

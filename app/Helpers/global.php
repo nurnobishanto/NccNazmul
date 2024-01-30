@@ -7,6 +7,28 @@ use Illuminate\Support\Collection;
 use App\Models\Menu;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
+if (!function_exists('formatDuration')) {
+    function formatDuration($minutes)
+    {
+        $min = $minutes % 60;
+        $hour = ($minutes - $min) / 60;
+
+        $duration = $min.' Min';
+
+        if ($hour) {
+            $duration = $hour.' Hour '.$min.' Min';
+        }
+
+        if ($hour > 24) {
+            $hours = $hour;
+            $hour = $hour % 24;
+            $day = ($hours - $hour) / 24;
+            $duration = $day.' Days '.$hour.' Hour '.$min.' Min';
+        }
+
+        return $duration;
+    }
+}
 if (!function_exists('getNotice')) {
     function getNotice()
     {
@@ -42,12 +64,17 @@ if (!function_exists('getResultAttemptDetails')) {
     }
 }
 if (!function_exists('formatDateTime')) {
-    function formatDateTime($dateTime): string
+    function formatDateTime($dateTime, $diff = true): string
     {
         $dateTime = Carbon::parse($dateTime);
         $formattedDate = $dateTime->format('jS M y, g:i a');
         $timeDifference = $dateTime->diffForHumans();
-        return "$timeDifference <br>($formattedDate)";
+        if ($diff){
+            return "$timeDifference <br>($formattedDate)";
+        }else{
+            return $formattedDate;
+        }
+
     }
 }
 if (!function_exists('getRunningExamPapers')) {

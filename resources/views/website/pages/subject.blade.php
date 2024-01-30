@@ -13,7 +13,7 @@
                             <div class="single-blog-card" >
                                 @if ($sub->image)
                                     <div class="blog-image">
-                                        <a href="{{ Route('subject', ['slug' => $sub->slug]) }}"><img
+                                        <a href="{{ route('subject', ['slug' => $sub->slug]) }}"><img
                                                 src="{{ asset('uploads/'.$sub->image) }}" alt="{{ $sub->name }}"></a>
                                         <div class="blog-content with-padding">
                                             <b>{{ $sub->name }}</b>
@@ -21,8 +21,8 @@
                                     </div>
                                 @else
                                     <a class="d-block" href="{{ Route('subject', ['slug' => $sub->slug]) }}">
-                                        <h4 class="text-light text-center align-middle pt-5 pb-5 p-2 rounded-pill"
-                                            style="background-color: #004400;">
+                                        <h4 class="text-dark text-center align-middle pt-5 pb-5 p-2 rounded-pill bg-gradient9"
+                                            >
                                             {{ $sub->name }}
                                         </h4>
                                     </a>

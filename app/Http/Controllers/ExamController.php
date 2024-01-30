@@ -65,10 +65,10 @@ class ExamController extends Controller
                 SEOTools::setTitle($paper->name);
                 SEOTools::setDescription(getSetting('site.description'));
                 if(date('Y-m-d H:i:s') >= $paper->startdate . ' ' . $paper->starttime){
-                    return view('website.test', compact(['paper', 'attmDuration']));
+                    return view('website.pages.test', compact(['paper', 'attmDuration']));
                 }else{
                     Session::forget( "exam_paper_password_{$id}");
-                    return view('website.start', compact(['paper']));
+                    return view('website.pages.start', compact(['paper']));
                 }
 
 
@@ -80,7 +80,7 @@ class ExamController extends Controller
 
         } else {
             Session::forget( "exam_paper_password_{$id}");
-            return view('website.404');
+            return view('website.pages.404');
         }
     }
     public function checking(Request $request)
@@ -99,7 +99,7 @@ class ExamController extends Controller
             // return $result;
             SEOTools::setTitle('My Result');
             SEOTools::setDescription(getSetting('site.description'));
-            return view('website.results', compact(['result', 'id']));
+            return view('website.pages.results', compact(['result', 'id']));
         }
         $paper = ExamPaper::where('id', $id)->first();
         $date = Carbon::now();
@@ -166,7 +166,7 @@ class ExamController extends Controller
         $data = $result;
         SEOTools::setTitle('My Result');
         SEOTools::setDescription(getSetting('site.description'));
-        return view('website.result', compact(['data']));
+        return view('website.pages.result', compact(['data']));
     }
 
     public function download(Request $request)

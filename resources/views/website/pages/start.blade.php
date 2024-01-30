@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="blog-area ptb-100">
+    @include('website.includes.breadcrumb',['title' => 'Start Exam','url'=>'#'])
+    <div class="portfolio-page pad-tb">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">

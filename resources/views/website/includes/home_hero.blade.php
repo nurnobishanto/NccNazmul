@@ -30,15 +30,17 @@
                     <div class="hero-service-cards wow fadeInRight" data-wow-duration="2s">
                         <div class="owl-carousel service-card-prb">
                             @foreach(getNotice() as $notice)
-                            <div class="service-slide card-bg-a" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                @if($notice->url)
-                                    <a href="{{$notice->url}}">
-                                        <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
-                                    </a>
-                                @else
-                                    <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
+                                @if($notice->image)
+                                    <div class="service-slide card-bg-a" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                        @if($notice->url)
+                                            <a href="{{$notice->url}}">
+                                                <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
+                                            </a>
+                                        @else
+                                            <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
+                                        @endif
+                                    </div>
                                 @endif
-                            </div>
                             @endforeach
                         </div>
                     </div>

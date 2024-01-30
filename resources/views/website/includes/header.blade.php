@@ -1,4 +1,4 @@
-<header class="@if(request()->routeIs('website')) nav-bg-b @else nav-bg-w @endif main-header navfix fixed-top menu-white">
+<header class="@if(request()->routeIs('website') && !request()->query('search')) nav-bg-b @else nav-bg-w @endif main-header navfix fixed-top menu-white">
     <div class="container m-pad">
         <div class="menu-header">
             <div class="dsk-logo"><a class="nav-brand" href="./">

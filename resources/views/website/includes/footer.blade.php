@@ -34,26 +34,12 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-sm-6 pt-3">
-                <h5>Company</h5>
-                <ul class="footer-address-list link-hover">
-                    <li><a href="get-quote.html">Contact</a></li>
-                    <li><a href="javascript:void(0)">Customer's FAQ</a></li>
-                    <li><a href="javascript:void(0)">Refund Policy</a></li>
-                    <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                    <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-                    <li><a href="javascript:void(0)">License & Copyright</a></li>
-                </ul>
+                <h5>Our Services</h5>
+                {{ menu('our-services', 'menu.footer_meu') }}
             </div>
             <div class="col-lg-2 col-sm-6 pt-3">
-                <h5>Company</h5>
-                <ul class="footer-address-list link-hover">
-                    <li><a href="get-quote.html">Contact</a></li>
-                    <li><a href="javascript:void(0)">Customer's FAQ</a></li>
-                    <li><a href="javascript:void(0)">Refund Policy</a></li>
-                    <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                    <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-                    <li><a href="javascript:void(0)">License & Copyright</a></li>
-                </ul>
+                <h5>Useful Links</h5>
+                {{ menu('useful-links', 'menu.footer_meu') }}
             </div>
             <div class="col-lg-12 col-sm-12">
                 <div class="row fttlnks flexend">

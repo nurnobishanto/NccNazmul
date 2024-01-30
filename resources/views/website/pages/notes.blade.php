@@ -5,7 +5,7 @@
 
 
     <!-- Start Blog Area -->
-    <div class="blog-area ptb-100">
+    <div class="notes pad-tb">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="table-responsive">

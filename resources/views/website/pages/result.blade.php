@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="blog-area ptb-100">
+    @include('website.includes.breadcrumb',['title' => $data->exam_paper->name,'url'=>'#'])
+    <div class="portfolio-page pad-tb">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9">
-                    <h1 class="text-center">{{ $data->exam_paper->name }}</h1>
                     <p>{!! $data->exam_paper->description !!}</p>
                 </div>
                 <div class="col-md-4">
@@ -21,8 +21,8 @@
                                 <tr><th>Correct :</th><th>{{ $data->ca }}</th></tr>
                                 <tr><th>Wrong :</th><th>{{ $data->wa }}</th></tr>
                                 <tr><th>Avoid :</th><th>{{ $data->na }}</th></tr>
-                                <tr><th>Submitted :</th><th>{{ date('d M Y, h:m A', strtotime($data->created_at)) }}</th></tr>
-                                <tr><th>Duration :</th><th>{{ floor($data->duration / 60) }} Minutes {{ $data->duration % 60 }} Seconds</th></tr>
+                                <tr><th>Submitted :</th><td>{{ date('d M Y, h:m A', strtotime($data->created_at)) }}</td></tr>
+                                <tr><th>Duration :</th><td>{{ floor($data->duration / 60) }} Minutes {{ $data->duration % 60 }} Seconds</td></tr>
                                 <tr><td colspan="2">{{getResultAttemptDetails($data)}}</td></tr>
                             </table>
                                 <div class="progress" style="height: 50px">
@@ -87,35 +87,44 @@
                                 $rowClass = $cans === $sans ? 'border-5 border border-success' : ($sans === 'none' ? ' border-5 border border-warning ' : 'border-5 border border-danger');
                                 $textClass = $cans === $sans ? 'text-success' : ($sans === 'none' ? 'text-warning ' : 'text-danger');
                                 @endphp
-                                <div class="row border m-1 {{ $rowClass }}">
+                                <div class="row  gap-2 m-1 {{ $rowClass }}">
                                     <div>
                                         @if ($question->image)
-                                            <div>
-                                                <img style="max-height:250px;" src="{{ asset('uploads/'.$question->image) }}"
-                                                     alt="{{ $question->name }}">
-                                            </div>
+                                            <a href="{{ asset('uploads/'.$question->image) }}" target="_blank">
+                                                <div>
+                                                    <img class="img-thumbnail m-2 mx-auto d-block" style="max-height: 250px" src="{{ asset('uploads/'.$question->image) }}"
+                                                         alt="{{ $question->name }}">
+                                                </div>
+                                            </a>
+
                                         @endif
-                                        <div>{!! $question->description !!}</div>
-                                        <strong>{{$count}}) {{ $question->name }} </strong>
+                                        <div class="mt-2">{!! $question->description !!}</div>
+                                        <div  class="my-2">
+                                            <strong>{{$count}}) {{ $question->name }} </strong>
+                                        </div>
+
                                     </div>
-                                <div class="col-md-6">
+                                <div class="col-sm-5">
                                     <div class="@if($question->$cans == $question->op1) border border-2 border-success @endif @if(($question->$sans == $question->op1) && ($question->$cans == $question->op1) ) bg-success text-light @elseif(($question->$sans == $question->op1) && ($question->$cans != $question->op1)) bg-danger text-light @else bg-light text-dark @endif  rounded p-2 ">
                                         <strong>i) {{ $question->op1 }} </strong>
                                     </div>
-                                    <div class="@if($question->$cans == $question->op2) border border-2 border-success @endif  mt-2 @if(($question->$sans == $question->op2) && ($question->$cans == $question->op2)) bg-success text-light @elseif(($question->$sans == $question->op2) && ($question->$cans != $question->op2)) bg-danger text-light @else bg-light text-dark  @endif  rounded p-2 ">
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="@if($question->$cans == $question->op2) border border-2 border-success @endif   @if(($question->$sans == $question->op2) && ($question->$cans == $question->op2)) bg-success text-light @elseif(($question->$sans == $question->op2) && ($question->$cans != $question->op2)) bg-danger text-light @else bg-light text-dark  @endif  rounded p-2 ">
                                         <strong>ii) {{ $question->op2 }} </strong>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-sm-5">
                                     <div class="@if($question->$cans == $question->op3) border border-2 border-success @endif @if(($question->$sans == $question->op3) && ($question->$cans == $question->op3)) bg-success text-light @elseif(($question->$sans == $question->op3) && ($question->$cans != $question->op3)) bg-danger text-light @else bg-light text-dark  @endif  rounded p-2 ">
                                         <strong>iii) {{ $question->op3 }} </strong>
                                     </div>
-                                    <div class="@if($question->$cans == $question->op4) border border-2 border-success @endif  mt-2 @if(($question->$sans == $question->op4) && ($question->$cans == $question->op4)) bg-success text-light @elseif(($question->$sans == $question->op4) && ($question->$cans != $question->op4)) bg-danger text-light @else bg-light text-dark  @endif  rounded p-2 ">
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="@if($question->$cans == $question->op4) border border-2 border-success @endif @if(($question->$sans == $question->op4) && ($question->$cans == $question->op4)) bg-success text-light @elseif(($question->$sans == $question->op4) && ($question->$cans != $question->op4)) bg-danger text-light @else bg-light text-dark  @endif  rounded p-2 ">
                                         <strong>iv) {{ $question->op4 }} </strong>
                                     </div>
-
                                 </div>
-                                <strong>
+                                <strong class="my-2">
                                     @if($question->$sans)
                                     <span class="{{$textClass}}">Your Answer: {{ $question->$sans }}</span><br>
                                     @else
@@ -127,7 +136,14 @@
                                 <div>Explain : {{$question->explain}}</div>
                                 @endif
                                 @if($question->explain_img)
-                                <img src="{{asset('uploads/'.$question->explain_img)}}" style="max-height:250px;">
+                                    <div class="m-2">
+                                        <a href="{{asset('uploads/'.$question->explain_img)}}" target="_blank">
+                                            <img src="{{asset('uploads/'.$question->explain_img)}}"  style="max-height: 200px" class="img-thumbnail   mx-auto d-block">
+                                        </a>
+
+                                    </div>
+
+
                                 @endif
 
                             </div>

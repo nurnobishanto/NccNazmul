@@ -19,10 +19,13 @@ Route::post('/increment-download-count',[\App\Http\Controllers\ContactController
 Route::get('/login',function (){ return redirect('portal/login'); })->name('login');
 Route::get('/register',function (){ return redirect('portal/register'); })->name('register');
 Route::get('/', [App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
+Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'view_page'])->name('website.page');
+Route::get('/admin/pages/{page}/editor', [App\Http\Controllers\PageController::class, 'editor'])->name('website.page.editor');
 Route::get('/blog', [App\Http\Controllers\WebsiteController::class, 'blog'])->name('blog');
 Route::get('/exam', [App\Http\Controllers\WebsiteController::class, 'exam'])->name('exam');
 Route::get('/ebook', [App\Http\Controllers\WebsiteController::class, 'ebook'])->name('ebook');
 Route::get('/notes', [App\Http\Controllers\WebsiteController::class, 'notes'])->name('notes');
+Route::get('/notice', [App\Http\Controllers\WebsiteController::class, 'notice'])->name('notice');
 Route::get('/categories', [App\Http\Controllers\WebsiteController::class, 'category_clouds'])->name('website.category_clouds');
 Route::get('/category/{slug}', [App\Http\Controllers\WebsiteController::class, 'category'])->name('website.category');
 Route::get('/author/{slug}', [App\Http\Controllers\WebsiteController::class, 'author'])->name('website.author');

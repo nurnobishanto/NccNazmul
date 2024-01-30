@@ -4,11 +4,13 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
+use App\Models\ExamPaper;
 use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -24,24 +26,20 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->required()
+                    ->required()->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('gjs_data')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('meta_title')
+                    ->unique(ignoreRecord: true)
+                    ->maxLength(255)
+                    ->visibleOn(['edit','view']),
+                Forms\Components\TextInput::make('meta_title')->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('meta_description')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+                    ->maxLength(65535),
                 Forms\Components\Textarea::make('meta_keyword')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('meta_image')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+                    ->maxLength(65535),
+                Forms\Components\FileUpload::make('meta_image')->image(),
             ]);
     }
 
@@ -72,7 +70,13 @@ class PageResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
+                Action::make('editor')
+                    ->url(fn (Page $record): string => route('website.page.editor', $record)),
+                Action::make('visit')
+                    ->url(fn (Page $record): string => route('website.page', $record->slug)),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

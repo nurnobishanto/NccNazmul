@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use Dotlogics\Grapesjs\App\Traits\EditorTrait;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,14 @@ class PageController extends Controller
     {
         return $this->show_gjs_editor($request, $page);
     }
-//<style type="text/css">
-//{!! $page->css !!}
-//</style>
-//
-//{!! $page->html !!}
+    public function view_page($slug)
+    {
+        $page = Page::where('slug',$slug)->first();
+        if ($page){
+            return view('website.pages.custom_page',compact(['page']));
+        }else{
+            return view('website.pages.404');
+        }
+
+    }
 }

@@ -41,6 +41,7 @@ class NoticeResource extends Resource
 
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->imageCropAspectRatio('1:1')
                     ->imageEditor(),
             ]);
     }
