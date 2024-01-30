@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('upazila')->nullable();
             $table->string('postOffice')->nullable();
             $table->string('postCode')->nullable();
+            $table->unsignedBigInteger('shipping_address_id')->nullable();
+            $table->unsignedBigInteger('billing_address_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

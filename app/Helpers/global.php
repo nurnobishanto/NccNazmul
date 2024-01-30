@@ -29,6 +29,14 @@ if (!function_exists('formatDuration')) {
         return $duration;
     }
 }
+if (!function_exists('getCourseCategories')) {
+    function getCourseCategories()
+    {
+        $data = \App\Models\CourseCategory::orderBy('order','asc')->get();
+
+        return $data;
+    }
+}
 if (!function_exists('getNotice')) {
     function getNotice()
     {

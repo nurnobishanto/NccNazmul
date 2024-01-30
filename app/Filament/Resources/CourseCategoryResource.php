@@ -2,11 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\NoticeResource\Pages;
-use App\Filament\Resources\NoticeResource\RelationManagers;
-use App\Models\Notice;
+use App\Filament\Resources\CourseCategoryResource\Pages;
+use App\Filament\Resources\CourseCategoryResource\RelationManagers;
+use App\Models\CourseCategory;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -14,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class NoticeResource extends Resource
+class CourseCategoryResource extends Resource
 {
-    protected static ?string $model = Notice::class;
+    protected static ?string $model = CourseCategory::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,25 +23,21 @@ class NoticeResource extends Resource
     {
         return $form
             ->schema([
-
                 Forms\Components\TextInput::make('title')
-                    ->required()->columnSpanFull()
+                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->unique(ignoreRecord: true)
-                    ->maxLength(255)->visibleOn(['edit','view']),
-                Forms\Components\RichEditor::make('description')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('url')
-                    ->url()
-                    ->maxLength(255),
-
+                    ->maxLength(255)
+                    ->visibleOn(['edit','view']),
+                Forms\Components\TextInput::make('order')
+                    ->numeric(),
+                Forms\Components\Textarea::make('description'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->imageCropAspectRatio('1:1')
                     ->imageEditor(),
+
             ]);
     }
 
@@ -54,8 +49,9 @@ class NoticeResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('url')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('order')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -92,9 +88,9 @@ class NoticeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListNotices::route('/'),
-            'create' => Pages\CreateNotice::route('/create'),
-            'edit' => Pages\EditNotice::route('/{record}/edit'),
+            'index' => Pages\ListCourseCategories::route('/'),
+            'create' => Pages\CreateCourseCategory::route('/create'),
+            'edit' => Pages\EditCourseCategory::route('/{record}/edit'),
         ];
     }
 }

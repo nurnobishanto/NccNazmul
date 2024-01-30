@@ -84,6 +84,19 @@ class User extends Authenticatable implements FilamentUser, JWTSubject
         }
 
     }
+    public function shippingAddress()
+    {
+        return $this->hasOne(Address::class, 'id', 'shipping_address_id');
+    }
+
+    public function billingAddress()
+    {
+        return $this->hasOne(Address::class, 'id', 'billing_address_id');
+    }
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class)->withPivot('lifetime_access', 'access_expiry');
+    }
     public function canAccessPanel(Panel $panel): bool
     {
         //return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();

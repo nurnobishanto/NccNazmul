@@ -41,7 +41,10 @@ class Teacher extends Authenticatable implements FilamentUser
             return asset('website/assets/images/admin.png');
         }
     }
-
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
     public function canAccessPanel(Panel $panel): bool
     {
         //return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
