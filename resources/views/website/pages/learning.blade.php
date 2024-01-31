@@ -7,36 +7,59 @@
             <div class="row">
                 <div class="col-md-8 col-sm-6">
                     <div class="card">
+                        <div class="card-header">
+                            @if(enrolledCourse($course))
+                                <div class="list-group list-group-horizontal">
+                                    @if($course->facebook_group)
+                                        <li class="list-group-item"><a href="{{$course->facebook_group}}" target="blank"><img width="48" src="{{asset('icons/groups.png')}}" alt="Facebook Group"></a></li>
+                                    @endif
+                                    @if($course->whatsapp_group_link)
+                                        <li class="list-group-item"><a href="{{$course->whatsapp_group_link}}" target="blank"><img width="48" src="{{asset('icons/whatsapp.png')}}" alt="Whats App Group"></a></li>
+                                    @endif
+                                    @if($course->youtube_playlist)
+                                        <li class="list-group-item"><a href="{{$course->youtube_playlist}}" target="blank"><img width="48" src="{{asset('icons/youtube.png')}}" alt="Youtube"></a></li>
+                                    @endif
+                                    @if($course->meet_link)
+                                        <li class="list-group-item"><a href="{{$course->meet_link}}" target="blank"><img width="48" src="{{asset('icons/meet.png')}}" alt="Meet"></a></li>
+                                    @endif
+                                    @if($course->zoom_link)
+                                        <li class="list-group-item"><a href="{{$course->zoom_link}}" target="blank"><img width="48" src="{{asset('icons/zoom.png')}}" alt="Zoom"></a></li>
+                                    @endif
+                                </div>
+                            @endif
+                        </div>
                         <div class="card-body">
                             @if($course_item && $course_item->status == 'published' && $course_item->published_at < date('Y-m-d'))
                                 <h4>{{$course_item->title}}</h4>
+                                @if($course_item->image)
+                                    <img class="img-fluid" src="{{asset('uploads/'.$course_item->image)}}" alt="{{$course_item->title}}">
+                                @endif
                                 @if($course_item->details)
                                 <p>{!! $course_item->details !!}</p>
                                 @endif
-                                @if($course_item->image)
-                                <img class="img-fluid" src="{{asset('uploads/'.$course_item->image)}}" alt="{{$course_item->title}}">
-                                @endif
+
                                 @if($course_item->pdf)
-                                <img class="img-fluid" src="{{asset('uploads/'.$course_item->pdf)}}" alt="{{$course_item->title}}">
+                                    <a class="btn-main bg-btn3 mt10" target="_blank" href="{{asset('uploads/'.$course_item->pdf)}}">Download PDF</a>
                                 @endif
                                 @if($course_item->file)
-                                <img class="img-fluid" src="{{asset('uploads/'.$course_item->file)}}" alt="{{$course_item->title}}">
+                                    <a class="btn-main bg-btn2 mt10" target="_blank" href="{{asset('uploads/'.$course_item->file)}}">Download File</a>
                                 @endif
                                 @if($course_item->url)
-                                <a class="btn-main bg-btn1 mt10" href="{{$course_item->url}}">Learn More</a>
+                                <a class="btn-main bg-btn1 mt10" target="_blank" href="{{$course_item->url}}">Learn More</a>
                                 @endif
                                 @if($course_item->youtube_video)
-                                <a class="btn-main bg-btn2  mt10" href="{{$course_item->youtube_video}}">Youtube Video</a>
+                                <a class="btn-main bg-btn2  mt10" target="_blank" href="{{$course_item->youtube_video}}">Youtube Video</a>
                                 @endif
                                 @if($course_item->youtube_playlist)
-                                <a class="btn-main bg-btn3  mt10" href="{{$course_item->youtube_playlist}}">Youtube Play List</a>
+                                <a class="btn-main bg-btn3  mt10" target="_blank" href="{{$course_item->youtube_playlist}}">Youtube Play List</a>
                                 @endif
                                 @if($course_item->exam_paper_id)
-                                <a class="btn-main bg-btn3 lnk w-100 mt10" href="{{$course_item->exam_paper_id}}">Take Exam</a>
+                                <a class="btn-main bg-btn3 mt10" target="_blank" href="{{ route('start', ['id' => $course_item->exam_paper_id]) }}">Take Exam</a>
+                                <a class="btn-main bg-btn2 mt10" target="_blank" href="{{ route('results', ['id' => $course_item->exam_paper_id]) }}">See Results</a>
                                 @endif
                             @elseif($course_item && $course_item->status == 'published' && $course_item->published_at > date('Y-m-d'))
                                 <h4 class="text-center text-success">Publish soon</h4>
-                            @elseif($course_item->status == 'draft')
+                            @elseif($course_item && $course_item->status == 'draft')
                                 <h4 class="text-center text-success">Not published yet</h4>
                             @else
                                 <h4 class="text-center text-success">Select Item first to learn...</h4>

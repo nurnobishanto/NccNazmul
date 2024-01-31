@@ -21,7 +21,6 @@ class Login extends BaseAuth
             ])
             ->statePath('data');
     }
-
     protected function getLoginFormComponent(): Component
     {
         return TextInput::make('login')

@@ -43,7 +43,7 @@ class CourseItemResource extends Resource
 //                    ->relationship('module','title'),
                 Forms\Components\RichEditor::make('details')->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')->image()->imageEditor(),
-                Forms\Components\FileUpload::make('pdf')->acceptedFileTypes(['pdf']),
+                Forms\Components\FileUpload::make('pdf')->acceptedFileTypes(['application/pdf']),
 //                Forms\Components\FileUpload::make('video'),
 //                Forms\Components\FileUpload::make('file'),
                 Forms\Components\Select::make('exam_paper_id')->relationship('exam_paper','name'),

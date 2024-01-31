@@ -9,7 +9,7 @@ use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 if (!function_exists('enrolledCourse')){
     function enrolledCourse($course){
-        return true;
+        return $course->users->contains(auth()->id());;
     }
 }
 if (!function_exists('formatDuration')) {

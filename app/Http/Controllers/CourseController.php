@@ -34,6 +34,11 @@ class CourseController extends Controller
     public function course(Request $request, $slug){
         $data = array();
         $course = Course::where('slug',$slug)->first();
+        if (!$course){
+            SEOTools::setTitle('404');
+            SEOTools::setDescription(getSetting('site_description'));
+            return view('website.pages.404');
+        }
         $offer = 0;
         if ($course){
             $code  = $request->code;
@@ -66,7 +71,11 @@ class CourseController extends Controller
             $data['course_item'] = $course_item;
         }
         $course = Course::where('slug',$slug)->first();
+
         if ($course){
+            if (!enrolledCourse($course)){
+                return redirect(route('course',['slug' => $slug]));
+            }
             $data['course'] = $course;
             SEOTools::setTitle($course->title);
             SEOTools::setDescription(getSetting('site_description'));

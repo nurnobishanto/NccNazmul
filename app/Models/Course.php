@@ -35,6 +35,10 @@ class Course extends Model
     {
         return $this->hasMany(CourseModule::class);
     }
+    public function items()
+    {
+        return $this->hasMany(CourseItem::class);
+    }
 
     public function category()
     {
