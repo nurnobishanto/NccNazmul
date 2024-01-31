@@ -10,7 +10,7 @@
                             <h1>Page not Found</h1>
                             <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
                             <div class="images mt20">
-                                <img src="{{route('website')}}/images/shape/error-page.png" alt="error page" class="img-fluid"/>
+                                <img src="{{route('website')}}/website/images/shape/error-page.png" alt="error page" class="img-fluid"/>
                             </div>
                             <a href="{{route('website')}}" class="btn-outline">Back to Home</a>
                         </div>

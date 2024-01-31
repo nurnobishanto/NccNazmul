@@ -30,7 +30,9 @@ class TeacherResource extends Resource
                 Forms\Components\TextInput::make('tagline')
                     ->required()
                     ->placeholder('Enter name'),
-                Forms\Components\FileUpload::make('image')->image()->imageCropAspectRatio('1:1'),
+                Forms\Components\TextInput::make('email')->email()->required()->unique(ignoreRecord: true),
+               // Forms\Components\TextInput::make('password')->required(),
+                Forms\Components\FileUpload::make('image')->image()->imageCropAspectRatio('1:1')->imageEditor(),
             ]);
     }
 

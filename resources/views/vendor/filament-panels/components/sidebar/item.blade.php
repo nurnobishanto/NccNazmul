@@ -25,7 +25,7 @@
             'fi-sidebar-item',
             // @deprecated `fi-sidebar-item-active` has been replaced by `fi-active`.
             'fi-active fi-sidebar-item-active' => $active,
-            'flex flex-col gap-y-1' => $active || $activeChildItems,
+            'flex flex-col ' => $active || $activeChildItems,
         ])
     }}
 >
@@ -124,7 +124,7 @@
     </a>
 
     @if (($active || $activeChildItems) && $childItems)
-        <ul class="fi-sidebar-sub-group-items flex flex-col gap-y-1">
+        <ul class="fi-sidebar-sub-group-items flex flex-col">
             @foreach ($childItems as $childItem)
                 <x-filament-panels::sidebar.item
                     :active="$childItem->isActive()"

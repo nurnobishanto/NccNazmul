@@ -26,8 +26,9 @@ class ExamPaperResource extends Resource
 {
     protected static ?string $model = ExamPaper::class;
     protected static ?string $navigationGroup = 'Exam System';
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
     protected static ?int $navigationSort = 4;
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+
 
     public static function form(Form $form): Form
     {
@@ -55,7 +56,9 @@ class ExamPaperResource extends Resource
                     ->searchable()
                     ->columnSpanFull()
                     ->multiple()
-                    ->relationship('questions','name')
+                    ->relationship('questions','name'),
+                TextInput::make('limit')->default(1)->required(),
+                TextInput::make('max_limit')->default(1)->required(),
             ]);
     }
 

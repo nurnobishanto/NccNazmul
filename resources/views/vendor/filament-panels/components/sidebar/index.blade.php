@@ -95,7 +95,7 @@
     </div>
 
     <nav
-        class="fi-sidebar-nav flex-grow flex flex-col gap-y-7 overflow-y-auto overflow-x-hidden px-6 py-8"
+        class="fi-sidebar-nav flex-grow flex flex-col overflow-y-auto overflow-x-hidden px-6 py-8"
         style="scrollbar-gutter: stable"
     >
         {{ \Filament\Support\Facades\FilamentView::renderHook('panels::sidebar.nav.start') }}
@@ -114,7 +114,7 @@
             </div>
         @endif
 
-        <ul class="fi-sidebar-nav-groups -mx-2 flex flex-col gap-y-7">
+        <ul class="fi-sidebar-nav-groups -mx-2 flex flex-col">
             @foreach ($navigation as $group)
                 <x-filament-panels::sidebar.group
                     :collapsible="$group->isCollapsible()"

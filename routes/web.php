@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SiteMapController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,13 @@ Route::get('/', [App\Http\Controllers\WebsiteController::class, 'index'])->name(
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'view_page'])->name('website.page');
 Route::get('/admin/pages/{page}/editor', [App\Http\Controllers\PageController::class, 'editor'])->name('website.page.editor');
 Route::get('/blog', [App\Http\Controllers\WebsiteController::class, 'blog'])->name('blog');
+
+Route::get('/courses', [App\Http\Controllers\CourseController::class, 'courses'])->name('courses');
+Route::get('/course-category/{slug}', [App\Http\Controllers\CourseController::class, 'course_category'])->name('course_category');
+Route::get('/course/{slug}', [App\Http\Controllers\CourseController::class, 'course'])->name('course');
+Route::post('/course/{id}', [App\Http\Controllers\CourseController::class, 'course_enroll'])->name('course_enroll')->middleware('auth');
+Route::get('/learn/{slug}', [App\Http\Controllers\CourseController::class, 'learn'])->name('learn')->middleware(['auth']);
+
 Route::get('/exam', [App\Http\Controllers\WebsiteController::class, 'exam'])->name('exam');
 Route::get('/ebook', [App\Http\Controllers\WebsiteController::class, 'ebook'])->name('ebook');
 Route::get('/notes', [App\Http\Controllers\WebsiteController::class, 'notes'])->name('notes');
@@ -53,5 +61,9 @@ Route::post('/download', [App\Http\Controllers\ExamController::class, 'download'
 Route::get('/question-pdf/{id}', [App\Http\Controllers\WebsiteController::class, 'generatePDFquestion'])->name('question');
 Route::get('/rank-pdf/{id}', [App\Http\Controllers\WebsiteController::class, 'generatePDFrank'])->name('rankpdf');
 Route::get('/resultCardPdf/{id}', [App\Http\Controllers\WebsiteController::class, 'generatePDFresultCardPdf'])->name('resultCardPdf');
+
+Route::get('/payment/{id}',[PaymentController::class,'payment'])->name('payment');
+Route::get('/payment/success/{id}',[PaymentController::class,'success'])->name('success');
+
 Route::get('sitemap',[SiteMapController::class,'generateSitemap']);
 Route::get('/{slug}', [App\Http\Controllers\WebsiteController::class, 'post'])->name('website.post');

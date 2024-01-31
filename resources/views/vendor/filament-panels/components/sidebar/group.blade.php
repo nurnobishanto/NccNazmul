@@ -9,7 +9,7 @@
 <li
     x-data="{ label: @js($label) }"
     data-group-label="{{ $label }}"
-    {{ $attributes->class(['fi-sidebar-group flex flex-col gap-y-1']) }}
+    {{ $attributes->class(['fi-sidebar-group flex flex-col ']) }}
 >
     @if ($label)
         <div
@@ -63,7 +63,7 @@
             x-transition:enter-end="opacity-100"
         @endif
         x-collapse.duration.200ms
-        class="fi-sidebar-group-items flex flex-col gap-y-1"
+        class="fi-sidebar-group-items flex flex-col "
     >
         @foreach ($items as $item)
             <x-filament-panels::sidebar.item

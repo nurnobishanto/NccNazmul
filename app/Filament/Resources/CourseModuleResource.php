@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CourseCategoryResource\Pages;
-use App\Filament\Resources\CourseCategoryResource\RelationManagers;
-use App\Models\CourseCategory;
+use App\Filament\Resources\CourseModuleResource\Pages;
+use App\Filament\Resources\CourseModuleResource\RelationManagers;
+use App\Models\CourseModule;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,32 +13,29 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CourseCategoryResource extends Resource
+class CourseModuleResource extends Resource
 {
-    protected static ?string $model = CourseCategory::class;
+    protected static ?string $model = CourseModule::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Course Module';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 3;
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->required()
+                    ->required()->columnSpanFull()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->unique(ignoreRecord: true)
-                    ->maxLength(255)
-                    ->visibleOn(['edit','view']),
-                Forms\Components\TextInput::make('order')
-                    ->numeric(),
-                Forms\Components\Textarea::make('description'),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->imageEditor(),
+                Forms\Components\Select::make('course_id')->relationship('course','title')->required(),
 
+                Forms\Components\TextInput::make('order')
+                    ->required()
+                    ->numeric()
+                    ->default(1),
+                Forms\Components\Textarea::make('description')
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -46,8 +43,11 @@ class CourseCategoryResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('course.title')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('courses_count')->counts('courses')->searchable(),
+                Tables\Columns\TextColumn::make('items')->counts('items')->sortable(),
                 Tables\Columns\TextColumn::make('order')->numeric()->sortable(),
             ])
             ->filters([
@@ -79,9 +79,9 @@ class CourseCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCourseCategories::route('/'),
-            'create' => Pages\CreateCourseCategory::route('/create'),
-            'edit' => Pages\EditCourseCategory::route('/{record}/edit'),
+            'index' => Pages\ListCourseModules::route('/'),
+            'create' => Pages\CreateCourseModule::route('/create'),
+            'edit' => Pages\EditCourseModule::route('/{record}/edit'),
         ];
     }
 }

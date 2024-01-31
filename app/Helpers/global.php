@@ -7,6 +7,11 @@ use Illuminate\Support\Collection;
 use App\Models\Menu;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
+if (!function_exists('enrolledCourse')){
+    function enrolledCourse($course){
+        return true;
+    }
+}
 if (!function_exists('formatDuration')) {
     function formatDuration($minutes)
     {

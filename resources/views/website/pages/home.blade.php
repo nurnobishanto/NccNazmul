@@ -67,7 +67,7 @@
             <div class="row mt30">
                 @foreach(getCourseCategories() as $category)
                     <div class="col-lg-4 col-sm-6 col-6 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <a href="">
+                        <a href="{{route('course_category',['slug'=>$category->slug])}}">
                             <div class="industry-workfor hoshd">
                                 @if($category->image)
                                 <img src="{{asset('uploads/'.$category->image)}}" alt="{{$category->title}}">

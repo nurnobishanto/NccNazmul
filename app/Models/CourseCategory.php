@@ -14,10 +14,10 @@ class CourseCategory extends Model
         'name', 'description','image'
     ];
 
-//    public function courses()
-//    {
-//        return $this->hasMany(Course::class);
-//    }
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
     protected static function boot()
     {
         parent::boot();
