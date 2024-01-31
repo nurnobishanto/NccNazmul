@@ -285,6 +285,7 @@ if (!function_exists('getDivisionOptions')) {
 if (!function_exists('setSetting')) {
     function setSetting($key, $value)
     {
+
         $setting = Setting::updateOrCreate(
             ['key' => $key],
             ['value' => $value]

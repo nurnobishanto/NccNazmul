@@ -72,7 +72,7 @@ class ExamController extends Controller
 
             } else {
                 Session::forget( "exam_paper_password_{$id}");
-                return "Limit Cross";
+                return view('website.pages.no_limit');
 
             }
 

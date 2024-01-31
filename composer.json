@@ -22,7 +22,8 @@
         "mpdf/mpdf": "^8.2",
         "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-sitemap": "^7.1",
-        "tymon/jwt-auth": "^2.0"
+        "tymon/jwt-auth": "^2.0",
+      "ext-curl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -40,7 +41,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/global.php"
+            "app/Helpers/global.php",
+            "app/Helpers/smsHelper.php"
         ]
     },
     "autoload-dev": {

@@ -11,6 +11,12 @@
     @foreach ($editorConfig->getStyles() as $style)
         <link rel="stylesheet" href="{{ $style }}">
     @endforeach
+    <link href="{{asset('website')}}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('website')}}/css/plugin.min.css" rel="stylesheet">
+
+    <!-- template-style-->
+    <link href="{{asset('website')}}/css/style.css" rel="stylesheet">
+    <link href="{{asset('website')}}/css/responsive.css" rel="stylesheet">
 
     <style>
         * {
@@ -77,9 +83,16 @@
 
 <body>
     <div id="{{ str_replace('#', '', $editorConfig->container ?? 'editor') }}"></div>
-    
+
     @foreach ($editorConfig->getScripts() as $script)
         <script src="{{ $script }}"></script>
     @endforeach
+
+    <script src="{{asset('website')}}/js/jquery.min.js"></script>
+    <script src="{{asset('website')}}/js/bootstrap.bundle.min.js"></script>
+
+    <!--common script file-->
+    <script src="{{asset('website')}}/js/main.js"></script>
+    <script src="{{asset('website')}}/js/progress-bar.js"></script>
 </body>
 </html>

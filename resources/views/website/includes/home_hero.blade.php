@@ -22,7 +22,8 @@
                 <div class="hero-heading-sec">
                     <h2 class="wow fadeIn small" data-wow-delay="0.3s">{!! getSetting('home_page_title') !!}</h2>
                     <p class="wow fadeIn" data-wow-delay="0.6s">{!! getSetting('home_page_description') !!}</p>
-                    <a href="case-study.html" class="niwax-btn2 wow fadeIn" data-wow-delay="0.8s">View Case Studies <i class="fas fa-chevron-right fa-ani"></i></a>
+                    <a href="{{route('exam')}}" class="niwax-btn2 wow fadeIn" data-wow-delay="0.5s"> Take Exam <i class="fas fa-chevron-right fa-ani"></i></a>
+                    <a href="{{route('courses')}}" class="btn-outline" > Courses <i class="fas fa-chevron-right fa-ani"></i></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">
