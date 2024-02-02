@@ -39,7 +39,8 @@ class NoticeResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->url()
                     ->maxLength(255),
-
+                Forms\Components\DatePicker::make('published_at')->default(today()),
+                Forms\Components\Select::make('status')->options(['draft' => 'DRAFT','published' => 'PUBLISHED'])->required()->default(1),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->imageCropAspectRatio('1:1')

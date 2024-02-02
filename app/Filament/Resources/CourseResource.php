@@ -33,7 +33,7 @@ class CourseResource extends Resource
                     ->maxLength(255)
                     ->visibleOn(['edit','view']),
                 Forms\Components\Select::make('course_category_id')->relationship('category','title')->required(),
-                Forms\Components\TextInput::make('regular_price')->numeric(),
+                Forms\Components\TextInput::make('regular_price')->numeric()->required(),
                 Forms\Components\TextInput::make('sale_price')->numeric()->required(),
                 Forms\Components\TextInput::make('order')->numeric(),
                 Forms\Components\Select::make('status')->options(['draft' => 'DRAFT', 'published' => 'PUBLISHED'])->required(),

@@ -10,10 +10,8 @@
                         <h4 class="text-center text-light">Time Remaining</h4>
                         <div id="timer" class="flex-wrap d-flex justify-content-center">
 
-                            <div id="countdownMin" class="align-items-center flex-column d-flex justify-content-center btn btn-danger text-light rounded mr15">
-                            </div>
-                            <div id="countdownSec" class="align-items-center flex-column d-flex justify-content-center btn btn-danger text-light rounded ">
-                            </div>
+                            <div id="countdownMin" class=" btn btn-warning text-light rounded-pill m-2"></div>
+                            <div id="countdownSec" class="btn btn-warning text-light rounded-pill m-2"></div>
                         </div>
                     </div>
                 </div>
@@ -39,8 +37,8 @@
                                 } else {
                                     var min = Math.floor(timeleft / 60);
                                     var sec = timeleft % 60;
-                                    document.getElementById("countdownMin").innerHTML = min + "<span>Min</span>";
-                                    document.getElementById("countdownSec").innerHTML = sec + "<span>Sec</span>";
+                                    document.getElementById("countdownMin").innerHTML ="<h2>"+ min + "<span> Min</span></h2>";
+                                    document.getElementById("countdownSec").innerHTML ="<h2>"+ sec + "<span> Sec</span></h2>";
                                 }
                                 timeleft -= 1;
                             }, 1000);

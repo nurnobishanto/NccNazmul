@@ -84,6 +84,9 @@ class User extends Authenticatable implements FilamentUser, JWTSubject
         }
 
     }
+    static public function address(){
+        return " - ";
+    }
     public function shippingAddress()
     {
         return $this->hasOne(Address::class, 'id', 'shipping_address_id');

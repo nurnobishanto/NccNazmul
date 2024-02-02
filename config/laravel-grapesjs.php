@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'expose_api' => true,
+    'expose_api' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'force_class' => true,
+    'force_class' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -159,9 +159,9 @@ return [
     'plugins' => [
         'default' => [
             'basic_blocks' => true,
-            'bootstrap4_blocks' => true,
+            'bootstrap4_blocks' => false,
             'code_editor' => true,
-            'image_editor' => true,
+            'image_editor' => false,
             'custom_fonts' => [],
             'templates' => true,
         ],

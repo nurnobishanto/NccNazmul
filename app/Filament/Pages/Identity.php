@@ -8,6 +8,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Mpdf\Tag\Select;
 
 class Identity extends Page
 {
@@ -33,7 +34,15 @@ class Identity extends Page
     public $site_instagram;
     public $site_linkedin;
     public $site_youtube;
+    public $preloading;
     public $preloading_text;
+    public $preloading_image;
+
+    public $app_url;
+    public $app_ssl;
+    public $app_env;
+    public $app_debug;
+    public $lead_popup;
 
     public function mount()
     {
@@ -48,7 +57,16 @@ class Identity extends Page
             'site_footer_logo' => getSetting('site_footer_logo'),
             'site_footer_dark_logo' => getSetting('site_footer_dark_logo'),
             'site_favicon' => getSetting('site_favicon'),
+            'preloading' => env('PRE_LOADING'),
+
+            'app_url' => env('APP_URL')??route('website'),
+            'app_ssl' => env('APP_SSL'),
+            'app_env' => env('APP_ENV'),
+            'app_debug' => env('APP_DEBUG'),
+            'lead_popup' => env('LEAD_POPUP'),
+
             'preloading_text' => getSetting('preloading_text'),
+            'preloading_image' => getSetting('preloading_image'),
             'site_phone' => getSetting('site_phone'),
             'site_phone_2' => getSetting('site_phone_2'),
             'site_email' => getSetting('site_email'),
@@ -67,6 +85,7 @@ class Identity extends Page
         $site_footer_logo = $state['site_footer_logo'];
         $site_footer_dark_logo = $state['site_footer_dark_logo'];
         $site_favicon = $state['site_favicon'];
+        $preloading_image = $state['preloading_image'];
 
         setSetting('site_title',$this->site_title);
         setSetting('site_tagline',$this->site_tagline);
@@ -79,6 +98,7 @@ class Identity extends Page
         setSetting('site_footer_dark_logo',$site_footer_dark_logo);
         setSetting('site_favicon',$site_favicon);
         setSetting('preloading_text',$this->preloading_text);
+        setSetting('preloading_image',$preloading_image);
         setSetting('site_phone',$this->site_phone);
         setSetting('site_phone_2',$this->site_phone_2);
         setSetting('site_email',$this->site_email);
@@ -87,6 +107,14 @@ class Identity extends Page
         setSetting('site_instagram',$this->site_instagram);
         setSetting('site_linkedin',$this->site_linkedin);
         setSetting('site_youtube',$this->site_youtube);
+        setEnv('PRE_LOADING',$this->preloading);
+        setEnv('APP_NAME',$this->site_title);
+        setEnv('APP_URL',$this->app_url);
+        setEnv('APP_SSL',$this->app_ssl);
+        setEnv('APP_ENV',$this->app_env);
+
+        setEnv('APP_DEBUG',$this->app_debug);
+        setEnv('LEAD_POPUP',$this->lead_popup);
 
         Notification::make()
             ->title('Saved successfully')
@@ -96,7 +124,9 @@ class Identity extends Page
     protected function getFormSchema(): array
     {
         return [
+
             Section::make('General')
+                ->collapsible()
                 ->columns([
                     'sm' => 1,
                     'md' => 2
@@ -139,6 +169,12 @@ class Identity extends Page
                         ->image()
                         ->maxSize( 200) // 200 KB (200 * 1024 bytes)
                         ->imageCropAspectRatio('1:1'),
+                    FileUpload::make('preloading_image')
+                        ->label('Site Preload Image (preloading_image)')
+                        ->image()
+                        ->maxSize( 200) // 200 KB (200 * 1024 bytes)
+                        ->imageCropAspectRatio('1:1'),
+                    \Filament\Forms\Components\Select::make('preloading')->options(['show'=>'SHOW','hide' => "HIDE"]),
                     Textarea::make('preloading_text')
                         ->label('Site Pre Loading Text (preloading_text)')
                         ->placeholder('Enter Site Pre Loading Text'),
@@ -146,6 +182,7 @@ class Identity extends Page
 
                 ]),
             Section::make('Contact Information')
+                ->collapsible()
                 ->columns([
                     'sm' => 1,
                     'md' => 2
@@ -184,6 +221,39 @@ class Identity extends Page
 
 
 
+                ]),
+            Section::make('App Settings')
+                ->columns([
+                    'sm' => 1,
+                    'md' => 2
+                ])
+                ->collapsible()
+                ->schema([
+                    \Filament\Forms\Components\Select::make('app_url')
+                        ->options([
+                            'http://localhost' => 'Localhost',
+                            route('website') => 'Production',
+                        ])->required(),
+                    \Filament\Forms\Components\Select::make('app_ssl')
+                        ->options([
+                            'http' => 'HTTP',
+                            'https' => 'HTTPS',
+                        ])->required(),
+                    \Filament\Forms\Components\Select::make('app_env')
+                        ->options([
+                            'local' => 'Local',
+                            'production' => 'Production',
+                        ])->required(),
+                    \Filament\Forms\Components\Radio::make('app_debug')
+                        ->options([
+                            'true' => 'Debug ON',
+                            'false' => 'Debug OFF',
+                        ])->required(),
+                    \Filament\Forms\Components\Radio::make('lead_popup')
+                        ->options([
+                            'true' => 'Show',
+                            'false' => 'Hide',
+                        ])->required(),
                 ]),
 
         ];

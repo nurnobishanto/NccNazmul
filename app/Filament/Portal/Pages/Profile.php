@@ -79,7 +79,7 @@ class Profile extends Page
         ];
 
         // Add validation rule for current_password only if new_password is not null
-        if ($this->new_password !== null) {
+        if ($this->new_password != null) {
             $rules['current_password'] = 'required|string|min:8';
         }
 
@@ -88,9 +88,7 @@ class Profile extends Page
             'user_id' => $this->user_id,
             'name' => $this->name,
             'email' => $this->email,
-            'phone_number' => $this->phone_number,
             'gender' => $this->gender,
-
             'batch' => $this->batch,
             'college' => $this->college,
             'division_id' => $this->division_id,
@@ -98,17 +96,22 @@ class Profile extends Page
             'upazila' => $this->upazila,
             'postCode' => $this->postCode,
             'postOffice' => $this->postOffice,
-            'password' => $this->new_password ? Hash::make($this->new_password) : null,
         ]);
 
         $user = auth()->user();
-
+        if (number_validation($this->phone_number)){
+            $user->phone_number = number_validation($this->phone_number);
+            $user->update();
+        }
         $user->update($data);
 
+        if ($this->new_password){
+            $user->password = Hash::make($this->new_password);
+            $user->update();
+        }
         if ($this->new_password) {
             $this->updateSessionPassword($user);
         }
-
         $this->reset(['current_password', 'new_password', 'new_password_confirmation']);
         Notification::make()
             ->title('Saved successfully')

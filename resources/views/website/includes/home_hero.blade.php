@@ -5,13 +5,13 @@
             @if(getNotice()->count())
             <div class="col-lg-12">
                 <div class="mb10">
-                    <h6 style="z-index: 0.001;" class="px-2 position-absolute btn btn-danger" >Headline</h6>
-                    <marquee class="text-dark bg-white rounded" >
+                    <h6 style="z-index: 1;" class="px-2 position-absolute btn btn-danger" >Headline</h6>
+                    <marquee class="text-dark bg-white rounded px-2 btn" >
                         @foreach(getNotice() as $notice)
                             @if($notice->url)
-                                <a class="btn btn-warning" href="{{$notice->url}}">{{$notice->title}}</a> {{strip_tags($notice->description)}}
+                                <a class="btn btn-info text-light" href="{{$notice->url}}">{{$notice->title}}</a> {{strip_tags($notice->description)}}
                             @else
-                                <a class="btn btn-warning" href="">{{$notice->url}}</a> {{strip_tags($notice->description)}}
+                                 <strong>{{$notice->title}}</strong> {{strip_tags($notice->description)}}
                             @endif
                         @endforeach
                     </marquee>
@@ -22,8 +22,8 @@
                 <div class="hero-heading-sec">
                     <h2 class="wow fadeIn small" data-wow-delay="0.3s">{!! getSetting('home_page_title') !!}</h2>
                     <p class="wow fadeIn" data-wow-delay="0.6s">{!! getSetting('home_page_description') !!}</p>
-                    <a href="{{route('exam')}}" class="niwax-btn2 wow fadeIn" data-wow-delay="0.5s"> Take Exam <i class="fas fa-chevron-right fa-ani"></i></a>
-                    <a href="{{route('courses')}}" class="btn-outline" > Courses <i class="fas fa-chevron-right fa-ani"></i></a>
+                    <a href="{{route('exam')}}" class="niwax-btn2 wow fadeIn"> Take Exam <i class="fas fa-chevron-right fa-ani"></i></a>
+                    <a href="{{route('courses')}}" class="niwax-btn3 wow fadeIn"> Courses <i class="fas fa-chevron-right fa-ani"></i></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">

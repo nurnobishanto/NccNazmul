@@ -13,6 +13,7 @@ use Filament\Notifications\Auth\ResetPassword as ResetPasswordNotification;
 use Filament\Notifications\Notification;
 use Filament\Pages\Auth\PasswordReset\RequestPasswordReset as BaseReset;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
 class RequestPasswordReset extends BaseReset
@@ -55,8 +56,13 @@ class RequestPasswordReset extends BaseReset
             return;
         }
         $data = $this->form->getState();
-        $loginType = filter_var($data['login'], FILTER_VALIDATE_EMAIL) ? 'email' : (is_numeric($data['login']) && strlen($data['login']) === 9 ? 'user_id' : 'phone_number');
-        $user = User::where($loginType,$data['login'])->first();
+        $loginType = filter_var($data['login'], FILTER_VALIDATE_EMAIL) ? 'email' : (is_numeric($data['login']) && strlen($data['login']) < 9 ? 'user_id' : 'phone_number');
+
+        $loginData = $data['login'];
+        if ($loginType == 'phone_number'){
+            $loginData = number_validation($data['login']);
+        }
+        $user = User::where($loginType,$loginData)->first();
         if (!$user){
             Notification::make()
                 ->title('User not found!')
@@ -95,11 +101,27 @@ class RequestPasswordReset extends BaseReset
                 ->send();
 
             $this->form->fill();
-        }else{
-            Notification::make()
-                ->title('Password sent via sms')
-                ->success()
-                ->send();
+        }
+        else{
+            $genPass = 'NCC'.rand(1000,9999).'#';
+            $user->password = Hash::make($genPass);
+            $user->update();
+            $subject = "Reset password";
+            $body = env('APP_NAME').", আপনার নতুন পাসওয়ার্ড : "."<strong>".$genPass."</strong>";
+            if ($user->email){
+                sendPromotionalMail( $user->email,$user->name, $subject,$body);
+                Notification::make()
+                    ->title('Password sent to your email address')
+                    ->success()
+                    ->send();
+            }
+            if ($user->phone_number){
+                send_sms($user->phone_number,$body,'Password Reset');
+                Notification::make()
+                    ->title('Password sent to your phone number')
+                    ->success()
+                    ->send();
+            }
         }
     }
 }

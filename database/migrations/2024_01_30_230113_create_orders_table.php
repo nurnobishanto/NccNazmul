@@ -19,9 +19,12 @@ return new class extends Migration
             $table->unsignedBigInteger('shipping_address_id')->nullable();
             $table->unsignedBigInteger('billing_address_id')->nullable();
             $table->string('payment_method')->nullable();
-            $table->decimal('paid_amount', 10, 2)->nullable();
-            $table->decimal('due', 10, 2)->nullable();
+            $table->decimal('total_amount', 10, 2)->default(0);
+            $table->decimal('payable_amount', 10, 2)->default(0);
+            $table->decimal('paid_amount', 10, 2)->default(0);
+            $table->decimal('due', 10, 2)->default(0);
             $table->decimal('delivery_charge', 10, 2)->default(0);
+            $table->decimal('discount', 10, 2)->default(0);
             $table->text('note')->nullable();
             $table->string('ip')->nullable();
             $table->enum('status', ['draft','pending', 'delivered', 'completed', 'cancelled'])->default('pending');

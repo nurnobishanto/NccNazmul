@@ -31,8 +31,13 @@ class Login extends BaseAuth
     }
     protected function getCredentialsFromFormData(array $data): array
     {
-        $loginType = filter_var($data['login'], FILTER_VALIDATE_EMAIL) ? 'email' : (is_numeric($data['login']) && strlen($data['login']) === 9 ? 'user_id' : 'phone_number');
-        $user = User::where($loginType,$data['login'])->first();
+        $loginType = filter_var($data['login'], FILTER_VALIDATE_EMAIL) ? 'email' : (is_numeric($data['login']) && strlen($data['login']) < 9 ? 'user_id' : 'phone_number');
+        $loginData = $data['login'];
+        if ($loginType == 'phone_number'){
+            $loginData = number_validation($data['login']);
+        }
+        $user = User::where($loginType,$loginData)->first();
+
         if (!$user){
             Notification::make()
                 ->title('User not found!')
@@ -44,8 +49,9 @@ class Login extends BaseAuth
                 ->danger()
                 ->send();
         }
+
         return [
-            $loginType => $data['login'],
+            $loginType => $loginData,
             'password'  => $data['password'],
         ];
     }

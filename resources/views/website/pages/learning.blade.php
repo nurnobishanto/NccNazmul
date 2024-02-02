@@ -8,6 +8,7 @@
                 <div class="col-md-8 col-sm-6">
                     <div class="card">
                         <div class="card-header">
+                            <h5 class="card-title">{{$course_item->title}}</h5>
                             @if(enrolledCourse($course))
                                 <div class="list-group list-group-horizontal">
                                     @if($course->facebook_group)
@@ -29,8 +30,8 @@
                             @endif
                         </div>
                         <div class="card-body">
-                            @if($course_item && $course_item->status == 'published' && $course_item->published_at < date('Y-m-d'))
-                                <h4>{{$course_item->title}}</h4>
+                            @if($course_item && $course_item->status == 'published' && ($course_item->published_at <= date('Y-m-d j:i:s')))
+
                                 @if($course_item->image)
                                     <img class="img-fluid" src="{{asset('uploads/'.$course_item->image)}}" alt="{{$course_item->title}}">
                                 @endif
@@ -86,6 +87,7 @@
                                     <div class="accordion-body">
                                         <div class="data-reqs">
                                             <div class="niwax-list">
+                                                {!! $module->description !!}
                                                 <ul class="key-points">
                                                     @foreach($module->items as $item)
                                                         <li><a href="{{route('learn',['slug'=>$course->slug])}}?item={{$item->id}}">{{$item->title}}</a> </li>

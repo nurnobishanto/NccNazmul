@@ -31,7 +31,9 @@
 <!-- top progress bar end -->
 
 <!--Start Preloader -->
+@if(env('PRE_LOADING') == 'show')
 @include('website.includes.preloader')
+@endif
 <!--End Preloader -->
 <!--Start Header -->
 @include('website.includes.header')

@@ -18,19 +18,29 @@ class Order extends Model
         parent::boot();
 
         static::creating(function ($order) {
-            $order->order_id = static::generateOrderId();
+            $order->order_id = static::generateUniqueOrderId();
         });
     }
 
     // Generate a unique sequential order ID with a serial number
     protected static function generateOrderId()
     {
-        $lastOrderId = static::max('order_id');
-        $lastSerial = intval(substr($lastOrderId, 12));
-        $newSerial = $lastSerial + 1;
-        $orderId = 'ORD' . date('YmdHis') . str_pad($newSerial, 4, '0', STR_PAD_LEFT);
-        return $orderId;
+        return static::max('id') + 1;
     }
+    public static function generateUniqueOrderId()
+    {
+        $currentYear = now()->year % 100;
+        $currentMonth = now()->month;
+        // Format the user ID with a prefix (e.g., 231100001)
+        return sprintf('%02d%02d%04d', $currentYear, $currentMonth, self::generateOrderId());
+    }
+
+
+
+
+
+
+
     public function items()
     {
         return $this->hasMany(OrderItem::class);

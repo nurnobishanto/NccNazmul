@@ -3,9 +3,9 @@
 namespace App\Filament\Portal\Pages\Auth;
 
 use App\Models\Batch;
+use App\Models\User;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Facades\Filament;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Forms\Components\TextInput;
@@ -158,31 +158,53 @@ class Registration extends BaseAuth
         }
         $data = $this->form->getState();
         $loginType = $this->detectLoginType($data['register']);
-        $newData = [
-            'name'            => $data['name'],
-            $loginType        => $data['register'],
-            'password'        => $data['password'],
-            'gender'          => $data['gender'] ?? null,
-            'batch'           => $data['batch'] ?? null,
-            'college'         => $data['college'] ?? null,
-            'division_id'     => $data['division_id'] ?? null,
-            'district_id'     => $data['district_id'] ?? null,
-            'upazila'         => $data['upazila'] ?? null,
-            'postOffice'      => $data['postOffice'] ?? null,
-            'postCode'        => $data['postCode'] ?? null,
-        ];
-        $user = $this->getUserModel()::create($newData);
+        $validationStatus = true;
+        $loginData = $data['register'];
+        if ($loginType == 'phone_number'){
+            $loginData = (number_validation($data['register']));
+            if (!$loginData){
+                $validationStatus = false;
+                Notification::make()
+                    ->title('Invalid Phone Number')
+                    ->danger()
+                    ->send();
+            }
+        }
+        $oldUser = User::where($loginType,$loginData)->first();
+        if ($oldUser){
+            Notification::make()
+                ->title('Already registered')
+                ->danger()
+                ->send();
+        }
+        else if($validationStatus){
+            $newData = [
+                'name'            => $data['name'],
+                $loginType        => $loginData,
+                'password'        => $data['password'],
+                'gender'          => $data['gender'] ?? null,
+                'batch'           => $data['batch'] ?? null,
+                'college'         => $data['college'] ?? null,
+                'division_id'     => $data['division_id'] ?? null,
+                'district_id'     => $data['district_id'] ?? null,
+                'upazila'         => $data['upazila'] ?? null,
+                'postOffice'      => $data['postOffice'] ?? null,
+                'postCode'        => $data['postCode'] ?? null,
+            ];
+            $user = $this->getUserModel()::create($newData);
 
-        app()->bind(
-            \Illuminate\Auth\Listeners\SendEmailVerificationNotification::class,
-           // \Filament\Listeners\Auth\SendEmailVerificationNotification::class,
-        );
-        event(new Registered($user));
+            app()->bind(
+                \Illuminate\Auth\Listeners\SendEmailVerificationNotification::class,
+            // \Filament\Listeners\Auth\SendEmailVerificationNotification::class,
+            );
+            event(new Registered($user));
 
-        Filament::auth()->login($user);
+            Filament::auth()->login($user);
 
-        session()->regenerate();
+            session()->regenerate();
 
+            return app(RegistrationResponse::class);
+        }
         return app(RegistrationResponse::class);
     }
     protected function detectLoginType(string $register): string

@@ -17,4 +17,17 @@ class Payment extends Model
     {
         return $this->belongsTo(Order::class);
     }
+    public static function generateUniqueTransactionID($prefix)
+    {
+        $characters = '0123456789';
+
+        do {
+            $transactionID = $prefix;
+            for ($i = 0; $i < 6; $i++) {
+                $transactionID .= $characters[rand(0, strlen($characters) - 1)];
+            }
+        } while (self::where('transaction_id', $transactionID)->exists());
+
+        return $transactionID;
+    }
 }

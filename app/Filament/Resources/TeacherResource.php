@@ -31,7 +31,7 @@ class TeacherResource extends Resource
                     ->required()
                     ->placeholder('Enter name'),
                 Forms\Components\TextInput::make('email')->email()->required()->unique(ignoreRecord: true),
-               // Forms\Components\TextInput::make('password')->required(),
+                Forms\Components\TextInput::make('password')->required(),
                 Forms\Components\FileUpload::make('image')->image()->imageCropAspectRatio('1:1')->imageEditor(),
             ]);
     }

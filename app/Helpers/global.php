@@ -2,14 +2,69 @@
 
 use App\Models\ExamPaper;
 use Carbon\Carbon;
+use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 
 use App\Models\Menu;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
+if (!function_exists('sendPromotionalMail')){
+    function sendPromotionalMail($toEmail,$toName, $subject,$body){
+        Mail::send('promotionalMail', array(
+            'toName' => $toName,
+            'fromName' => env('MAIL_FROM_NAME'),
+            'subject' => $subject,
+            'body' => $body,
+        ), function($message) use ($toEmail,$subject){
+            $message->from(env('MAIL_FROM_ADDRESS'));
+            $message->to($toEmail, env('MAIL_FROM_NAME'))->subject($subject);
+        });
+        Notification::make()
+            ->title('Email sent successfully!')
+            ->success()
+            ->send();
+    }
+}
+if (!function_exists('setEnv')) {
+    function setEnv($key, $value)
+    {
+        $value = strpos($value, ' ') !== false ? '"' . $value . '"' : $value;
+        $envFilePath = app()->environmentFilePath();
+        $currentEnvFileContent = file_get_contents($envFilePath);
+
+        // Use regex to find the key and replace its value
+        $pattern = "/^{$key}=(.*)/m";
+        $replacement = "{$key}={$value}";
+        $updatedEnvContent = preg_replace($pattern, $replacement, $currentEnvFileContent);
+
+        // If the key does not exist, append it to the end of the file
+        if (strpos($currentEnvFileContent, $key . '=') === false) {
+            $updatedEnvContent .= PHP_EOL . "{$key}={$value}";
+        }
+
+        // Write the updated content back to the environment file
+        file_put_contents($envFilePath, $updatedEnvContent);
+
+        Notification::make()
+            ->title($key.' = '.$value.' Saved successfully')
+            ->success()
+            ->send();
+    }
+}
+
 if (!function_exists('enrolledCourse')){
     function enrolledCourse($course){
-        return $course->users->contains(auth()->id());;
+        $enrolledCourse = \App\Models\CourseUser::where('user_id',auth()->user()->id)->where('course_id',$course->id)->first();
+        if ($enrolledCourse){
+            if ($enrolledCourse->lifetime_access){
+                return true;
+            }else if ($enrolledCourse->access_expiry >= date('Y-m-d')){
+                return true;
+            }
+        }
+        return false;
     }
 }
 if (!function_exists('formatDuration')) {
@@ -45,9 +100,9 @@ if (!function_exists('getCourseCategories')) {
 if (!function_exists('getNotice')) {
     function getNotice()
     {
-        $data = \App\Models\Notice::all();
-
-        return $data;
+        return \App\Models\Notice::where('status', 'published')
+            ->whereDate('published_at', '<=', now())
+            ->get();
     }
 }
 if (!function_exists('getResultAttemptDetails')) {

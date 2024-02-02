@@ -34,7 +34,7 @@ class FreeNoteResource extends Resource
                 Forms\Components\FileUpload::make('file')
                     ->acceptedFileTypes(['application/pdf']),
                 Forms\Components\FileUpload::make('image')
-                    ->image(),
+                    ->image()->imageEditor()->imageCropAspectRatio('3:4'),
                 Forms\Components\Textarea::make('details')
                     ->maxLength(250)
                     ->columnSpanFull(),

@@ -25,6 +25,11 @@ class CourseController extends Controller
     }
     public function course_category($slug){
         $category = CourseCategory::where('slug',$slug)->first();
+        if (!$category){
+            SEOTools::setTitle('404');
+            SEOTools::setDescription(getSetting('site_description'));
+            return view('website.pages.404');
+        }
         $courses = Course::where('status','published')->where('course_category_id',$category->id)->paginate(9);
         SEOTools::setTitle($category->title);
         SEOTools::setDescription(getSetting('site_description'));
@@ -104,13 +109,16 @@ class CourseController extends Controller
             }
             $price = $course->sale_price - $offer;
             $user = auth('web')->user();
+
             $order = Order::create([
                 'user_id' => $user->id,
                 'payment_method' => $payment_method,
+                'payable_amount' => $price,
                 'paid_amount' => 0,
                 'due' => $price,
                 'delivery_charge' => 0,
-                'ip' => 'null',
+                'discount' => $offer,
+                'ip' => $request->ip(),
                 'note' => null,
                 'shipping_address_id' => null,
                 'billing_address_id' => null,
@@ -124,13 +132,19 @@ class CourseController extends Controller
                 'price' => $price,
                 'subtotal' => $price,
             ]);
-            $payment = Payment::create([
-                'order_id' => $order->id,
-                'amount' => $price,
-                'payment_method' => $payment_method,
-                'transaction_id' => uniqid('CE',5),
-                'status' => 'pending',
-            ]);
+            $payment = Payment::where('order_id',$order->id)->where('status','!=','completed')->where('amount',$order->due)->first();
+            if (!$payment){
+                $payment = Payment::create([
+                    'order_id' => $order->id,
+                    'amount' => $price,
+                    'payment_method' => $payment_method,
+                    'transaction_id' => Payment::generateUniqueTransactionID('CE'),
+                    'status' => 'pending',
+                ]);
+            }else{
+                $payment->payment_method = $payment_method;
+                $payment->update();
+            }
             return redirect(route('payment',['id'=>$payment->id]));
         }
         return redirect()->back();

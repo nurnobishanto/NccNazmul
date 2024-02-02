@@ -34,6 +34,12 @@
                                 <span class="text-danger">Negative Mark : {{ $paper->nmark }}</span><br>
                                 <span class="text-success "><strong> Total Mark : {{ $total }} X {{ $paper->pmark }} =
                             {{ $total * $paper->pmark }} </strong></span></p>
+
+                            <p>
+                                <span class="text-danger "><strong> In Time Limit : {{ $paper->limit }}</strong></span><br>
+                                <span class="text-danger "><strong> Lifetime Limit : {{ $paper->max_limit }}</strong></span>
+                            </p>
+
                             @if(session("exam_paper_password_{$paper->id}"))
                                 <strong class="text-danger">{{session("exam_paper_password_{$paper->id}")}}</strong><br>
                             @endif

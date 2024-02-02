@@ -9,6 +9,6 @@ Name:  {{ $name }}<br>
 Email:  {{ $email }}<br>
 Phone:  {{ $phone }}<br>
 Subject:  {{ $subject }}<br>
-Message:  {!! $subject !!}<br><br>
+Message:  {!! $body !!}<br><br>
 
 Thanks

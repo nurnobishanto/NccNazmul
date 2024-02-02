@@ -49,10 +49,10 @@ class ContactController extends Controller
             'email' => $input['email'],
             'phone' => $input['phone'],
             'subject' => $input['subject'],
-            'message' => $input['message'],
+            'body' => $input['message'],
         ), function($message) use ($request){
-            $message->from($request->email);
-            $message->to('info@easyenglishbd.com', 'Easy English BD')->subject($request->get('subject'));
+            $message->from(env('MAIL_FROM_ADDRESS'));
+            $message->to(env('mail_contact_mail'), env('MAIL_FROM_NAME'))->subject($request->get('subject'));
         });
 
         return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);

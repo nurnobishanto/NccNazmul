@@ -19,7 +19,6 @@ class PageSetting extends Page
 
     public $home_page_title;
     public $home_page_description;
-    public $home_page_background;
     public $about_page_title;
     public $about_page_heading;
     public $about_page_description;
@@ -32,7 +31,7 @@ class PageSetting extends Page
 
             'home_page_title' => getSetting('home_page_title'),
             'home_page_description' => getSetting('home_page_description'),
-            'home_page_background' => getSetting('home_page_background'),
+
             'about_page_title' => getSetting('about_page_title'),
             'about_page_heading' => getSetting('about_page_heading'),
             'about_page_description' => getSetting('about_page_description'),
@@ -43,14 +42,14 @@ class PageSetting extends Page
     public function submit()
     {
         $state = $this->form->getState();
-        $home_page_background = $state['home_page_background'];
+
         $about_page_image = $state['about_page_image'];
 
 
 
         setSetting('home_page_title',$this->home_page_title);
         setSetting('home_page_description',$this->home_page_description);
-        setSetting('home_page_background',$home_page_background);
+
 
         setSetting('about_page_title',$this->about_page_title);
         setSetting('about_page_heading',$this->about_page_heading);
@@ -77,15 +76,10 @@ class PageSetting extends Page
                         ->placeholder('Enter Home Page title')
                         ->columnSpan(2),
 
-                    RichEditor::make('home_page_description')
+                    Textarea::make('home_page_description')
                         ->label('Home Page description (home_page_description)')
                         ->placeholder('Enter Home Page description')
                         ->columnSpan(2),
-
-                    FileUpload::make('home_page_background')
-                        ->label('Home Page Background (home_page_background)')
-                        ->image()
-                        ->maxSize(500),
 
                 ]),
             Section::make('About Page')

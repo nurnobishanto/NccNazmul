@@ -2,6 +2,7 @@
     <div class="container m-pad">
         <div class="menu-header">
             <div class="dsk-logo"><a class="nav-brand" href="./">
+
                     <img src="{{asset('uploads/'.getSetting('site_dark_logo'))}}" alt="{{getSetting('site_title')}}" class="mega-white-logo"/>
                     <img src="{{asset('uploads/'.getSetting('site_logo'))}}" alt="{{getSetting('site_title')}}" class="mega-darks-logo"/>
                 </a>

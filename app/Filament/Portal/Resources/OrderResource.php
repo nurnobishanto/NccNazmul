@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -30,7 +31,7 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->sortable(),
+                Tables\Columns\TextColumn::make('order_id')->sortable(),
                 Tables\Columns\TextColumn::make('user.name')->sortable(),
                 Tables\Columns\TextColumn::make('items_count')->counts('items')->sortable(),
                 Tables\Columns\TextColumn::make('paid_amount'),
@@ -38,10 +39,12 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('status'),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
-
+                Action::make('view')
+                    ->label('View')
+                    ->url(fn (Order $record): string => route('view_order',['id' => $record->id])),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
