@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "mpdf/mpdf": "^8.2",
+        "shipu/web-installer": "^1.0",
         "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-sitemap": "^7.1",
         "tymon/jwt-auth": "^2.0"

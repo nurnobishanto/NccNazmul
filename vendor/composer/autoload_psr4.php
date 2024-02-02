@@ -58,6 +58,7 @@ return array(
     'Spatie\\Color\\' => array($vendorDir . '/spatie/color/src'),
     'Spatie\\Browsershot\\' => array($vendorDir . '/spatie/browsershot/src'),
     'Spatie\\Backtrace\\' => array($vendorDir . '/spatie/backtrace/src'),
+    'Shipu\\WebInstaller\\' => array($vendorDir . '/shipu/web-installer/src'),
     'Sabberworm\\CSS\\' => array($vendorDir . '/sabberworm/php-css-parser/src'),
     'RyanChandler\\BladeCaptureDirective\\Database\\Factories\\' => array($vendorDir . '/ryangjchandler/blade-capture-directive/database/factories'),
     'RyanChandler\\BladeCaptureDirective\\' => array($vendorDir . '/ryangjchandler/blade-capture-directive/src'),
