@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Portal\Pages\Auth\Login;
 use App\Filament\Portal\Pages\Auth\Registration;
 use App\Filament\Portal\Pages\Auth\RequestPasswordReset;
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -36,7 +37,7 @@ class PortalPanelProvider extends PanelProvider
             ->registration(Registration::class)
             ->passwordReset(RequestPasswordReset::class)
             ->sidebarFullyCollapsibleOnDesktop(true)
-            ->defaultThemeMode('light')
+            ->defaultThemeMode(ThemeMode::Light)
             ->colors([
                 'primary' => Color::Amber,
             ])
