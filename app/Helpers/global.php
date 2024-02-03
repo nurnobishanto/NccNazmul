@@ -68,12 +68,14 @@ if (!function_exists('setEnv')) {
 
 if (!function_exists('enrolledCourse')){
     function enrolledCourse($course){
-        $enrolledCourse = \App\Models\CourseUser::where('user_id',auth()->user()->id)->where('course_id',$course->id)->first();
-        if ($enrolledCourse){
-            if ($enrolledCourse->lifetime_access){
-                return true;
-            }else if ($enrolledCourse->access_expiry >= date('Y-m-d')){
-                return true;
+        if (auth()->user()){
+            $enrolledCourse = \App\Models\CourseUser::where('user_id',auth()->user()->id)->where('course_id',$course->id)->first();
+            if ($enrolledCourse){
+                if ($enrolledCourse->lifetime_access){
+                    return true;
+                }else if ($enrolledCourse->access_expiry >= date('Y-m-d')){
+                    return true;
+                }
             }
         }
         return false;
