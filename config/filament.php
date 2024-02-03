@@ -53,7 +53,7 @@ return [
     | After changing the path, you should run `php artisan filament:assets`.
     |
     */
-
+    'dark_mode' => true,
     'assets_path' => null,
 
     /*
