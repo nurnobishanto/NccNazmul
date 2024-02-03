@@ -36,6 +36,7 @@ class PortalPanelProvider extends PanelProvider
             ->registration(Registration::class)
             ->passwordReset(RequestPasswordReset::class)
             ->sidebarFullyCollapsibleOnDesktop(true)
+            ->defaultThemeMode('light')
             ->colors([
                 'primary' => Color::Amber,
             ])

@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->authGuard('admin')
             ->login()
             ->sidebarFullyCollapsibleOnDesktop()
+            ->defaultThemeMode('light')
             ->colors([
                 'primary' => Color::Amber,
             ])
