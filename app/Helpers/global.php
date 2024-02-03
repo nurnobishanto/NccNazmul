@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Category;
 use App\Models\ExamPaper;
+use App\Models\Post;
 use Carbon\Carbon;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
@@ -10,6 +12,16 @@ use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
+if (!function_exists('getPopularPost')){
+    function getPopularPost(){
+        return Post::orderBy('view_count','DESC')->where('status','=','PUBLISHED')->take(6)->get();
+    }
+}
+if (!function_exists('getAllCategories')){
+    function getAllCategories(){
+        return Category::All();
+    }
+}
 if (!function_exists('sendPromotionalMail')){
     function sendPromotionalMail($toEmail,$toName, $subject,$body){
         Mail::send('promotionalMail', array(

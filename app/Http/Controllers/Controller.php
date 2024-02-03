@@ -13,13 +13,5 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
         public function __construct() {
 
-
-        $categories = Category::All();
-        $poularpost = Post::orderBy('view_count','DESC')->where('status','=','PUBLISHED')->take(6)->get();
-
-        \View::share('allcategories', $categories);
-
-        \View::share('poularpost', $poularpost);
-
     }
 }
