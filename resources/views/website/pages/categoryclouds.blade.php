@@ -12,7 +12,7 @@
                         <div class="recent-post widgets mt60">
                             <h3 class="mb30">Categories</h3>
                             <div class="tabs">
-                                @foreach ($allcategories as $category)
+                                @foreach (getAllCategories() as $category)
                                     <a href="{{route('website.category',['slug'=>$category->slug])}}" class="text-capitalize">{{  $category->name}} (<span>{{$category->posts->count()}})</a>
                                 @endforeach
                             </div>
