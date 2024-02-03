@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#2e2a8f">
     <!--website-favicon-->
-    <link href="images/favicon.png" rel="icon">
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" rel="icon">
     <!--plugin-css-->
     <link href="{{asset('website')}}/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('website')}}/css/plugin.min.css" rel="stylesheet">
@@ -22,7 +22,34 @@
     <link href="{{asset('website')}}/css/style.css" rel="stylesheet">
     <link href="{{asset('website')}}/css/responsive.css" rel="stylesheet">
     <link href="{{asset('website')}}/css/darkmode.css" rel="stylesheet">
-    @laravelPWA
+
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="{{asset('uploads/'.getSetting('site_favicon'))}}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <!-- Tile for Win8 -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{asset('uploads/'.getSetting('site_favicon'))}}">
+    <script type="text/javascript">
+        // Initialize the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/serviceworker.js', {
+                scope: '.'
+            }).then(function (registration) {
+                // Registration was successful
+                console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('Laravel PWA: ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
     @yield('css')
 </head>
 <body>
