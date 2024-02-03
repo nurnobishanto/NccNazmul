@@ -15,7 +15,7 @@
         <div class="recent-post widgets mt60">
             <h3 class="mb30">Popular Posts</h3>
 
-            @foreach ($poularpost as $item)
+            @foreach (getPopularPost() as $item)
             <div class="media">
                 <div class="post-image bdr-radius">
                     <a href="{{route('website.post',['slug'=>$item->slug])}}">
@@ -40,7 +40,7 @@
             <h3 class="mb30">Category Clouds</h3>
             <div class="blog-categories">
                 <ul>
-                    @foreach ($allcategories as $category)
+                    @foreach (getAllCategories() as $category)
                     <li>
                         <a href="{{route('website.category',['slug'=>$category->slug])}}">{{$category->name}} <span class="categories-number">({{$category->posts->count()}})</span></a>
                     </li>
