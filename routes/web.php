@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/increment-download-count',[\App\Http\Controllers\ContactController::class,'incrementDownloadCount'])->name('incrementDownloadCount');
 Route::get('/login',function (){ return redirect('portal/login'); })->name('login');
 Route::get('/register',function (){ return redirect('portal/register'); })->name('register');
-Route::get('/', [App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
+Route::get('/', [App\Http\Controllers\WebsiteController::class, 'index'])->name('website')->middleware('redirect.if.not.installed');
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'view_page'])->name('website.page');
 Route::get('/admin/pages/{page}/editor', [App\Http\Controllers\PageController::class, 'editor'])->name('website.page.editor');
 Route::get('/blog', [App\Http\Controllers\WebsiteController::class, 'blog'])->name('blog');
@@ -73,7 +73,7 @@ Route::get('/bkash/create/{id}', [\App\Http\Controllers\Payment\BkashController:
 Route::get('/bkash/callback', [\App\Http\Controllers\Payment\BkashController::class, 'callback'])->name('bkash_url_callback');
 
 // Checkout (URL) Admin Part
-//Route::get('/bkash/refund', [\App\Http\Controllers\Payment\BkashController::class, 'getRefund'])->name('url-get-refund');
+//Route::get('/bkash/refund', [\App\Http\Controllers\Payment\BkashController::class, 'getRefund'])->name('url_get_refund');
 //Route::post('/bkash/refund', [\App\Http\Controllers\Payment\BkashController::class, 'refundPayment'])->name('bkash_url_post_refund');
 
 Route::get('sitemap',[SiteMapController::class,'generateSitemap']);

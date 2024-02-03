@@ -45,28 +45,32 @@ return [
     | php extensions and apache modules requirements
     |
     */
-    'requirements' => [
-        'php' => [
-            'version' => '>=8.1',
-            'extensions' => [
-                'ctype',
-                'curl',
-                'dom',
-                'fileinfo',
-                'filter',
-                'hash',
-                'json',
-                'mbstring',
-                'openssl',
-                'pcre',
-                'pdo',
-                'session',
-                'tokenizer',
-                'xml',
-            ],
+    'requirements'         => [
+        'php'    => [
+            'openssl',
+            'pdo',
+            'mbstring',
+            'tokenizer',
+            'JSON',
+            'cURL',
+            'ctype',
+            'curl',
+            'dom',
+            'fileinfo',
+            'filter',
+            'hash',
+            'json',
+            'mbstring',
+            'openssl',
+            'pcre',
+            'session',
+            'tokenizer',
+            'xml',
+        ],
+        'apache' => [
+            'mod_rewrite',
         ],
     ],
-
 
     /*
     |--------------------------------------------------------------------------

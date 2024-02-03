@@ -239,7 +239,7 @@ class WebsiteController extends Controller
             'margin_footer' => '2',
         ]);
 
-        $document->SetWatermarkText('EasyEnglishBD.com');
+        $document->SetWatermarkText(env('APP_NAME'));
         $document->showWatermarkText = true;
 
         $document->allow_charset_conversion = true; // Set by default to TRUE
@@ -295,7 +295,7 @@ class WebsiteController extends Controller
             'margin_footer' => '2',
         ]);
 
-        $document->SetWatermarkText('EasyEnglishBD.com');
+        $document->SetWatermarkText(env('APP_NAME'));
         $document->showWatermarkText = true;
 
         $document->allow_charset_conversion = true; // Set by default to TRUE
@@ -346,7 +346,7 @@ class WebsiteController extends Controller
             'margin_footer' => '2',
         ]);
 
-        $document->SetWatermarkText('EasyEnglishBD.com');
+        $document->SetWatermarkText(env('APP_NAME'));
         $document->showWatermarkText = true;
 
         $document->allow_charset_conversion = true; // Set by default to TRUE

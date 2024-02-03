@@ -15,15 +15,13 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
-$environmentFile = '.env'; // Default environment file
+$environmentFile = '.production'; // Default environment file
 
 $domain = $_SERVER['HTTP_HOST'] ?? '';
 
-if ($domain === 'ncccnazmul.com' || $domain ==='www.ncccnazmul.com') {
-    $environmentFile = '.env.ncccnazmul';
-}
-elseif ($domain === 'localhost' || $domain === '127.0.0.1' || $domain === '127.0.0.1:8000') {
-    $environmentFile = '.env.local';
+
+if ($domain === 'localhost' || $domain === '127.0.0.1' || $domain === '127.0.0.1:8000') {
+    $environmentFile = '.env';
 }
 
 $envFilePath = $app->basePath($environmentFile);
