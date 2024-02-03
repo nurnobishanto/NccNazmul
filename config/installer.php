@@ -19,7 +19,7 @@ return [
         EnvironmentFields::class,
         ApplicationFields::class,
     ],
-
+    'dark_mode' => false,
     'redirect_route' => "website",
 
     'installation_manager' => InstallationManager::class,
