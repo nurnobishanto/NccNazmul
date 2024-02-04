@@ -4,10 +4,6 @@
     <meta charset="utf-8"/>
     @yield('seo_meta')
     {!! SEO::generate() !!}
-{{--    <title>Niwax - Web Design &amp; Digital Marketing Agency HTML Template</title>--}}
-{{--    <meta name="description" content="Creative Agency, Marketing Agency Template">--}}
-{{--    <meta name="keywords" content="Creative Agency, Marketing Agency">--}}
-{{--    <meta name="author" content="rajesh-doot">--}}
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#2e2a8f">

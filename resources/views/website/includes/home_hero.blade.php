@@ -1,7 +1,7 @@
 <!--Start Hero-->
 <section class="hero-card-web bg-gradient12 shape-bg3" >
     <div class=" container">
-        <div class="row">
+        <div class="row align-items-center">
             @if(getNotice()->count())
             <div class="col-lg-12">
                 <div class="mb10">
@@ -9,43 +9,41 @@
                     <marquee class="text-dark bg-white rounded px-2 btn" >
                         @foreach(getNotice() as $notice)
                             @if($notice->url)
-                                <a class="btn btn-info text-light" href="{{$notice->url}}">{{$notice->title}}</a> {{strip_tags($notice->description)}}
+                                <a class="bg-danger text-light p-2" href="{{$notice->url}}">{{$notice->title}}</a> {{strip_tags($notice->description)}}
                             @else
-                                 <strong>{{$notice->title}}</strong> {{strip_tags($notice->description)}}
+                                 <strong class="bg-danger text-light p-2">{{$notice->title}}</strong> {{strip_tags($notice->description)}}
                             @endif
                         @endforeach
                     </marquee>
                 </div>
             </div>
             @endif
-            <div class="col-lg-7 col-md-6">
+            <div class="col-lg-7 col-md-12">
                 <div class="hero-heading-sec">
-                    <h2 class="wow fadeIn small" data-wow-delay="0.3s">{!! getSetting('home_page_title') !!}</h2>
-                    <p class="wow fadeIn" data-wow-delay="0.6s">{!! getSetting('home_page_description') !!}</p>
-                    <a href="{{route('exam')}}" class="niwax-btn2 wow fadeIn"> Take Exam <i class="fas fa-chevron-right fa-ani"></i></a>
-                    <a href="{{route('courses')}}" class="niwax-btn3 wow fadeIn"> Courses <i class="fas fa-chevron-right fa-ani"></i></a>
+                    <h1 class="wow fadeIn mb-5" style="color: yellow">{!! getSetting('home_page_title') !!}</h1>
+                    <h2 class="wow fadeIn" >{!! getSetting('home_page_description') !!}</h2>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6">
-                <div class="hero-right-scmm">
-                    <div class="hero-service-cards wow fadeInRight" data-wow-duration="2s">
-                        <div class="owl-carousel service-card-prb">
-                            @foreach(getNotice() as $notice)
-                                @if($notice->image)
-                                    <div class="service-slide card-bg-a" data-tilt data-tilt-max="10" data-tilt-speed="1000">
-                                        @if($notice->url)
-                                            <a href="{{$notice->url}}">
-                                                <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
-                                            </a>
-                                        @else
-                                            <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
-                                        @endif
-                                    </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="owl-carousel service-card-prb">
+                    @foreach(getNotice() as $notice)
+                        @if($notice->image)
+                            <div class="service-slide card-bg-a" data-tilt data-tilt-max="10" data-tilt-speed="1000">
+                                @if($notice->url)
+                                    <a href="{{$notice->url}}">
+                                        <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
+                                    </a>
+                                @else
+                                    <img class="img-fluid"  alt="{{$notice->title}}" src="{{asset('uploads/'.$notice->image)}}" title="{{$notice->title}}">
                                 @endif
-                            @endforeach
-                        </div>
-                    </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
+            </div>
+            <div class="col-12">
+                <a class="m-2" href="{{route('exam')}}"><button  class="niwax-btn3 wow fadeIn"> Take Exam <i class="fas fa-chevron-right fa-ani"></i></button></a>
+                <a class="m-2" href="{{route('courses')}}"><button  class="niwax-btn2 wow fadeIn"> Courses <i class="fas fa-chevron-right fa-ani"></i></button></a>
             </div>
         </div>
     </div>

@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Order;
 use App\Models\Payment;
+use Filament\Notifications\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
     public function order_pay(Request $request,$id){
+        $validator = Validator::make($request->all(), [
+            'payment_method' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $order = Order::find($id);
         if ($order){
             $order->payment_method = $request->payment_method;
@@ -49,6 +58,7 @@ class PaymentController extends Controller
     }
     public function payment(Request $request, $id)
     {
+
         $payment = Payment::find($id);
         if ($payment && $payment != 'completed'){
             if ($request->payment_method){
@@ -58,19 +68,25 @@ class PaymentController extends Controller
             if ($payment->payment_method == 'bkash'){
                 return redirect(route('bkash_payment',['id'=>$payment->id]));
             }
+            else if ($payment->payment_method == 'uddoktapay'){
+                return redirect(route('uddoktapay_payment',['id'=>$payment->id]));
+            }
             return  redirect(route('invoice',['id'=>$payment->id]));
         }
         return  redirect()->back();
 
     }
-    public function success($id,$pass)
+    public function success(Request $request,$id)
     {
-        if (Hash::make(env('APP_NAME'))!= $pass){
-            return redirect(route('invoice',['id' => $id]));
+
+        if (Hash::make(env('APP_NAME')) !== $request->password) {
+            echo Hash::make(env('APP_NAME'));
+            echo $request->password;
+            //return redirect(route('invoice',['id' => $id]));
         }
         $payment = Payment::find($id);
-        if (!$payment || $payment->transactionStatus != 'Completed'){
-            return redirect(route('invoice',['id'=>$payment->id]));
+        if (!$payment || ($payment->transaction_status != 'Completed' && $payment->transaction_status != 'COMPLETED')) {
+            return redirect(route('invoice', ['id' => $payment->id]));
         }
         $payment->status = 'completed';
         $payment->update();

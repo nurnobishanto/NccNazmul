@@ -94,7 +94,7 @@ class CourseController extends Controller
     }
     public function course_enroll(Request $request,$id){
         $coupon_code = $request->coupon;
-        $payment_method = $request->payment_method;
+        $payment_method = $request->payment_method??'uddoktapay';
         $course = Course::find($id);
         if ($course){
             $offer = 0;
@@ -145,7 +145,7 @@ class CourseController extends Controller
                 $payment->payment_method = $payment_method;
                 $payment->update();
             }
-            return redirect(route('payment',['id'=>$payment->id]));
+            return redirect(route('invoice',['id'=>$payment->id]));
         }
         return redirect()->back();
     }

@@ -139,19 +139,17 @@ class BkashController extends Controller
             ]);
 
         }else{
-
-
             $response = $this->executePayment($allRequest['paymentID']);
             $res_array = json_decode($response,true);
 
 
-            if(array_key_exists("statusCode",$res_array) && $res_array['statusCode'] != '0000'){
+            if($res_array && is_array($res_array) && array_key_exists("statusCode",$res_array) && $res_array['statusCode'] != '0000'){
                 return view('Bkash.fail')->with([
                     'response' => $res_array['statusMessage'],
                 ]);
             }
 
-            if(array_key_exists("message",$res_array)){
+            if($res_array && is_array($res_array) && array_key_exists("message",$res_array)){
                 // if execute api failed to response
                 sleep(1);
                 $query = $this->queryPayment($allRequest['paymentID']);
@@ -171,13 +169,12 @@ class BkashController extends Controller
                     'amount' => $res_array['amount'],
                     'currency' => $res_array['currency'],
                     'intent' => $res_array['intent'],
-                    'payment_execute_time' => $res_array['paymentExecuteTime'],
                     'merchant_invoice_number' => $res_array['merchantInvoiceNumber'],
                     'customer_msisdn' => $res_array['customerMsisdn'],
                     'status_code' => $res_array['statusCode'],
                     'status_message' => $res_array['statusMessage'],
                 ]);
-                return redirect(route('payment_success',['id' => $payment->id,'pass' => Hash::make(env('APP_NAME'))]));
+                return redirect(route('payment_success',['id' => $payment->id]).'?password='.Hash::make(env('APP_NAME')));
                 //completeInvoiceBkash($res_array['payerReference'],$res_array['amount'],$res_array['trxID'],$res_array['paymentID']);
             }
 

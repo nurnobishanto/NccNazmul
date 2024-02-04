@@ -71,7 +71,7 @@
 
 <body>
     <header>
-        <p style="margin-top: 20px !important;font-size: 35px;line-height: 45px;"><br> Easy English <br> Result Card</p>
+        <p style="margin-top: 20px !important;font-size: 35px;line-height: 45px;"><br>{{env('APP_NAME')}} <br> Result Card</p>
 
     </header>
     <footer>

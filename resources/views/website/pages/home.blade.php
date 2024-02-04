@@ -78,5 +78,26 @@
                     </div>
                 @endforeach
         </div>
+        </div>
+    </section>
+    <section class="work-category  pad-tb">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="common-heading ptag">
+                        <h2>Popular Courses</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt30">
+                @foreach(getPopularCourses() as $course)
+                    @include('website.includes.single_course',['course' => $course])
+                @endforeach
+
+            </div>
+            <div class="row mt30 align-middle">
+                <a href="{{route('courses')}}"><button class="niwax-btn2 wow fadeIn">See All Courses</button> </a>
+            </div>
+        </div>
     </section>
 @endsection

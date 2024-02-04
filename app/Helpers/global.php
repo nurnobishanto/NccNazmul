@@ -81,6 +81,15 @@ if (!function_exists('enrolledCourse')){
         return false;
     }
 }
+if (!function_exists('getPopularCourses')){
+    function getPopularCourses(){
+        return \App\Models\Course::where('status', 'published')
+            ->orderBy('order','asc')
+            ->orderBy('start_date','asc')
+            ->take(6)
+            ->get();
+    }
+}
 if (!function_exists('formatDuration')) {
     function formatDuration($minutes)
     {

@@ -39,7 +39,7 @@ class CourseResource extends Resource
                 Forms\Components\Select::make('status')->options(['draft' => 'DRAFT', 'published' => 'PUBLISHED'])->required(),
                 Forms\Components\TextInput::make('duration'),
                 Forms\Components\RichEditor::make('details')->columnSpanFull(),
-                Forms\Components\FileUpload::make('image')->image()->imageEditor()->required()->imageCropAspectRatio('66:45'),
+                Forms\Components\FileUpload::make('image')->image()->imageEditor()->required()->imageCropAspectRatio('16:9'),
                 Forms\Components\TextInput::make('meet_link')->url(),
                 Forms\Components\TextInput::make('whatsapp_group_link')->url(),
                 Forms\Components\TextInput::make('facebook_group')->url(),

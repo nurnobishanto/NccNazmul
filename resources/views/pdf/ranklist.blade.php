@@ -71,7 +71,7 @@
         <?php
         $count = 1;
         ?>
-        <h2>Easy English</h2>
+        <h2>{{env('APP_NAME')}}</h2>
             <span style="font-size: 20px;">
             Exam Name: {{ $paper->name }} <br>
             Full Mark :{{ $paper->questions->count() * $paper->pmark }}<br>

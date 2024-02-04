@@ -17,7 +17,7 @@
         <div class="rpb-shop-items-info">
             <div class="rpb-shop-items-tittl">
                 <h3><a href="{{route('course',['slug' => $course->slug])}}">{{$course->title}}</a></h3>
-                <p class="tags-itmm">Multipurpose Landing Page HTML Template</p>
+                <p class="tags-itmm">{{$course->category->title??''}}</p>
             </div>
 
             <div class="rpb-shop-items-flex">

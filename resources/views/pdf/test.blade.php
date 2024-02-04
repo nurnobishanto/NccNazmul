@@ -1,1 +1,1 @@
-<h1>Hello</h1>
+<h1>{{env('APP_NAME')}}</h1>

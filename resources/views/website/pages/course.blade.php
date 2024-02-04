@@ -187,10 +187,10 @@
                                 <form action="{{route('course_enroll',['id'=>$course->id])}}" method="post">
                                     @csrf
                                     <input name="coupon" class="d-none" value="{{$coupon->code??0}}">
-                                    <div class="form-group">
-                                        <input class="btn-check" type="radio" name="payment_method" checked value="bkash" id="bkash">
-                                        <label for="bkash" class="btn btn-outline-danger">Bkash</label>
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <input class="btn-check" type="radio" name="payment_method" checked value="bkash" id="bkash">--}}
+{{--                                        <label for="bkash" class="btn btn-outline-danger">Bkash</label>--}}
+{{--                                    </div>--}}
                                     <input class="btn-main bg-btn3 lnk w-100 mt10" type="submit" value="Enroll Now">
                                 </form>
                             </li>

@@ -39,19 +39,28 @@
                                 <div class="mt-2">
                                     <form action="{{route('order_pay',['id'=>$order->id])}}" method="post" >
                                         @csrf
+                                        <p class="text-info">Select Payment Method and click on pay now button</p>
                                         <div  role="group" >
-                                            <input type="radio" class="btn-check" name="payment_method" value="bkash" id="bkash" autocomplete="off" checked>
+                                            @error('payment_method')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                            @if(env('BKASH_STATUS'))
+                                            <input type="radio" class="btn-check" name="payment_method" value="bkash" id="bkash" autocomplete="off">
                                             <label class="btn btn-outline-primary" for="bkash">Bkash</label>
-
-                                            <input disabled type="radio" class="btn-check" name="payment_method" value="sslcommerz"  id="sslcommerz" autocomplete="off">
+                                            @endif
+                                            @if(env('SSLCOMMERZ_STATUS'))
+                                            <input  type="radio" class="btn-check" name="payment_method" value="sslcommerz"  id="sslcommerz" autocomplete="off">
                                             <label class="btn btn-outline-primary" for="sslcommerz">SSLCOMERZ</label>
-
-
-
+                                            @endif
+                                            @if(env('UDDOKTA_STATUS'))
+                                            <input  type="radio" class="btn-check" name="payment_method" value="uddoktapay" checked id="uddoktapay" autocomplete="off">
+                                            <label class="btn btn-outline-primary" for="uddoktapay">Uddoktapay</label>
+                                            @endif
+                                            <input type="submit" value="Pay Now" class="btn btn-danger">
                                         </div>
 
                                         <div class="form-group mt-2">
-                                            <input type="submit" value="Pay Now" class="btn btn-danger">
+
                                         </div>
 
                                     </form>

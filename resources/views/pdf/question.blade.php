@@ -81,7 +81,7 @@
     ?>
     <header>
 
-        <p style="font-size: 35px;">Easy English</p>
+        <p style="font-size: 35px;">{{env('APP_NAME')}}</p>
         <div style="text-align: center;font-size: 25px;">{{ $paper->name }}</div>
         <span style="text-align: center;font-size:20px;">
             <span class="text-dark">Time : {{ $timeMin }} Minutes.</span> |

@@ -66,9 +66,13 @@ Route::post('/order-pay/{id}', [App\Http\Controllers\PaymentController::class, '
 Route::get('/order/{id}', [App\Http\Controllers\PaymentController::class, 'view_order'])->name('view_order');
 Route::get('/invoice/{id}', [App\Http\Controllers\PaymentController::class, 'invoice'])->name('invoice');
 Route::get('/payment/{id}',[PaymentController::class,'payment'])->name('payment');
-Route::get('/payment/success/{id}/pass/{pass}',[PaymentController::class,'success'])->name('payment_success');
+Route::get('/payment/success/{id}',[PaymentController::class,'success'])->name('payment_success');
 
-// Checkout (URL) User Part
+
+//Uddokta Pay
+Route::get('/uddoktapay/create/{id}', [\App\Http\Controllers\Payment\UddoktaPayController::class, 'createPayment'])->name('uddoktapay_payment');
+Route::post('/uddoktapay/callback', [\App\Http\Controllers\Payment\UddoktaPayController::class, 'callback'])->name('uddoktapay_callback');
+// Checkout Bkash
 Route::get('/bkash/create/{id}', [\App\Http\Controllers\Payment\BkashController::class, 'createPayment'])->name('bkash_payment');
 Route::get('/bkash/callback', [\App\Http\Controllers\Payment\BkashController::class, 'callback'])->name('bkash_url_callback');
 

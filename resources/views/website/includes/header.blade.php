@@ -1,7 +1,7 @@
 <header class="@if(request()->routeIs('website') && !request()->query('search')) nav-bg-b @else nav-bg-w @endif main-header navfix fixed-top menu-white">
     <div class="container m-pad">
         <div class="menu-header">
-            <div class="dsk-logo"><a class="nav-brand" href="./">
+            <div class="dsk-logo"><a class="nav-brand" href="{{route('website')}}">
 
                     <img src="{{asset('uploads/'.getSetting('site_dark_logo'))}}" alt="{{getSetting('site_title')}}" class="mega-white-logo"/>
                     <img src="{{asset('uploads/'.getSetting('site_logo'))}}" alt="{{getSetting('site_title')}}" class="mega-darks-logo"/>

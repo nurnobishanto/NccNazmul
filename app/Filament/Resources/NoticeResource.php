@@ -43,7 +43,7 @@ class NoticeResource extends Resource
                 Forms\Components\Select::make('status')->options(['draft' => 'DRAFT','published' => 'PUBLISHED'])->required()->default(1),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->imageCropAspectRatio('1:1')
+                    ->imageCropAspectRatio('16:9')
                     ->imageEditor(),
             ]);
     }
