@@ -8,7 +8,7 @@
                 <div class="col-md-8 col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">{{$course_item->title}}</h5>
+
                             @if(enrolledCourse($course))
                                 <div class="list-group list-group-horizontal">
                                     @if($course->facebook_group)
@@ -31,7 +31,7 @@
                         </div>
                         <div class="card-body">
                             @if($course_item && $course_item->status == 'published' && ($course_item->published_at <= date('Y-m-d j:i:s')))
-
+                                <h5 class="card-title">{{$course_item->title}}</h5>
                                 @if($course_item->image)
                                     <img class="img-fluid" src="{{asset('uploads/'.$course_item->image)}}" alt="{{$course_item->title}}">
                                 @endif

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Dotlogics\Grapesjs\App\Traits\EditorTrait;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,8 @@ class PageController extends Controller
     {
         $page = Page::where('slug',$slug)->first();
         if ($page){
+            SEOTools::setTitle($page->title);
+            SEOTools::setDescription(getSetting('site_description'));
             return view('website.pages.custom_page',compact(['page']));
         }else{
             return view('website.pages.404');

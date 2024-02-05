@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\Post;
 use App\Models\Subject;
 use Illuminate\Http\Request;
-
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapGenerator;
+use Illuminate\Support\Facades\File;
 class SiteMapController extends Controller
 {
     public function generateSitemap(){
+
+
+
+        $courseCategories = CourseCategory::orderBy('updated_at', 'desc')->get();
+        $courses = Course::where('status','published')->orderBy('updated_at', 'desc')->get();
         $posts = Post::orderBy('updated_at', 'desc')->get();
         $subjects = Subject::orderBy('updated_at', 'desc')->get();
-        $sitemap = resolve("sitemap");
+
+        $sitemap = Sitemap::create();
+
         $sitemap->add(route('website'), now(), '1.0','daily');
         $sitemap->add(route('website.contact'), now(), '0.99','daily');
         $sitemap->add(route('website.about'), now(), '0.98','daily');
@@ -27,6 +38,12 @@ class SiteMapController extends Controller
         foreach ($posts as $post) {
             $sitemap->add(route('website.post',['slug' => $post->slug]), $post->updated_at, '0.9', 'monthly');
         }
+        foreach ($courseCategories as $cat) {
+            $sitemap->add(route('course_category',['slug' => $cat->slug]), $cat->updated_at, '0.9', 'monthly');
+        }
+        foreach ($courses as $course) {
+            $sitemap->add(route('course',['slug' => $course->slug]), $course->updated_at, '0.9', 'monthly');
+        }
         foreach ($subjects as $subject){
             $sitemap->add(route('subject',['slug' => $subject->slug]), $subject->updated_at, '0.89', 'daily');
             $categories = $subject->exam_categories;
@@ -38,8 +55,8 @@ class SiteMapController extends Controller
                 }
             }
         }
-
-        $sitemap->store('xml', 'sitemap');
+        $sitemapPath = public_path('sitemap.xml');
+        File::put($sitemapPath, $sitemap->render());
         return redirect('/sitemap.xml');
     }
 }
