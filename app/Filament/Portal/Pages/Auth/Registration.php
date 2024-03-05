@@ -73,8 +73,9 @@ class Registration extends BaseAuth
     protected function getRegisterFormComponent(): Component
     {
         return TextInput::make('register')
-            ->label('Email or Phone Number')
-            ->placeholder("Enter Email or Phone Number")
+            ->label('Phone Number')
+            ->placeholder("Enter Phone Number")
+            ->tel()
             ->required()
             ->autocomplete()->columnSpan(2)
             ->autofocus();
@@ -89,7 +90,7 @@ class Registration extends BaseAuth
             ->password()
             ->required()
             ->rule(\Illuminate\Validation\Rules\Password::default())
-            ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+            
             ->same('passwordConfirmation')
             ->validationAttribute(__('filament-panels::pages/auth/register.form.password.validation_attribute'));
     }
@@ -157,10 +158,12 @@ class Registration extends BaseAuth
             return null;
         }
         $data = $this->form->getState();
+      
         $loginType = $this->detectLoginType($data['register']);
         $validationStatus = true;
         $loginData = $data['register'];
         if ($loginType == 'phone_number'){
+            
             $loginData = (number_validation($data['register']));
             if (!$loginData){
                 $validationStatus = false;
@@ -181,7 +184,7 @@ class Registration extends BaseAuth
             $newData = [
                 'name'            => $data['name'],
                 $loginType        => $loginData,
-                'password'        => $data['password'],
+                'password'        => Hash::make($data['password']),
                 'gender'          => $data['gender'] ?? null,
                 'batch'           => $data['batch'] ?? null,
                 'college'         => $data['college'] ?? null,
@@ -192,7 +195,14 @@ class Registration extends BaseAuth
                 'postCode'        => $data['postCode'] ?? null,
             ];
             $user = $this->getUserModel()::create($newData);
-
+            $subject = "আপনার অ্যাকাউন্ট তৈরি করা হয়েছ ";
+            $body  = "NCCC তে আপনার ইউজার আইডি : ".$user->user_id." এবং পাসওয়ার্ড: ". $data['password'];
+             if ($user->email){
+                sendPromotionalMail( $user->email,$user->name, $subject,$body);
+            }
+            if ($user->phone_number){
+                send_sms($user->phone_number,$body,$subject);
+            }
             app()->bind(
                 \Illuminate\Auth\Listeners\SendEmailVerificationNotification::class,
             // \Filament\Listeners\Auth\SendEmailVerificationNotification::class,

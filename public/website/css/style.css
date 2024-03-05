@@ -377,9 +377,9 @@ box-shadow: 0 0 0 0 rgba(12, 108, 211, 0.5);}
 .hero-card-web{
 position: relative;
 overflow: hidden;
-padding-top: 150px;
+padding-top: 10px;
 padding-bottom: 100px;
-height: 100vh;
+height: 90vh;
 align-items: center;
 display: flex;}
 .hero-main-rp {padding: 0 30px 0 180px;}

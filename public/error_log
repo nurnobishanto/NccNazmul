@@ -1,0 +1,15 @@
+[03-Feb-2024 14:44:11 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.4.33. in /home/ncccnazm/public_html/vendor/composer/platform_check.php on line 24
+[03-Feb-2024 14:45:08 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.4.33. in /home/ncccnazm/public_html/vendor/composer/platform_check.php on line 24
+[03-Feb-2024 14:45:09 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.4.33. in /home/ncccnazm/public_html/vendor/composer/platform_check.php on line 24
+[04-Feb-2024 11:55:12 UTC] PHP Warning:  require(/home/ncccnazm/public_html/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ncccnazm/public_html/public/index.php on line 34
+[04-Feb-2024 11:55:12 UTC] PHP Warning:  require(/home/ncccnazm/public_html/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ncccnazm/public_html/public/index.php on line 34
+[04-Feb-2024 11:55:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/ncccnazm/public_html/public/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ncccnazm/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ncccnazm/public_html/public/index.php on line 34
+[04-Feb-2024 11:55:13 UTC] PHP Warning:  require(/home/ncccnazm/public_html/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ncccnazm/public_html/public/index.php on line 34
+[04-Feb-2024 11:55:13 UTC] PHP Warning:  require(/home/ncccnazm/public_html/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ncccnazm/public_html/public/index.php on line 34
+[04-Feb-2024 11:55:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/ncccnazm/public_html/public/../vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ncccnazm/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ncccnazm/public_html/public/index.php on line 34

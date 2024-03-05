@@ -85,7 +85,9 @@ class PaymentController extends Controller
             //return redirect(route('invoice',['id' => $id]));
         }
         $payment = Payment::find($id);
-        if (!$payment || ($payment->transaction_status != 'Completed' && $payment->transaction_status != 'COMPLETED')) {
+        
+        if (!$payment || strtolower($payment->transaction_status) != 'completed') {
+           
             return redirect(route('invoice', ['id' => $payment->id]));
         }
         $payment->status = 'completed';

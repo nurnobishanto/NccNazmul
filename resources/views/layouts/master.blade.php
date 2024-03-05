@@ -32,6 +32,20 @@
     <!-- Tile for Win8 -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{asset('uploads/'.getSetting('site_favicon'))}}">
+    <style>
+        @media only screen and (min-width: 768px) {
+          .mbHeadline {
+            margin-bottom: 150px;
+          }
+        }
+        
+        /* Smaller screens (phones) */
+        @media only screen and (max-width: 767px) {
+          .mbHeadline {
+            margin-bottom: 20px;
+          }
+}
+    </style>
     <script type="text/javascript">
         // Initialize the service worker
         if ('serviceWorker' in navigator) {

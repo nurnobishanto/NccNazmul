@@ -52,7 +52,7 @@ class ContactController extends Controller
             'body' => $input['message'],
         ), function($message) use ($request){
             $message->from(env('MAIL_FROM_ADDRESS'));
-            $message->to(env('mail_contact_mail'), env('MAIL_FROM_NAME'))->subject($request->get('subject'));
+            $message->to(env('MAIL_CONTACT_MAIL'), env('MAIL_FROM_NAME'))->subject($request->get('subject'));
         });
 
         return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);

@@ -8,7 +8,7 @@
                 <div class="col-md-8 col-sm-6">
                     <div class="card">
                         <div class="card-header">
-
+                            
                             @if(enrolledCourse($course))
                                 <div class="list-group list-group-horizontal">
                                     @if($course->facebook_group)
@@ -40,9 +40,11 @@
                                 @endif
 
                                 @if($course_item->pdf)
+                                    <iframe src="https://docs.google.com/gview?url={{asset('uploads/'.$course_item->pdf)}}&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
                                     <a class="btn-main bg-btn3 mt10" target="_blank" href="{{asset('uploads/'.$course_item->pdf)}}">Download PDF</a>
                                 @endif
                                 @if($course_item->file)
+                                    <iframe src="https://docs.google.com/gview?url={{asset('uploads/'.$course_item->file)}}&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
                                     <a class="btn-main bg-btn2 mt10" target="_blank" href="{{asset('uploads/'.$course_item->file)}}">Download File</a>
                                 @endif
                                 @if($course_item->url)

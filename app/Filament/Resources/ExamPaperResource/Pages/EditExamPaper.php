@@ -21,6 +21,9 @@ class EditExamPaper extends EditRecord
             Actions\Action::make('start')
                 ->label('Start')
                 ->url(fn (ExamPaper $record): string => route('start', $record)),
+            Actions\Action::make('results')
+                    ->label('Results')
+                    ->url(fn (ExamPaper $record): string => route('results', $record)),
             Actions\Action::make('download')
                 ->label('PDF')
                 ->url(fn (ExamPaper $record): string => route('question', $record)),

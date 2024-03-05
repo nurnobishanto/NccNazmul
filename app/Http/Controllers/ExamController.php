@@ -31,7 +31,7 @@ class ExamController extends Controller
 
         $paper = ExamPaper::where('id', $id)->first();
         if ($paper) {
-            $limit = $paper->max_limit;
+            $limit = $paper->max_limit >0 ? $paper->max_limit : 999;
             $date = Carbon::now();
             $date = date('Y-m-d', time());
             $time = date('H:i:s', time());
@@ -43,7 +43,7 @@ class ExamController extends Controller
             $atmpCount = $result->count();
             $attmDuration = 0;
             if(date('Y-m-d H:i:s') >= $paper->startdate . ' ' . $paper->starttime && date('Y-m-d H:i:s') <= $paper->enddate . ' ' . $paper->endtime){
-                $limit = $paper->limit;
+                $limit = $paper->limit > 0? $paper->limit : 99;
             }
             if ($atmpCount < $limit) {
                 if (Session::has($paperid)) {

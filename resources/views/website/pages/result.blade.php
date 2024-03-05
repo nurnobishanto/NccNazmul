@@ -102,7 +102,7 @@
                                         <div  class="my-2">
                                             <strong>{{$count}}) {{ $question->name }} </strong>
                                         </div>
-
+                                        <div class="mt-2">{!! $question->options !!}</div>
                                     </div>
                                 <div class="col-sm-5">
                                     <div class="@if($question->$cans == $question->op1) border border-2 border-success @endif @if(($question->$sans == $question->op1) && ($question->$cans == $question->op1) ) bg-success text-light @elseif(($question->$sans == $question->op1) && ($question->$cans != $question->op1)) bg-danger text-light @else bg-light text-dark @endif  rounded p-2 ">

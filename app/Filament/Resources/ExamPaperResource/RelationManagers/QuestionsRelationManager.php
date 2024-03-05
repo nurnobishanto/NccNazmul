@@ -7,11 +7,12 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Radio;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-
+use Filament\Forms\Components\MarkdownEditor;
 
 class QuestionsRelationManager extends RelationManager
 {
@@ -21,11 +22,33 @@ class QuestionsRelationManager extends RelationManager
     {
         return $form
             ->schema([
+                MarkdownEditor::make('description')->label('Questions Description/উদ্দীপক')->toolbarButtons([
+                                        'attachFiles',
+                                        'bold',
+                                        'bulletList',
+                                        'heading',
+                                        'italic',
+                                        'orderedList',
+                                        'redo',
+                                        'undo',
+                                    ]),
+                MarkdownEditor::make('options')->label('Questions Options')
+                    ->toolbarButtons([
+                                        'attachFiles',
+                                        'bold',
+                                        'bulletList',
+                                        'heading',
+                                        'italic',
+                                        'orderedList',
+                                        'redo',
+                                        'undo',
+                                    ]),                    
                 TextInput::make('name')->required()->label('Questions Title')->columnSpan('full'),
+             
                 Select::make('subject_id')
                     ->relationship('subject', 'name')->required(),
+                
                 FileUpload::make('image'),
-                Textarea::make('description')->label('Questions Description')->columnSpan('full'),
                 TextInput::make('op1')->required()->label('Option A'),
                 TextInput::make('op2')->required()->label('Option B'),
                 TextInput::make('op3')->required()->label('Option C'),
@@ -64,10 +87,10 @@ class QuestionsRelationManager extends RelationManager
                     ->label('Option D')
                     ->searchable(),
                 Tables\Columns\SelectColumn::make('ca')->options([
-                    'op1' => 'Option A',
-                    'op2' => 'Option B',
-                    'op3' => 'Option C',
-                    'op4' => 'Option D',
+                    'op1' => 'Op A',
+                    'op2' => 'Op B',
+                    'op3' => 'Op C',
+                    'op4' => 'Op D',
                 ])->label('Correct Ans')->disabled()
                     ->searchable(),
             ])

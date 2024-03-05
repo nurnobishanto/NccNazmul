@@ -18,7 +18,7 @@ function number_validation($number) {
     $number = str_replace(' ', '', $number);
     $number = str_replace('-', '', $number);
 
-    if (preg_match('/^(\+880|880|0)?1(1|5|6|7|8|9)\d{8}$/', $number) == 1) {
+    if (preg_match('/^(\+880|880|0)?1(1|3|4|5|6|7|8|9)\d{8}$/', $number) == 1) {
 
         if (preg_match("/^\+88/", $number) == 1) {
             $number = str_replace('+', '', $number);

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
-use Artesaos\SEOTools\Facades\SEOTools;
 use Dotlogics\Grapesjs\App\Traits\EditorTrait;
 use Illuminate\Http\Request;
-
+use Artesaos\SEOTools\Facades\SEOTools;
 class PageController extends Controller
 {
     use EditorTrait;

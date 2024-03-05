@@ -17,19 +17,32 @@
                     <div class="filters">
                         <ul class="filter-menu">
                             <li data-filter="*" class="is-checked">All</li>
-                            @foreach ( $examLists as $item)
-                                <li data-filter="
-                                            @if(isTodayExam($item)) .today @endif
-                                            @if(isExamRunning($item) ) .running_exam
-                                            @elseif(isUpcomingExam($item)) .upcoming_exam
-                                            @elseif(isPreviousExam($item)) .previous_exam @endif
-                                        ">
-                                    @if(isTodayExam($item)) Today @endif
-                                    @if(isExamRunning($item) ) Running Exam
-                                    @elseif(isUpcomingExam($item)) Upcoming Exam
-                                    @elseif(isPreviousExam($item)) Previous Exam @endif
-                                </li>
-                            @endforeach
+                       @php
+                            $statusFound = [
+                                'today' => false,
+                                'running_exam' => false,
+                                'upcoming_exam' => false,
+                                'previous_exam' => false,
+                            ];
+                        @endphp
+                        
+                        @foreach ($examLists as $item)
+                            @php
+                                $today = isTodayExam($item) && !$statusFound['today'];
+                                $runningExam = isExamRunning($item) && !$statusFound['running_exam'];
+                                $upcomingExam = isUpcomingExam($item) && !$statusFound['upcoming_exam'];
+                                $previousExam = isPreviousExam($item) && !$statusFound['previous_exam'];
+                                
+                                $statusFound['today'] = $statusFound['today'] || $today;
+                                $statusFound['running_exam'] = $statusFound['running_exam'] || $runningExam;
+                                $statusFound['upcoming_exam'] = $statusFound['upcoming_exam'] || $upcomingExam;
+                                $statusFound['previous_exam'] = $statusFound['previous_exam'] || $previousExam;
+                            @endphp
+                        @if($today)<li data-filter=".today"> Today</li> @endif
+                        @if($runningExam)<li data-filter=".running_exam"> Running Exam</li> @endif
+                        @if($upcomingExam)<li data-filter=".upcoming_exam"> Upcoming Exam</li> @endif
+                        @if($previousExam)<li data-filter=".previous_exam"> Previous Exam</li> @endif
+                        @endforeach
                         </ul>
                     </div>
                 </div>

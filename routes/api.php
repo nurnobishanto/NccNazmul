@@ -17,4 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/migrate', function () {
+    // Run migrations
+    Artisan::call('migrate');
+    // Return a response
+    return 'Migrations successfully executed!';
+});
 Route::post( 'uddoktapay/webhook', [\App\Http\Controllers\Payment\UddoktaPayController::class, 'webhook'] )->name( 'uddoktapay.webhook' );
+
+Route::get('/optimize', function () {
+    // Run migrations
+    Artisan::call('optimize:clear');
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    // Return a response
+    return Artisan::output();
+});

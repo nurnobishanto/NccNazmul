@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ExamPaperResource\Pages;
 use App\Filament\Resources\ExamPaperResource\RelationManagers;
+use App\Models\Subject;
+use App\Models\ExamCategory;
 use App\Models\ExamPaper;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
@@ -21,6 +23,8 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Get;
+use Illuminate\Support\Collection;
 
 class ExamPaperResource extends Resource
 {
@@ -41,9 +45,13 @@ class ExamPaperResource extends Resource
                 TextInput::make('name')->required()->label('Exam Paper Title'),
                 Textarea::make('description')->label('Exam Paper Description')->columnSpan('full'),
                 Select::make('subject_id')
-                    ->relationship('subject', 'name')->required(),
+                    ->options(Subject::query()->pluck('name', 'id'))->required()->live(),
+                // Select::make('exam_category_id')
+                //     ->relationship('exam_category', 'name')->required(),
                 Select::make('exam_category_id')
-                    ->relationship('exam_category', 'name')->required(),
+                    ->options(fn (Get $get): Collection => ExamCategory::query()
+                    ->where('subject_id', $get('subject_id'))
+                    ->pluck('name', 'id')),
                 TextInput::make('password')->label('Exam Paper Password'),
                 TextInput::make('duration')->required()->label('Exam  Duration (Min)')->type('number'),
                 TextInput::make('pmark')->required()->label('Positive Mark')->numeric(),
@@ -100,6 +108,9 @@ class ExamPaperResource extends Resource
                 Action::make('start')
                     ->label('Start')
                     ->url(fn (ExamPaper $record): string => route('start', $record)),
+                Action::make('results')
+                    ->label('Results')
+                    ->url(fn (ExamPaper $record): string => route('results', $record)),
                 Action::make('download')
                     ->label('PDF')
                     ->url(fn (ExamPaper $record): string => route('question', $record)),

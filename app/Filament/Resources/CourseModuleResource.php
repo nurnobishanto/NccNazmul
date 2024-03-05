@@ -47,7 +47,7 @@ class CourseModuleResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('items')->counts('items')->sortable(),
+                Tables\Columns\TextColumn::make('items_count')->counts('items')->sortable(),
                 Tables\Columns\TextColumn::make('order')->numeric()->sortable(),
             ])
             ->filters([

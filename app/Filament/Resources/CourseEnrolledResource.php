@@ -15,7 +15,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Mpdf\Tag\Select;
-
+use App\Models\User;
 class CourseEnrolledResource extends Resource
 {
     protected static ?string $model = CourseUser::class;
@@ -28,7 +28,16 @@ class CourseEnrolledResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('course_id')->relationship('course','title')->required(),
-                Forms\Components\Select::make('user_id')->relationship('user','name')->required(),
+               // Forms\Components\Select::make('user_id')->relationship('user','name',fn (Builder $query) => $query->withTrashed())->required()->searchable(),
+                
+Forms\Components\Select::make('user_id')
+
+    ->options(User::pluck('name', 'id')->map(function ($name, $id) {
+        return User::find($id)->user_id . ' - ' . $name;
+    })->toArray()) // Assuming 'User' is your Eloquent model
+    ->required()
+    ->searchable(),
+                
                 Forms\Components\DatePicker::make('access_expiry'),
                 Forms\Components\Radio::make('lifetime_access')->options([false => 'Limited Access',true => 'Lifetime Access'])
             ]);

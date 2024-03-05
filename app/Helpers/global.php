@@ -125,6 +125,7 @@ if (!function_exists('getNotice')) {
     {
         return \App\Models\Notice::where('status', 'published')
             ->whereDate('published_at', '<=', now())
+            ->orderBy('published_at','desc')
             ->get();
     }
 }

@@ -19,6 +19,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\MarkdownEditor;
 
 class QuestionResource extends Resource
 {
@@ -39,7 +40,28 @@ class QuestionResource extends Resource
                      ->multiple()
                   ->relationship('exam_papers', 'name'),
                 FileUpload::make('image'),
-                Textarea::make('description')->label('Questions Description'),
+                MarkdownEditor::make('description')->label('Questions Description/উদ্দীপক')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'bold',
+                        'bulletList',
+                        'heading',
+                        'italic',
+                        'orderedList',
+                        'redo',
+                        'undo',
+                    ]),
+                MarkdownEditor::make('options')->label('Questions Options')->columnSpan('full')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'bold',
+                        'bulletList',
+                        'heading',
+                        'italic',
+                        'orderedList',
+                        'redo',
+                        'undo',
+                    ]),
                 TextInput::make('op1')->required()->label('Option A'),
                 TextInput::make('op2')->required()->label('Option B'),
                 TextInput::make('op3')->required()->label('Option C'),
@@ -77,10 +99,10 @@ class QuestionResource extends Resource
                     ->label('Option D')
                     ->searchable(),
                 Tables\Columns\SelectColumn::make('ca')->options([
-                    'op1' => 'Option A',
-                    'op2' => 'Option B',
-                    'op3' => 'Option C',
-                    'op4' => 'Option D',
+                    'op1' => 'Op A',
+                    'op2' => 'Op B',
+                    'op3' => 'Op C',
+                    'op4' => 'Op D',
                 ])->label('Correct Ans')
                     ->searchable(),
             ])

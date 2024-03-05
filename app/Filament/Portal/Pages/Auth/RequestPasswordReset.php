@@ -68,8 +68,9 @@ class RequestPasswordReset extends BaseReset
                 ->title('User not found!')
                 ->danger()
                 ->send();
+                
         }
-        if ($loginType == 'email'){
+        if ($loginType == 'email' && $user){
             $status = Password::broker(Filament::getAuthPasswordBroker())->sendResetLink(
                 $data,
                 function (CanResetPassword $user, string $token): void {
@@ -107,7 +108,7 @@ class RequestPasswordReset extends BaseReset
             $user->password = Hash::make($genPass);
             $user->update();
             $subject = "Reset password";
-            $body = env('APP_NAME').", আপনার নতুন পাসওয়ার্ড : "."<strong>".$genPass."</strong>";
+            $body = "NCCC, আপনার ইউজার আইডি :".$user->user_id." এবং  নতুন পাসওয়ার্ড : "."<strong>".$genPass."</strong>";
             if ($user->email){
                 sendPromotionalMail( $user->email,$user->name, $subject,$body);
                 Notification::make()

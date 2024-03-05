@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-8">
 
-                    <form action="{{ route('checking') }}" method="post" name="questionPaper">
+                    <form action="{{ route('checking') }}" method="post" name="questionPaper" >
                         @csrf
                         <?php
                         $count = 1;
@@ -48,12 +48,12 @@
                         <input type="number" name="pmark" value="{{ $paper->pmark }}" hidden>
                         <input type="number" name="nmark" value="{{ $paper->nmark }}" hidden>
                         <input type="number" name="total" value="{{ $paper->questions->count() }}" hidden>
-                        <span class="text-dark">Time : {{ $timeMin }} Minutes.</span><br>
-                        <span class="text-primary">Total Questions : {{ $total }} </span><br>
-                        <span class="text-success">Postive Mark For Every Question : {{ $paper->pmark }}</span><br>
-                        <span class="text-danger">Negative Mark For Every Question : {{ $paper->nmark }}</span><br>
-                        <span class="text-success "><strong> Total Mark : {{ $total }} X {{ $paper->pmark }} =
-                                {{ $total * $paper->pmark }} </strong></span><br>
+                        <h5 class="text-dark">Time : {{ $timeMin }} Minutes.</h5>
+                        <h5 class="text-primary">Total Questions : {{ $total }} </h5>
+                        <h5 class="text-success">Postive Mark For Every Question : {{ $paper->pmark }}</h5>
+                        <h5 class="text-danger">Negative Mark For Every Question : {{ $paper->nmark }}</h5>
+                        <h5 class="text-success "><strong> Total Mark : {{ $total }} X {{ $paper->pmark }} =
+                                {{ $total * $paper->pmark }} </strong></h5>
                         <?php $g = [];?>
                         @foreach($paper->questions as $q)
                             <?php
@@ -64,15 +64,17 @@
                                 ?>
                         @endforeach
                         @foreach($g as $k)
-                            <div class="border mt-2 mb-2 p-2">
+                            <div class="border border-5 border-sm-2 mt-2 mb-2 p-2">
                                 <h4>{{\App\Models\Question::getSubName($k)}}</h4>
                                 @foreach ($paper->questions->where('subject_id',$k)->shuffle() as $question)
                                     <hr>
                                     <div class="row  m-1">
                                         <input type="text" name="q{{ $count }}" value="{{ $question->id }}" hidden>
                                         <input type="text" name="ca{{ $count }}" value="{{ $question->ca }}" hidden>
-                                        {!! $question->description !!}
-                                        <div class="mt-2"><strong>{{$count}}) {{ $question->name }} </strong></div>
+                                        <h5 style="color:#AB3355;">{!! $question->description !!}</h5>
+                                        
+                                        <h3 class="mt-2"><strong>{{$count}}) {{ $question->name }} </strong></h3>
+                                        <h5 style="color:#AB3355;">{!! $question->options !!}</h5>
                                         <input hidden value="none" type="radio" name="op{{ $count }}" checked>
                                         @if($question->image)
                                             <div class="mt-2">
@@ -83,19 +85,19 @@
                                         <div class="row gap-2 btn-group mt-2 " role="group" aria-label="Basic radio toggle button group">
                                             <div class="col-sm-5">
                                                 <input type="radio" class="btn-check" value="op1" name="op{{ $count }}" id="op1{{ $count }}" autocomplete="off">
-                                                <label class="btn btn-outline-primary d-block text-start" for="op1{{ $count }}">i.) {{ $question->op1 }}</label>
+                                                <label class="btn btn-outline-primary d-block text-start" for="op1{{ $count }}">a.) {{ $question->op1 }}</label>
                                             </div>
                                             <div class="col-sm-5">
                                                 <input type="radio" class="btn-check" value="op2" name="op{{ $count }}" id="op2{{ $count }}" autocomplete="off">
-                                                <label class="btn btn-outline-primary d-block text-start" for="op2{{ $count }}">ii.) {{ $question->op2 }}</label>
+                                                <label class="btn btn-outline-primary d-block text-start" for="op2{{ $count }}">b.) {{ $question->op2 }}</label>
                                             </div>
                                             <div class="col-sm-5">
                                                 <input type="radio" class="btn-check" value="op3" name="op{{ $count }}" id="op3{{ $count }}" autocomplete="off">
-                                                <label class="btn btn-outline-primary d-block text-start" for="op3{{ $count }}">iii.) {{ $question->op3 }}</label>
+                                                <label class="btn btn-outline-primary d-block text-start" for="op3{{ $count }}">c.) {{ $question->op3 }}</label>
                                             </div>
                                             <div class="col-sm-5">
                                                 <input type="radio" class="btn-check" value="op4" name="op{{ $count }}" id="op4{{ $count }}" autocomplete="off">
-                                                <label class="btn btn-outline-primary d-block text-start" for="op4{{ $count }}">iv.) {{ $question->op4 }}</label>
+                                                <label class="btn btn-outline-primary d-block text-start" for="op4{{ $count }}">d.) {{ $question->op4 }}</label>
                                             </div>
 
                                         </div>
